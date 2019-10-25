@@ -8,12 +8,7 @@ export const Home = () => {
 	console.log("home: ", store);
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			{store && store.demo.map((e, i) => <div key={i}>{e.title}</div>)}
-			<div>{store && store.contacts}</div>
+			<h1>{store && store.contacts}</h1>
 			<div className="btn btn-success" onClick={actions.log}>
 				If you see this green button, bootstrap is working
 			</div>

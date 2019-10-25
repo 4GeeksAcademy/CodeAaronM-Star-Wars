@@ -18,8 +18,15 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			setState({
+				store: {
+					...state.store,
+					temp:
+						"This key will be overwritten because state.store does not reflect anything that is not hardcoded."
+				},
+				actions: state.actions
+			});
 			setState({ store: { ...state.store, contacts: [1, 2, 3, 4, 5] }, actions: state.actions });
-			// setState({ store: { ...state.store, secondKey: "22222222" }, actions: state.actions });
 			setTimeout(() => console.log("appContext: ", state.store), 2000);
 		}, []);
 
