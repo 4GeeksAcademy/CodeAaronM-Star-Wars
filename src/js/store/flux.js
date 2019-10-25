@@ -15,6 +15,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			log: () => {
+				console.log("flux: ", getStore());
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
