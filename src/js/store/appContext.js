@@ -27,7 +27,7 @@ const injectContext = PassedComponent => {
 				actions: state.actions
 			});
 			setState({ store: { ...state.store, contacts: [1, 2, 3, 4, 5] }, actions: state.actions });
-			setTimeout(() => console.log("appContext: ", state.store), 2000);
+			setTimeout(() => console.log("APPCONTEXT", state.store), 2000);
 		}, []);
 
 		return (

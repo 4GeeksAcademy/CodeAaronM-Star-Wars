@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			log: () => {
-				console.log("flux: ", getStore());
+				console.log("FLUX", getStore());
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
