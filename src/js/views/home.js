@@ -1,7 +1,8 @@
 import React from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import trash from "../../img/trash.png"
+
+import  Detail  from "./detail.js";
 
 export const Home = () => (
 	<div className="text-center mt-5">
@@ -13,7 +14,7 @@ export const Home = () => (
 			If you see this green button, bootstrap is working
 		</a>
 		<p>
-			<img src={trash} />
+			
 		</p>
 	
 	</div>
