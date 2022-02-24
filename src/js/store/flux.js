@@ -12,6 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+			],
+			planets: [
 			]
 		},
 		actions: {
@@ -23,6 +25,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+			},
+			planets: () => {
+			
+					fetch("https://www.swapi.tech/api/planets").then(res => res.json()).then(data => setStore({ "planets": data.results }))
+				
 			},
 			changeColor: (index, color) => {
 				//get the store
