@@ -5,9 +5,9 @@ export const Detail = () => {
     return(
         <div class="container">
         <div class="row g-4">
-          <div class="col-md-6 w-25 p-3">
+          <div class="col-md-6">
           <div class="left">
-             <img src={luke}/>
+             <img class="w-100 p-3" src={luke}/>
         </div>     
           </div>
           <div class="col-md-6">
@@ -16,7 +16,10 @@ export const Detail = () => {
               <p class="card-text">La vida de Luke Skywalker escrita como prueba de estructura</p>
              
             </div>
+            
+            
           </div>
+          <div><hr className="redBar"/></div>
         </div>
       </div>
     );
