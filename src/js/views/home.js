@@ -5,8 +5,10 @@ import Card from "./card";
 import CardPlanets from "./cardPlanets";
 
 
+import  Detail  from "./detail.js";
+
 export const Home = () => (
-		
+
 		<div>
 			<h4>Characters</h4>	
 				<div className="card-group">
@@ -29,5 +31,6 @@ export const Home = () => (
 					/>
 				</div>
 		</div>	
+
 );
 
