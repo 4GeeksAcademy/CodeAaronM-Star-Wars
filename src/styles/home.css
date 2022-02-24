@@ -1,0 +1,12 @@
+.card, .planets {
+    margin: 10px;
+}
+h4 {
+    color: orangered;
+}
+.fa-heart {
+    float: right;
+    border: solid 2px orangered;
+    padding: 5px;
+    color: orangered;
+}
