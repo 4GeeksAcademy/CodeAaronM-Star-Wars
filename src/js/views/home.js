@@ -19,11 +19,49 @@ export const Home = () => (
 					hair=""
 					eye=""
 					/>
+
+<Card 
+					img=""
+					name="Alvaro P"
+					gender=""
+					hair=""
+					eye=""
+					/>
+
+<Card 
+					img=""
+					name="Alvaro P"
+					gender=""
+					hair=""
+					eye=""
+					/>
+
+<Card 
+					img=""
+					name="Alvaro P"
+					gender=""
+					hair=""
+					eye=""
+					/>
 				</div>
 				<br/>
 			<h4>Planets</h4>	
 				<div className="card-group">
 				<CardPlanets 
+					img=""
+					planetName="Barcelona"
+					population=""
+					terrain=""
+					/>
+					
+					<CardPlanets 
+					img=""
+					planetName="Barcelona"
+					population=""
+					terrain=""
+					/>
+
+					<CardPlanets 
 					img=""
 					planetName="Barcelona"
 					population=""
