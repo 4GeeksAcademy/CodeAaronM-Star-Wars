@@ -17,7 +17,7 @@ export const Navbar = () => {
 				<Link to="/demo">
 				<div class="dropdown mx-5">
   <a class="btn btn-primary dropdown-toggle mx-5" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
-    Favorites
+    Favorites <span class="badge bg-secondary">3</span>
   </a>
 
   <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
