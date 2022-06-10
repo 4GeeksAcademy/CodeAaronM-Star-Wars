@@ -9,28 +9,36 @@ import { useHistory } from "react-router-dom";
 
 
 export const Home = () => {
-	const[people, setPeople] = useState([""])
+	const[character, setCharacter] = useState([""])
+	const[planet_list, setPlanet_list] = useState([""])
 
 	function Planets() {
-		console.log("something");
+		console.log("loading planets");
 		fetch("https://www.swapi.tech/api/planets", {
 		  method: "GET",
 		  headers: {
 			"Content-Type": "application/json",
 		  },
 		})
-		.then((response) => {response.json(),
-			console.log("planetas", response);})
+		.then(response => {
+			var contentType = response.headers.get("content-type");
+			if(contentType && contentType.includes("application/json")) {
+			  return response.json();
+			  
+			}
+			throw new TypeError("Sorry, There's no JSON here!");
+		  })
 		.then((data) => {
-		  console.log("planetas", data);
+		  console.log(data.results);
+		  setPlanet_list(data.results)
 			//this.setState({ totalReactPackages: data.total })
 		  });
 	  }
 
-function People() {
+function Characters() {
 
-    console.log("loading");
-    fetch("https://www.swapi.tech/api/people/1", {
+    console.log("loading characters");
+    fetch("https://www.swapi.tech/api/people", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -44,57 +52,49 @@ function People() {
 		throw new TypeError("Sorry, There's no JSON here!");
 	  })
 	.then((data) => {
-	  console.log(data.result.properties.name);
-	  
-	  setPeople(data.result.properties);
-	  console.log(people)
+	  console.log(data.results); 
+	  setCharacter(data.results);
+
         //this.setState({ totalReactPackages: data.total })
       });
   }
 
   useEffect(() => {
 	console.log(process.env.BACKEND_URL);
-	People();
+	Characters();
+	Planets();
+
   }, []);
 
+
   function showCharacter() {
-	console.log(people)
-	console.log(people.name)
-	return (<div><h1>{People.mass}</h1></div>);
-  }
-
-
-	return (
+	if (character == '' || planet_list =="") { 
+		return (
+	  
+		  <div className="container flex text-center">
+		  <h1>LOADING PAGE</h1>
+		  <img className="w-100 p-3" src="https://payload.cargocollective.com/1/4/144792/10818195/vaderlukeREVISE.gif"/>
+		  </div>);
+		
+	  } else {
+		return (
 		<div>
-            <div className="messages">
-              {showCharacter()}
 
-            </div>
 
 			<h4>Characters</h4>	
-			<button onClick={() => People()}>fetch</button>
-			<button onClick={() => showCharacter()}>show in console</button>
 				<div className="card-group">
 					<Card 
 					img=""
-					name={People}
+					name= "" //Ya tengo los objetos fetcheados, falta pintarlos en las cards
 					gender=""
 					hair=""
 					eye=""
-					test={People.name}
+					test=""
 					/>
 
 <Card 
 					img=""
-					name="Alvaro P"
-					gender=""
-					hair=""
-					eye=""
-					/>
-
-<Card 
-					img=""
-					name="Alvaro P"
+					name="C3-PO"
 					gender=""
 					hair=""
 					eye=""
@@ -102,7 +102,15 @@ function People() {
 
 <Card 
 					img=""
-					name="Alvaro P"
+					name="R2-D2"
+					gender=""
+					hair=""
+					eye=""
+					/>
+
+<Card 
+					img=""
+					name="Darth Vader"
 					gender=""
 					hair=""
 					eye=""
@@ -110,25 +118,24 @@ function People() {
 				</div>
 				<br/>
 			<h4>Planets</h4>	
-			<button onClick={() => Planets()}>fetch</button>
 				<div className="card-group">
 				<CardPlanets 
 					img=""
-					planetName="Barcelono"
+					planetName="Tatooine"
 					population=""
 					terrain=""
 					/>
 					
 					<CardPlanets 
 					img=""
-					planetName="Barcelona"
+					planetName="Alderaan"
 					population=""
 					terrain=""
 					/>
 
 					<CardPlanets 
 					img=""
-					planetName="Barcelona"
+					planetName="Yavin IV"
 					population=""
 					terrain=""
 					/>
@@ -137,5 +144,11 @@ function People() {
 
 );
 };
-
+}
+return(
+	<div className="container">
+		  {showCharacter()}
+	</div>
+);
+};
 
