@@ -1,48 +1,109 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import propTypes from "prop-types";
+import "../../styles/home.css";
+import Card from "../views/card";
+import CardPlanets from "../views/cardPlanets";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom";
 import luke from "../../img/luke.jpg"
 import "../../styles/index.css";
 
 export const Detail = () => {
-    return(
-        <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6">
-          <div class="left">
-             <img class="w-100 p-3" src={luke}/>
-        </div>     
-          </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <h5 class="card-title">Luke Skywalker</h5>
-              <p class="card-text">La vida de Luke Skywalker escrita como prueba de estructura</p>
-             
-            </div>
-            
-            
-          </div>
+  const[people, setPeople] = useState([""]);
+  const[name, setName] = useState([""]);
+  const[birth, setBirth] = useState([""]);
+  const[gender, setGender] = useState([""]);
+  const[height, setHeight] = useState([""]);
+  const[skin, setSkin] = useState([""]);
+  const[eye, setEye] = useState([""]);
+
+
+  function People() {
+
+    console.log("loading");
+    fetch("https://www.swapi.tech/api/people/1", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+	.then(response => {
+		var contentType = response.headers.get("content-type");
+		if(contentType && contentType.includes("application/json")) {
+		  return response.json();
+		}
+		throw new TypeError("Sorry, There's no JSON here!");
+	  })
+	.then((data) => {
+	  console.log(data.result.properties.name);
+	  
+	  setPeople(data.result.properties);
+	  console.log(people)
+    setName(data.result.properties.name)
+    setBirth(data.result.properties.birth_year)
+    setGender(data.result.properties.gender)
+    setHeight(data.result.properties.mass)
+    setSkin(data.result.properties.skin_color)
+    setEye(data.result.properties.eye_color)
+        //this.setState({ totalReactPackages: data.total })
+      });
+  }
+
+  useEffect(() => {
+	console.log(process.env.BACKEND_URL);
+	People();
+  }, []);
+
+  function showCharacter() {
+	console.log(people)
+	console.log(people.name)
+	return (
+  
+<div className="container flex">
+<div className="row g-4">
+   <div className="col-md-6">
+      <img className="w-100 p-3" src={luke}/>
+    </div>
+
+    <div className="col-md-6">
+      <h5 className="card-title">{name} </h5>
+      <p className="card-text">{name} is a character of Star Wars with {skin} skin color and {eye} eyes</p>
+      
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur porttitor massa, vitae condimentum turpis ornare a. Praesent nec quam at elit semper malesuada. Aliquam ullamcorper orci id orci imperdiet placerat. Curabitur efficitur semper enim, ornare commodo libero sodales eget. Sed ullamcorper diam eros, id egestas enim congue sed. Morbi elementum nisi non dapibus dictum. Integer eget hendrerit dolor, eget pulvinar nisi.</p>
+
+      <p>Aliquam semper nec tortor id finibus. Fusce rhoncus, turpis nec dictum imperdiet, est neque molestie enim, ut auctor nulla lorem a dolor. Aliquam mollis semper mi non congue. Sed laoreet, tellus ut accumsan laoreet, leo lorem molestie elit, non posuere justo massa posuere orci. Morbi tempus enim at porta vulputate. Suspendisse non lacus eu mauris malesuada bibendum ac id nisl. Aenean ullamcorper hendrerit velit, a tempus mauris iaculis non.</p>
+     </div>           
+
           <div><hr className="redBar"/></div>
-          <div class="d-flex bd-highlight red">
-  <div class="p-2 flex-fill bd-highlight">
+          <div className="d-flex bd-highlight red">
+  <div className="p-2 flex-fill bd-highlight">
     <p><strong>Name</strong></p>
-    <p>Luke Skywalker</p></div>
-  <div class="p-2 flex-fill bd-highlight">
+    <p>{name}</p></div>
+  <div className="p-2 flex-fill bd-highlight">
     <p><strong>Birth Year</strong></p>
-    <p>19BBY</p></div>
-  <div class="p-2 flex-fill bd-highlight">
+    <p>{birth}</p></div>
+  <div className="p-2 flex-fill bd-highlight">
     <p><strong>Gender</strong></p>
-    <p>male</p></div>
-  <div class="p-2 flex-fill bd-highlight">
+    <p>{gender}</p></div>
+  <div className="p-2 flex-fill bd-highlight">
     <p><strong>Height</strong></p>
-    <p>172</p></div>
-  <div class="p-2 flex-fill bd-highlight">
+    <p>{height}</p></div>
+  <div className="p-2 flex-fill bd-highlight">
     <p><strong>Skin Color</strong></p>
-  <p>fair</p></div>
-  <div class="p-2 flex-fill bd-highlight">
+  <p>{skin}</p></div>
+  <div className="p-2 flex-fill bd-highlight">
     <p><strong>Eye Color</strong></p>
-  <p>blue</p></div>
-</div>
+  <p>{eye}</p></div>
+  </div>
+  </div>
+    </div>);
+  }
+
+    return(
+        <div className="container">
+              {showCharacter()}
         </div>
-      </div>
     );
 };
 
