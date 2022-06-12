@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
+
+    console.log(props);
     return (
         <div className="card">
             <img src={props.img} className="card-img-top" alt="" />
@@ -12,7 +15,7 @@ const Card = (props) => {
                    <p>Hair-Color: {props.hair}</p>
                    <p>Eye-Color: {props.eye}</p>
                 </p>
-                <a href="#" className="btn btn-primary">Learn more</a>
+                <Link to={`/detail/${props.uid}`} className="btn btn-primary">Learn more</Link>
                 <i class="fas fa-heart"></i>
             </div>
         </div>

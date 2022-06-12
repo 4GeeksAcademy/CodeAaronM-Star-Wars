@@ -1,5 +1,6 @@
 .card, .planets {
     margin: 10px;
+    width: 300px;
 }
 h4 {
     color: orangered;
@@ -9,4 +10,8 @@ h4 {
     border: solid 2px orangered;
     padding: 5px;
     color: orangered;
+}
+
+.card-group-custom {
+    overflow-x: scroll;
 }

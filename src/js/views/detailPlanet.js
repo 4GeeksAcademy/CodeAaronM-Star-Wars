@@ -1,32 +1,35 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import "../../styles/home.css";
-import Card from "../views/card";
-import CardPlanets from "../views/cardPlanets";
+import Card from "./card";
+import CardPlanets from "./cardPlanets";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import luke from "../../img/800x400.png"
 import "../../styles/index.css";
 
-export const Detail = () => {
+export const DetailPlanet = () => {
 
   const { id } = useParams();
 
-  const[people, setPeople] = useState([""]);
   const[name, setName] = useState([""]);
-  const[birth, setBirth] = useState([""]);
-  const[gender, setGender] = useState([""]);
-  const[height, setHeight] = useState([""]);
-  const[skin, setSkin] = useState([""]);
-  const[eye, setEye] = useState([""]);
+  const[climate, setClimate] = useState([""]);
+  const[diameter, setDiameter] = useState([""]);
+  const[gravity, setGravity] = useState([""]);
+  const[orbitalPeriod, setOrbitalPeriod] = useState([""]);
+  const[population, setPopulation] = useState([""]);
+  const[rotationPeriod, setRotationPeriod] = useState([""]);
+  const[surfaceWater, setSurfaceWater] = useState([""]);
+  const[terrain, setterrain] = useState([""]);
+
 
 
   function People(id) {
 
     console.log("loading");
     console.log(id);
-    fetch("https://www.swapi.tech/api/people/"+id, {
+    fetch("https://www.swapi.tech/api/planets/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,14 +43,17 @@ export const Detail = () => {
 		throw new TypeError("Sorry, There's no JSON here!");
 	  })
 	.then((data) => {
-	  setPeople(data.result.properties);
-    setName(data.result.properties.name)
-    setBirth(data.result.properties.birth_year)
-    setGender(data.result.properties.gender)
-    setHeight(data.result.properties.mass)
-    setSkin(data.result.properties.skin_color)
-    setEye(data.result.properties.eye_color)
-        //this.setState({ totalReactPackages: data.total })
+	  console.log("AVERRRRR", data);
+    setName(data.result.properties.name);
+    setClimate(data.result.properties.climate);
+    setDiameter(data.result.properties.diameter);
+    setGravity(data.result.properties.gravity);
+    setOrbitalPeriod(data.result.properties.orbital_period);
+    setPopulation(data.result.properties.population);
+    setRotationPeriod(data.result.properties.rotation_period);
+    setSurfaceWater(data.result.properties.surface_water);
+    setterrain(data.result.properties.terrain);
+
       });
   }
 
@@ -67,7 +73,7 @@ export const Detail = () => {
 
     <div className="col-md-6">
       <h5 className="card-title">{name} </h5>
-      <p className="card-text">{name} is a character of Star Wars with {skin} skin color and {eye} eyes</p>
+      <p className="card-text">{name} is a planet of Star Wars with {climate} climate and {gravity} gravity</p>
       
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur porttitor massa, vitae condimentum turpis ornare a. Praesent nec quam at elit semper malesuada. Aliquam ullamcorper orci id orci imperdiet placerat. Curabitur efficitur semper enim, ornare commodo libero sodales eget. Sed ullamcorper diam eros, id egestas enim congue sed. Morbi elementum nisi non dapibus dictum. Integer eget hendrerit dolor, eget pulvinar nisi.</p>
 
@@ -78,22 +84,49 @@ export const Detail = () => {
           <div className="d-flex bd-highlight red">
   <div className="p-2 flex-fill bd-highlight">
     <p><strong>Name</strong></p>
-    <p>{name}</p></div>
+    <p>{name}</p>
+  </div>
+
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Birth Year</strong></p>
-    <p>{birth}</p></div>
+    <p><strong>Climate</strong></p>
+    <p>{climate}</p>
+  </div>
+
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Gender</strong></p>
-    <p>{gender}</p></div>
+    <p><strong>Diameter</strong></p>
+    <p>{diameter}</p>
+  </div>
+
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Height</strong></p>
-    <p>{height}</p></div>
+    <p><strong>Gravity</strong></p>
+    <p>{gravity}</p>
+  </div>
+  
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Skin Color</strong></p>
-  <p>{skin}</p></div>
+    <p><strong>Orbital Period</strong></p>
+  <p>{orbitalPeriod}</p>
+  </div>
+
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Eye Color</strong></p>
-  <p>{eye}</p></div>
+    <p><strong>Population</strong></p>
+    <p>{population}</p>
+  </div>
+
+  <div className="p-2 flex-fill bd-highlight">
+    <p><strong>Rotation Period</strong></p>
+    <p>{rotationPeriod}</p>
+  </div>
+
+  <div className="p-2 flex-fill bd-highlight">
+    <p><strong>Surface Water</strong></p>
+    <p>{surfaceWater}</p>
+  </div>
+
+  <div className="p-2 flex-fill bd-highlight">
+    <p><strong>Terrain</strong></p>
+    <p>{terrain}</p>
+  </div>
+  
   </div>
   </div>
     </div>);

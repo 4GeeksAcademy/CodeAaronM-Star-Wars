@@ -10,53 +10,113 @@ import { useHistory } from "react-router-dom";
 
 export const Home = () => {
 	const[character, setCharacter] = useState([""])
-	const[planet_list, setPlanet_list] = useState([""])
+	const[planets, setPlanetList] = useState([""])
 
-	function Planets() {
-		console.log("loading planets");
-		fetch("https://www.swapi.tech/api/planets", {
-		  method: "GET",
-		  headers: {
-			"Content-Type": "application/json",
-		  },
-		})
-		.then(response => {
-			var contentType = response.headers.get("content-type");
-			if(contentType && contentType.includes("application/json")) {
-			  return response.json();
-			  
-			}
-			throw new TypeError("Sorry, There's no JSON here!");
-		  })
-		.then((data) => {
-		  console.log(data.results);
-		  setPlanet_list(data.results)
-			//this.setState({ totalReactPackages: data.total })
+async function Planets() {
+	console.log("loading planets");
+
+	try{
+		const response = await fetch ("https://www.swapi.tech/api/planets", {
+			method: "GET",
+			headers: {
+			  "Content-Type": "application/json",
+			},
 		  });
-	  }
+		let responseData = await response.json();
 
-function Characters() {
+		let planets = responseData.results;
+		planets.splice(5);
+
+		// for(let i = 0 ; i < 5 ; i++){
+		// 	console.log(planets[i].url);
+		// 	const charResponse = await fetch(planets[i].url, {
+		// 		method: "GET"
+		// 	});
+		// 	let responseCharData = await charResponse.json();
+		// 	let charDetails = responseCharData.result;
+		// 	planets[i].detail = charDetails;
+		// }
+
+		console.log(planets);
+		setPlanetList(planets);
+		
+	}catch(e){
+		console.log(e);
+		throw new TypeError("Sorry, There's no JSON here!");
+	}
+
+	// fetch("https://www.swapi.tech/api/planets", {
+	// 	method: "GET",
+	// 	headers: {
+	// 	"Content-Type": "application/json",
+	// 	},
+	// })
+	// .then(response => {
+	// 	var contentType = response.headers.get("content-type");
+	// 	if(contentType && contentType.includes("application/json")) {
+	// 		return response.json();
+			
+	// 	}
+	// 	throw new TypeError("Sorry, There's no JSON here!");
+	// 	})
+	// .then((data) => {
+	// 	console.log(data.results);
+	// 	setPlanetList(data.results)
+	// 	//this.setState({ totalReactPackages: data.total })
+	// 	});
+}
+
+async function Characters() {
 
     console.log("loading characters");
-    fetch("https://www.swapi.tech/api/people", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-	.then(response => {
-		var contentType = response.headers.get("content-type");
-		if(contentType && contentType.includes("application/json")) {
-		  return response.json();
-		}
-		throw new TypeError("Sorry, There's no JSON here!");
-	  })
-	.then((data) => {
-	  console.log(data.results); 
-	  setCharacter(data.results);
 
-        //this.setState({ totalReactPackages: data.total })
-      });
+	try{
+		const response = await fetch ("https://www.swapi.tech/api/people", {
+			method: "GET",
+			headers: {
+			  "Content-Type": "application/json",
+			},
+		  });
+		let responseData = await response.json();
+
+		let characters = responseData.results;
+		characters.splice(5);
+
+		// for(let i = 0 ; i < 5 ; i++){
+		// 	console.log(characters[i].url);
+		// 	const charResponse = await fetch(characters[i].url, {
+		// 		method: "GET"
+		// 	});
+		// 	let responseCharData = await charResponse.json();
+		// 	let charDetails = responseCharData.result;
+		// 	characters[i].detail = charDetails;
+		// }
+
+		console.log(characters);
+		setCharacter(characters);
+		
+	}catch(e){
+		console.log(e);
+		throw new TypeError("Sorry, There's no JSON here!");
+	}
+
+    // fetch("https://www.swapi.tech/api/people", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+	// .then(response => {
+	// 	var contentType = response.headers.get("content-type");
+	// 	if(contentType && contentType.includes("application/json")) {
+	// 	  return response.json();
+	// 	}
+	// 	throw new TypeError("Sorry, There's no JSON here!");
+	//   })
+	// .then((data) => {
+	//   console.log(data.results); 
+	//   setCharacter(data.results);
+    //   });
   }
 
   useEffect(() => {
@@ -68,7 +128,7 @@ function Characters() {
 
 
   function showCharacter() {
-	if (character == '' || planet_list =="") { 
+	if (character == '' || planets =="") { 
 		return (
 	  
 		  <div className="container flex text-center">
@@ -82,63 +142,56 @@ function Characters() {
 
 
 			<h4>Characters</h4>	
-				<div className="card-group">
-					<Card 
-					img=""
-					name= "" //Ya tengo los objetos fetcheados, falta pintarlos en las cards
-					gender=""
-					hair=""
-					eye=""
-					test=""
-					/>
+				<div className="card-group card-group-custom">
 
-<Card 
-					img=""
-					name="C3-PO"
-					gender=""
-					hair=""
-					eye=""
-					/>
-
-<Card 
-					img=""
-					name="R2-D2"
-					gender=""
-					hair=""
-					eye=""
-					/>
-
-<Card 
-					img=""
-					name="Darth Vader"
-					gender=""
-					hair=""
-					eye=""
-					/>
+					{
+						character.map(ch => 
+							<Card 
+							img=""
+							name={ch.name}
+							// gender={ch.detail.properties.gender}
+							// hair={ch.detail.properties.hair_color}
+							// eye={ch.detail.properties.eye_color}
+							uid={ch.uid}
+							/>
+						)
+					}
 				</div>
 				<br/>
 			<h4>Planets</h4>	
 				<div className="card-group">
-				<CardPlanets 
-					img=""
-					planetName="Tatooine"
-					population=""
-					terrain=""
-					/>
-					
-					<CardPlanets 
-					img=""
-					planetName="Alderaan"
-					population=""
-					terrain=""
-					/>
+					{
+						planets.map(pl => 
+							<CardPlanets 
+							img=""
+							planetName={pl.name}
+							// population={}
+							// population={}
+							// terrain={}
+							uid={pl.uid}
+							/>
+						)
+					}
+					{/* <CardPlanets 
+						img=""
+						planetName="Tatooine"
+						population=""
+						terrain=""
+						/>
+						
+						<CardPlanets 
+						img=""
+						planetName="Alderaan"
+						population=""
+						terrain=""
+						/>
 
-					<CardPlanets 
-					img=""
-					planetName="Yavin IV"
-					population=""
-					terrain=""
-					/>
+						<CardPlanets 
+						img=""
+						planetName="Yavin IV"
+						population=""
+						terrain=""
+						/> */}
 				</div>
 		</div>	
 

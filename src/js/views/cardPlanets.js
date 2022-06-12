@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const CardPlanets = (props) => {
     return (
@@ -11,7 +12,7 @@ const CardPlanets = (props) => {
                    <p>Population: {props.population}</p>
                    <p>Terrain: {props.terrain}</p>
                 </p>
-                <a href="#" className="btn btn-primary">Learn more</a>
+                <Link to={`/detailPlanets/${props.uid}`} className="btn btn-primary">Learn more</Link>
                 <i class="fas fa-heart"></i>
             </div>
         </div>

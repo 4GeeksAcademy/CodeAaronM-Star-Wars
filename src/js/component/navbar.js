@@ -9,9 +9,9 @@ export const Navbar = () => {
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1 mx-5"><img src={logo} /></span>
 			</Link>
-			<Link to="/detail">
+			{/* <Link to="/detail">
 				<span className="navbar-brand mb-0 h1 mx-5">detail view</span>
-			</Link>
+			</Link> */}
 
 			<div className="ml-auto">
 				<Link to="/demo">
