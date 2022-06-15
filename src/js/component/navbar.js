@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import logo from "../../img/logo.png"
 
 export const Navbar = () => {
+	const favorites = [sessionStorage.getItem("favorites")];
+	const one = [sessionStorage.getItem(1)];
+	const two = [sessionStorage.getItem(2)];
+	const three = [sessionStorage.getItem(3)];
+	const four = [sessionStorage.getItem(4)];
+	const five = [sessionStorage.getItem(5)];
+	console.log(favorites);
+
+
+
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -17,13 +27,15 @@ export const Navbar = () => {
 				<Link to="/demo">
 				<div class="dropdown mx-5">
   <a class="btn btn-primary dropdown-toggle mx-5" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
-    Favorites <span class="badge bg-secondary">3</span>
+    Favorites <span class="badge bg-secondary"></span>
   </a>
 
   <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item" href="#">Luke Skywalker <i class="fa-solid fa-trash"></i></a> </li>
-    <li><a class="dropdown-item" href="#">Darth Vader <i class="fa-solid fa-trash"></i></a></li>
-    <li><a class="dropdown-item" href="#">Princess Leia <i class="fa-solid fa-trash"></i></a></li>
+			<li>{one}</li>
+			<li>{two}</li>
+			<li>{three}</li>
+			<li>{four}</li>
+			<li>{five}</li>
   </ul>
 </div>
 				</Link>

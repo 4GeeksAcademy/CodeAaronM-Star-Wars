@@ -1,19 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import "../../styles/home.css";
 import Card from "../views/card";
 import CardPlanets from "../views/cardPlanets";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { useParams } from "react-router-dom";
-import luke from "../../img/800x400.png"
+import { useHistory } from "react-router-dom";
+import luke from "../../img/luke.jpg"
 import "../../styles/index.css";
 
-export const Detail = () => {
-
-  const { id } = useParams();
-
-  const[people, setPeople] = useState([""]);
+export const Vehicle = () => {
+  const[machine, setMachine] = useState([""]);
   const[name, setName] = useState([""]);
   const[birth, setBirth] = useState([""]);
   const[gender, setGender] = useState([""]);
@@ -22,11 +19,10 @@ export const Detail = () => {
   const[eye, setEye] = useState([""]);
 
 
-  function People(id) {
+  function Machine() {
 
     console.log("loading");
-    console.log(id);
-    fetch("https://www.swapi.tech/api/people/"+id, {
+    fetch("https://www.swapi.tech/api/vehicles/4", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,40 +36,43 @@ export const Detail = () => {
 		throw new TypeError("Sorry, There's no JSON here!");
 	  })
 	.then((data) => {
+	  console.log(data.result.properties.name);
+	  
 	  setPeople(data.result.properties);
+	  console.log(people)
     setName(data.result.properties.name)
-    setBirth(data.result.properties.birth_year)
-    setGender(data.result.properties.gender)
-    setHeight(data.result.properties.mass)
-    setSkin(data.result.properties.skin_color)
-    setEye(data.result.properties.eye_color)
+    setBirth(data.result.properties.model)
+    setGender(data.result.properties.length)
+    setHeight(data.result.properties.crew)
+    setSkin(data.result.properties.passengers)
+    setEye(data.result.properties.vehicle_class)
         //this.setState({ totalReactPackages: data.total })
       });
   }
 
   useEffect(() => {
 	console.log(process.env.BACKEND_URL);
-	People(id);
+	People();
   }, []);
 
   function showCharacter() {
-    console.log(people)
-    console.log(people.name)
-    if (people == '') { 
-      return (
+	console.log(people)
+	console.log(people.name)
+	if (people == '') { 
+    return (
+  
+      <div className="container flex text-center">
+      <h1>LOADING PAGE</h1>
+      <img className="w-100 p-3" src="https://payload.cargocollective.com/1/4/144792/10818195/vaderlukeREVISE.gif"/>
+      </div>);
     
-        <div className="container flex text-center">
-        <h1>LOADING PAGE</h1>
-        <img className="w-100 p-3" src="https://payload.cargocollective.com/1/4/144792/10818195/vaderlukeREVISE.gif"/>
-        </div>);
-      
-    } else {
+  } else {
 	return (
   
 <div className="container flex">
 <div className="row g-4">
    <div className="col-md-6">
-      <img className="w-100 p-3" src={luke}/>
+      <img className="w-100 p-3" src="https://i.pinimg.com/564x/09/a8/5a/09a85a7ab3e13c880159b1e12029381b.jpg"/>
     </div>
 
     <div className="col-md-6">
@@ -109,7 +108,7 @@ export const Detail = () => {
   </div>
     </div>);
   }
-}
+  }
     return(
         <div className="container">
               {showCharacter()}

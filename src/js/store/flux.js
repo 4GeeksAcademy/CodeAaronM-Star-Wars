@@ -1,4 +1,8 @@
+import { stringify } from "query-string";
+
 const getState = ({ getStore, getActions, setStore }) => {
+
+
 	return {
 		store: {
 			demo: [
@@ -44,7 +48,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			favorite: async (name,uid) => {
+				const check = sessionStorage.getItem("favorites");
+				console.log(check)
+				if (check == null) {
+					const favorites = [];
+					favorites.push(name);
+					sessionStorage.setItem("favorites", favorites);
+					sessionStorage.setItem(uid, name);
+					console.log(favorites);
+					setStore({ name: "name" });
+				} else {
+					const favorites = [sessionStorage.getItem("favorites")];
+					favorites.push(name);
+					sessionStorage.setItem("favorites", favorites);
+					sessionStorage.setItem(uid, name);
+					console.log(favorites);
+					setStore({ name: "name" });			
+				}
+
+				// expected output: Array ["pigs", "goats", "sheep", "cows"]
+
+				//sessionStorage.setItem(uid, name);
+				//console.log("saving favorite");
+				//console.log("travels", list);
+				//setStore({ name: "name" });
+			  }
 		}
 	};
 };

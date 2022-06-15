@@ -38,21 +38,6 @@ const Travels = () => {
       });
   };
 
-  function ListTravels() {
-    console.log("entrando a ListTravels");
-    fetch("https://www.swapi.tech/api/planets/1", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("planetas", data);
-        setTravels(data);
-        //this.setState({ totalReactPackages: data.total })
-      });
-  }
 
 CardPlanets.propTypes = {
     population: PropTypes.string,

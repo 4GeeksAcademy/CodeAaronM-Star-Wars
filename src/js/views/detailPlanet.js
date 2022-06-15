@@ -63,6 +63,16 @@ export const DetailPlanet = () => {
   }, []);
 
   function showCharacter() {
+    console.log(name)
+    if (name == '') { 
+      return (
+    
+        <div className="container flex text-center">
+        <h1>LOADING PAGE</h1>
+        <img className="w-100 p-3" src="https://payload.cargocollective.com/1/4/144792/10818195/vaderlukeREVISE.gif"/>
+        </div>);
+      
+    } else {
 	return (
   
 <div className="container flex">
@@ -131,6 +141,7 @@ export const DetailPlanet = () => {
   </div>
     </div>);
   }
+}
 
     return(
         <div className="container">
