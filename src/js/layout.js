@@ -11,7 +11,7 @@ import { Character } from "./component/character";
 import { Planet } from "./component/planet";
 import injectContext from "./store/appContext";
 
-import Card from "./views/card";
+import Card from "./views/cardCharacter";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";

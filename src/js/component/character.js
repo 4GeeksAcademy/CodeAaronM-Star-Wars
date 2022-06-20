@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import propTypes from "prop-types";
 import "../../styles/home.css";
-import Card from "../views/card";
+import Card from "../views/cardCharacter";
 import CardPlanets from "../views/cardPlanets";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";

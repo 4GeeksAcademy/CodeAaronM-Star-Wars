@@ -50,31 +50,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			favorite: async (name,uid) => {
-				const check = sessionStorage.getItem("favorites");
-				console.log(check)
-				if (check == null) {
-					const favorites = [];
-					favorites.push(name);
-					sessionStorage.setItem("favorites", favorites);
-					sessionStorage.setItem(uid, name);
-					console.log(favorites);
-					setStore({ name: "name" });
-				} else {
-					const favorites = [sessionStorage.getItem("favorites")];
-					favorites.push(name);
-					sessionStorage.setItem("favorites", favorites);
-					sessionStorage.setItem(uid, name);
-					console.log(favorites);
-					setStore({ name: "name" });			
-				}
-
-				// expected output: Array ["pigs", "goats", "sheep", "cows"]
-
-				//sessionStorage.setItem(uid, name);
-				//console.log("saving favorite");
-				//console.log("travels", list);
-				//setStore({ name: "name" });
-			  }
+				sessionStorage.setItem("ch"+uid, name);
+				setStore({ name: "name" });
+			},
+			delete: async (uid) => {
+				sessionStorage.removeItem(uid);
+				console.log("deleting");
+				setStore({ uid: null });		
+			}
 		}
 	};
 };
