@@ -1,4 +1,3 @@
-import { stringify } from "query-string";
 
 const getState = ({ getStore, getActions, setStore }) => {
 
@@ -49,8 +48,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			favorite: async (name,uid) => {
-				sessionStorage.setItem("ch"+uid, name);
+			favoriteCharacter: async (characterName,uid) => {
+				sessionStorage.setItem("ch"+uid, characterName);
+				setStore({ name: "name" });
+			},
+			favoritePlanet: async (planetName,uid) => {
+				sessionStorage.setItem("pl"+uid, planetName);
+				setStore({ name: "name" });
+			},
+			favoriteVehicle: async (vehicleName,uid) => {
+				sessionStorage.setItem("ve"+uid, vehicleName);
 				setStore({ name: "name" });
 			},
 			delete: async (uid) => {

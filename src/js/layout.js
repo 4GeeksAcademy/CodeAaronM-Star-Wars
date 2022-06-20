@@ -5,8 +5,9 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
-import { Detail } from "./views/detail";
+import { DetailCharacter } from "./views/detailCharacter";
 import { DetailPlanet } from "./views/detailPlanet";
+import { DetailVehicle } from "./views/detailVehicle";
 import { Character } from "./component/character";
 import { Planet } from "./component/planet";
 import injectContext from "./store/appContext";
@@ -37,11 +38,14 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/detail/:id">
-							<Detail />
+						<Route exact path="/detailCharacter/:id">
+							<DetailCharacter />
 						</Route>
 						<Route exact path="/detailPlanets/:id">
 							<DetailPlanet />
+						</Route>
+						<Route exact path="/detailVehicle/:id">
+							<DetailVehicle />
 						</Route>
 						<Route exact path="/character">
 							<Character />

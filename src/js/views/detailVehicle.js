@@ -2,31 +2,28 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import "../../styles/home.css";
 import Card from "./cardCharacter";
-import CardPlanets from "../views/cardPlanets";
+
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
-import luke from "../../img/800x400.png"
 import "../../styles/index.css";
 
-export const Detail = () => {
+export const DetailVehicle = () => {
 
   const { id } = useParams();
-
-  const[people, setPeople] = useState([""]);
   const[name, setName] = useState([""]);
-  const[birth, setBirth] = useState([""]);
-  const[gender, setGender] = useState([""]);
-  const[height, setHeight] = useState([""]);
-  const[skin, setSkin] = useState([""]);
-  const[eye, setEye] = useState([""]);
+  const[model, setModel] = useState([""]);
+  const[manufacturer, setManufacturer] = useState([""]);
+  const[vehicle_class, setVehicle_class] = useState([""]);
+  const[crew, setCrew] = useState([""]);
+  const[passengers, setPassengers] = useState([""]);
 
 
-  function People(id) {
+  function Vehicle(id) {
 
-    console.log("loading");
+    console.log("loading vehicle");
     console.log(id);
-    fetch("https://www.swapi.tech/api/people/"+id, {
+    fetch("https://www.swapi.tech/api/vehicles/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,26 +37,24 @@ export const Detail = () => {
 		throw new TypeError("Sorry, There's no JSON here!");
 	  })
 	.then((data) => {
-	  setPeople(data.result.properties);
     setName(data.result.properties.name)
-    setBirth(data.result.properties.birth_year)
-    setGender(data.result.properties.gender)
-    setHeight(data.result.properties.mass)
-    setSkin(data.result.properties.skin_color)
-    setEye(data.result.properties.eye_color)
+    setModel(data.result.properties.model)
+    setManufacturer(data.result.properties.manufacturer)
+    setVehicle_class(data.result.properties.vehicle_class)
+    setCrew(data.result.properties.crew)
+    setPassengers(data.result.properties.passengers)
         //this.setState({ totalReactPackages: data.total })
       });
   }
 
   useEffect(() => {
 	console.log(process.env.BACKEND_URL);
-	People(id);
+	Vehicle(id);
   }, []);
 
-  function showCharacter() {
-    console.log(people)
-    console.log(people.name)
-    if (people == '') { 
+  function showVehicle() {
+    console.log(name)
+    if (name == '') { 
       return (
     
         <div className="container flex text-center">
@@ -78,7 +73,7 @@ export const Detail = () => {
 
     <div className="col-md-6">
       <h5 className="card-title">{name} </h5>
-      <p className="card-text">{name} is a character of Star Wars with {skin} skin color and {eye} eyes</p>
+      <p className="card-text">{name} is a {model} vehicle of Star Wars, it's belong to {vehicle_class} class vehicle</p>
       
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur porttitor massa, vitae condimentum turpis ornare a. Praesent nec quam at elit semper malesuada. Aliquam ullamcorper orci id orci imperdiet placerat. Curabitur efficitur semper enim, ornare commodo libero sodales eget. Sed ullamcorper diam eros, id egestas enim congue sed. Morbi elementum nisi non dapibus dictum. Integer eget hendrerit dolor, eget pulvinar nisi.</p>
 
@@ -91,20 +86,20 @@ export const Detail = () => {
     <p><strong>Name</strong></p>
     <p>{name}</p></div>
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Birth Year</strong></p>
-    <p>{birth}</p></div>
+    <p><strong>Model</strong></p>
+    <p>{model}</p></div>
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Gender</strong></p>
-    <p>{gender}</p></div>
+    <p><strong>Manufacturer</strong></p>
+    <p>{manufacturer}</p></div>
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Height</strong></p>
-    <p>{height}</p></div>
+    <p><strong>Vehicle Class</strong></p>
+    <p>{vehicle_class}</p></div>
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Skin Color</strong></p>
-  <p>{skin}</p></div>
+    <p><strong>Crew Capacity</strong></p>
+  <p>{crew}</p></div>
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Eye Color</strong></p>
-  <p>{eye}</p></div>
+    <p><strong>Passengers Capacity</strong></p>
+  <p>{passengers}</p></div>
   </div>
   </div>
     </div>);
@@ -112,7 +107,7 @@ export const Detail = () => {
 }
     return(
         <div className="container">
-              {showCharacter()}
+              {showVehicle()}
         </div>
     );
 };

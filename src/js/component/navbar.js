@@ -49,28 +49,53 @@ export const Navbar = (props) => {
 	
 	function Favpl1() {
 		if (pl1 && pl1 != "" && pl1 != undefined) {return (
-		<li className="row"><Link className="col-9" to={`/detail/1`}>{pl1}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl1") }></i></li>)}
+		<li className="row"><Link className="col-9" to={`/detailPlanets/1`}>{pl1}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl1") }></i></li>)}
 		else {return(null);}};
 					
-					function Favpl2() {
-						if (pl2 && pl2 != "" && pl2 != undefined) {return (
-						<li className="row"><Link className="col-9" to={`/detail/1`}>{pl2}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl2") }></i></li>)}
-						else {return(null);}};
+	function Favpl2() {
+		if (pl2 && pl2 != "" && pl2 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detailPlanets/2`}>{pl2}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl2") }></i></li>)}
+		else {return(null);}};
 
-						function Favpl3() {
-							if (pl3 && pl3 != "" && pl3 != undefined) {return (
-							<li className="row"><Link className="col-9" to={`/detail/1`}>{pl3}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl3") }></i></li>)}
-							else {return(null);}};
+	function Favpl3() {
+		if (pl3 && pl3 != "" && pl3 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detailPlanets/3`}>{pl3}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl3") }></i></li>)}
+		else {return(null);}};
 
-							function Favpl4() {
-								if (pl4 && pl4 != "" && pl4 != undefined) {return (
-								<li className="row"><Link className="col-9" to={`/detail/1`}>{pl4}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl4") }></i></li>)}
-								else {return(null);}};
+	function Favpl4() {
+		if (pl4 && pl4 != "" && pl4 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detailPlanets/4`}>{pl4}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl4") }></i></li>)}
+		else {return(null);}};
 
-								function Favpl5() {
-									if (pl5 && pl5 != "" && pl5 != undefined) {return (
-									<li className="row"><Link className="col-9" to={`/detail/1`}>{pl5}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl5") }></i></li>)}
-									else {return(null);}};
+	function Favpl5() {
+		if (pl5 && pl5 != "" && pl5 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detail/1`}>{pl5}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl5") }></i></li>)}
+		else {return(null);}};
+
+	function Favpl5() {
+		if (pl5 && pl5 != "" && pl5 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detail/1`}>{pl5}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl5") }></i></li>)}
+		else {return(null);}};
+
+	function Favpl5() {
+		if (pl5 && pl5 != "" && pl5 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detail/1`}>{pl5}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl5") }></i></li>)}
+		else {return(null);}};
+
+	function Favpl5() {
+		if (pl5 && pl5 != "" && pl5 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detail/1`}>{pl5}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl5") }></i></li>)}
+		else {return(null);}};
+
+	function Favpl5() {
+		if (pl5 && pl5 != "" && pl5 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detail/1`}>{pl5}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl5") }></i></li>)}
+		else {return(null);}};
+
+	function Favpl5() {
+		if (pl5 && pl5 != "" && pl5 != undefined) {return (
+		<li className="row"><Link className="col-9" to={`/detail/1`}>{pl5}</Link><i className="col fas fa-trash" onClick={() => actions.delete("pl5") }></i></li>)}
+		else {return(null);}};
 	
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -79,12 +104,12 @@ export const Navbar = (props) => {
 			</Link>
 
 			<div className="ml-auto">
-				<div class="dropdown mx-5">
-  <a class="btn btn-primary dropdown-toggle mx-5" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
-    Favorites <span class="badge bg-secondary"></span>
+				<div className="dropdown mx-5">
+  <a className="btn btn-primary dropdown-toggle mx-5" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+    Favorites <span className="badge bg-secondary"></span>
   </a>
 
-  <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+  <ul className="dropdown-menu " aria-labelledby="dropdownMenuLink">
   <Favch1/>
   <Favch2/>
   <Favch3/>

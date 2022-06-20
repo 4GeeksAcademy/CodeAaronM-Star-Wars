@@ -1,8 +1,10 @@
-import React from "react";
+import React , { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 const CardPlanets = (props) => {
+  const { store, actions } = useContext(Context);
     return (
         <div className="card planets">
             <img src={props.img} className="card-img-top" alt="" />
@@ -13,31 +15,11 @@ const CardPlanets = (props) => {
                    <p>Terrain: {props.terrain}</p>
                 </p>
                 <Link to={`/detailPlanets/${props.uid}`} className="btn btn-primary">Learn more</Link>
-                <i class="fas fa-heart"></i>
+                <i className="fas fa-heart" onClick={() => actions.favoritePlanet(props.planetName, props.uid)}></i>
             </div>
         </div>
     )
 }
-
-const Travels = () => {
-
-    const history = useHistory();
-    const {store, actions} = useContext(Context)
-  
-    fetch("https://www.swapi.tech/api/planets/1", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("listTravels", data);
-        setTravels(data);
-        //this.setState({ totalReactPackages: data.total })
-      });
-  };
-
 
 CardPlanets.propTypes = {
     population: PropTypes.string,
