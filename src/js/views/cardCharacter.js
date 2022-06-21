@@ -12,11 +12,11 @@ const CardCharacter = (props) => {
             <div className="card-body">
                 <h5 className="card-title"> {props.characterName}</h5>
                 <p className="card-text">
-                   <p>Gender: masculino</p>
+                   <p>Gender: {props.gender}</p>
                    <p>Hair-Color: {props.hair}</p>
                    <p>Eye-Color: {props.eye}</p>
                 </p>
-                <Link to={`/detail/${props.uid}`} className="btn btn-primary">Learn more</Link>
+                <Link to={`/detailcharacter/${props.uid}`} className="btn btn-primary">Learn more</Link>
                 <i className="fas fa-heart" onClick={() => actions.favoriteCharacter(props.characterName, props.uid)}></i>
             </div>
         </div>

@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
 import "../../styles/home.css";
-import Card from "./cardCharacter";
-import CardPlanets from "./cardPlanets";
-import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import luke from "../../img/800x400.png"
 import "../../styles/index.css";
@@ -20,10 +15,9 @@ export const DetailCharacter = () => {
   const[eye, setEye] = useState([""]);
 
 
-  function People(id) {
+  function Character(id) {
 
     console.log("loading character");
-    console.log(id);
     fetch("https://www.swapi.tech/api/people/"+id, {
       method: "GET",
       headers: {
@@ -35,28 +29,26 @@ export const DetailCharacter = () => {
 		if(contentType && contentType.includes("application/json")) {
 		  return response.json();
 		}
-		throw new TypeError("Sorry, There's no JSON here!");
+		throw new TypeError("API error");
 	  })
 	.then((data) => {
-	  setPeople(data.result.properties);
     setName(data.result.properties.name)
     setBirth(data.result.properties.birth_year)
     setGender(data.result.properties.gender)
     setHeight(data.result.properties.mass)
     setSkin(data.result.properties.skin_color)
     setEye(data.result.properties.eye_color)
+    console.log("done")
         //this.setState({ totalReactPackages: data.total })
       });
   }
 
   useEffect(() => {
-	console.log(process.env.BACKEND_URL);
-	People(id);
+	Character(id);
   }, []);
 
   function showCharacter() {
-    console.log(people.name)
-    if (people == '') { 
+    if (name == '') { 
       return (
     
         <div className="container flex text-center">

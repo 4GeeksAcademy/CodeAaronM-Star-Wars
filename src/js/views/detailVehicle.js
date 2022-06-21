@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import "../../styles/home.css";
 import Card from "./cardCharacter";
-
+import luke from "../../img/800x400.png"
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
@@ -22,7 +22,6 @@ export const DetailVehicle = () => {
   function Vehicle(id) {
 
     console.log("loading vehicle");
-    console.log(id);
     fetch("https://www.swapi.tech/api/vehicles/"+id, {
       method: "GET",
       headers: {
@@ -34,7 +33,7 @@ export const DetailVehicle = () => {
 		if(contentType && contentType.includes("application/json")) {
 		  return response.json();
 		}
-		throw new TypeError("Sorry, There's no JSON here!");
+		throw new TypeError("API error");
 	  })
 	.then((data) => {
     setName(data.result.properties.name)
@@ -43,17 +42,16 @@ export const DetailVehicle = () => {
     setVehicle_class(data.result.properties.vehicle_class)
     setCrew(data.result.properties.crew)
     setPassengers(data.result.properties.passengers)
+    console.log("done")
         //this.setState({ totalReactPackages: data.total })
       });
   }
 
   useEffect(() => {
-	console.log(process.env.BACKEND_URL);
 	Vehicle(id);
   }, []);
 
   function showVehicle() {
-    console.log(name)
     if (name == '') { 
       return (
     

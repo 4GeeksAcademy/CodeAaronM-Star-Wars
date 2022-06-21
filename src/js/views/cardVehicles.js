@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext  } from "react";
+import React, { useContext  } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const CardVehicles = (props) => {
-    const { store, actions } = useContext(Context);
+    const { actions } = useContext(Context);
 
     return (
         <div className="card vehicles">
@@ -15,8 +15,8 @@ const CardVehicles = (props) => {
                    <p>Model: {props.model}</p>
                    <p>Manufacturer: {props.manufacturer}</p>
                 </p>
-                <Link to={`/detailVehicles/${props.uid}`} className="btn btn-primary">Learn more</Link>
-                <i class="fas fa-heart" onClick={() => actions.favoriteVehicle(props.planetName, props.uid)}></i>
+                <Link to={`/detailVehicle/${props.uid}`} className="btn btn-primary">Learn more</Link>
+                <i className="fas fa-heart" onClick={() => actions.favoriteVehicle(props.vehicleName, props.uid)}></i>
             </div>
         </div>
     )

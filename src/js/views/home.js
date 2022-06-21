@@ -1,95 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import propTypes from "prop-types";
+import React, { useContext, useState, useEffect} from "react";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import CardCharacter from "./cardCharacter";
 import CardPlanets from "../views/cardPlanets";
 import CardVehicles from "./cardVehicles";
-import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
-import { useHistory } from "react-router-dom";
-import Character from "../component/character";
-
 
 export const Home = () => {
-	const[character, setCharacter] = useState([""])
-	const[planets, setPlanetList] = useState([""])
-	const[vehicles, setVehicles] = useState([""])
+	const { store, actions } = useContext(Context);
 
-async function Planets() {
-	console.log("loading planets");
-	try{
-		const response = await fetch ("https://www.swapi.tech/api/planets", {
-			method: "GET",
-			headers: {
-			  "Content-Type": "application/json",
-			},
-		  });
-		let responseData = await response.json();
-		let planets = responseData.results;
-		planets.splice(5);
-		console.log(planets);
-		setPlanetList(planets);
-		
-	}catch(e){
-		console.log(e);
-		throw new TypeError("Sorry, There's no JSON here!");
-	}
-}
-
-async function Characters() {
-    console.log("loading characters");
-	try{
-		const response = await fetch ("https://www.swapi.tech/api/people", {
-			method: "GET",
-			headers: {
-			  "Content-Type": "application/json",
-			},
-		  });
-		let responseData = await response.json();
-
-		let characters = responseData.results;
-		characters.splice(5);
-		console.log(characters);
-		setCharacter(characters);
-	}catch(e){
-		console.log(e);
-		throw new TypeError("Sorry, There's no JSON here!");
-	}
-  }
-
-async function Vehicles() {
-	console.log("loading vehicles");
-	try{
-		const response = await fetch ("https://www.swapi.tech/api/vehicles", {
-			method: "GET",
-			headers: {
-			  "Content-Type": "application/json",
-			},
-		  });
-		let responseData = await response.json();
-
-		let vehicles = responseData.results;
-		vehicles.splice(5);
-		console.log(vehicles);
-		setVehicles(vehicles);
-		
-	}catch(e){
-		console.log(e);
-		throw new TypeError("Sorry, There's no JSON here!");
-	}
-}
-
-  useEffect(() => {
-	console.log(process.env.BACKEND_URL);
-	Characters();
-	Planets();
-	Vehicles();
-	sessionStorage.setItem(vehicles, vehicles)
-  }, []);
+	
 
 
   function showCharacter() {
-	if (character == '' || planets =="" || vehicles =="") { 
+	if (store.characters == '' || store.planets =="" || store.vehicles =="") { 
 		return (
 	  
 		  <div className="container flex text-center">
@@ -104,11 +27,11 @@ async function Vehicles() {
 				<div className="card-group card-group-custom">
 
 					{
-						character.map(ch => 
+						store.characters.map(ch => 
 							<CardCharacter 
 							img=""
 							characterName={ch.name}
-							// gender={ch.detail.properties.gender}
+							gender={ch.gender}
 							// hair={ch.detail.properties.hair_color}
 							// eye={ch.detail.properties.eye_color}
 							uid={ch.uid}
@@ -120,7 +43,7 @@ async function Vehicles() {
 			<h4>Planets</h4>	
 				<div className="card-group">
 					{
-						planets.map(pl => 
+						store.planets.map(pl => 
 							<CardPlanets 
 							img=""
 							planetName={pl.name}
@@ -128,6 +51,7 @@ async function Vehicles() {
 							// population={}
 							// terrain={}
 							uid={pl.uid}
+							gravity = "1"
 							/>
 						)
 					}
@@ -158,7 +82,7 @@ async function Vehicles() {
 				<div className="card-group card-group-custom">
 
 					{
-						vehicles.map(ve => 
+						store.vehicles.map(ve => 
 							<CardVehicles 
 							img=""
 							vehicleName={ve.name}

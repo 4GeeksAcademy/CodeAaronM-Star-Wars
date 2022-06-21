@@ -55,7 +55,7 @@ export const DetailPlanet = () => {
 
   useEffect(() => {
 	console.log(process.env.BACKEND_URL);
-	People(id);
+	Planet(id);
   }, []);
 
   function showPlanet() {

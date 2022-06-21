@@ -1,10 +1,10 @@
-import React , { useState, useEffect, useContext } from "react";
+import React , {useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const CardPlanets = (props) => {
-  const { store, actions } = useContext(Context);
+  const { actions } = useContext(Context);
     return (
         <div className="card planets">
             <img src={props.img} className="card-img-top" alt="" />
@@ -14,7 +14,7 @@ const CardPlanets = (props) => {
                    <p>Population: {props.population}</p>
                    <p>Terrain: {props.terrain}</p>
                 </p>
-                <Link to={`/detailPlanets/${props.uid}`} className="btn btn-primary">Learn more</Link>
+                <Link to={`/detailPlanet/${props.uid}`} className="btn btn-primary">Learn more</Link>
                 <i className="fas fa-heart" onClick={() => actions.favoritePlanet(props.planetName, props.uid)}></i>
             </div>
         </div>
