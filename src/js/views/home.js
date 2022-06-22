@@ -7,6 +7,7 @@ import CardVehicles from "./cardVehicles";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	console.log(store.characters)
 
 	
 

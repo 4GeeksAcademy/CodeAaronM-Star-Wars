@@ -22,7 +22,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			vehicles: [
 			],
-			people: [ {people1:""},{people2:""}
+			people: [ {people1:""},{people2:""},{people3:""}
+			],
+			people1: [
+
+			],
+			people2: [
+
 			],
 		},
 		actions: {
@@ -38,15 +44,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 			fetching: () => {
-				fetch("https://www.swapi.tech/api/planets").then(res => res.json()).then(data =>  setStore({ planets: data.results.splice(0,5) }))
-				fetch("https://www.swapi.tech/api/people").then(res => res.json()).then(data => setStore({ characters: data.results.splice(0,5) }))
-				fetch("https://www.swapi.tech/api/vehicles").then(res => res.json()).then(data => setStore({ vehicles: data.results.splice(0,5) }))
+				const arr = ['Hello'];
+				arr.splice(1, 2, 'World'); // 👇️ ['Hello', 'World']
+				arr.splice(1,0,setStore(({characters: [{people1:"something"}]})))
+				arr.splice(1,1,setStore(({characters: [arr]})))
+				fetch("https://www.swapi.tech/api/people/1").then(res => res.json()).then(data => setStore({ people1: data.result.properties}))
+				//fetch("https://www.swapi.tech/api/planets").then(res => res.json()).then(data =>  setStore({ planets: data.results.splice(0,5) }))
+				//fetch("https://www.swapi.tech/api/people").then(res => res.json()).then(data => setStore({ characters: data.results.splice(0,5) }))
+				//fetch("https://www.swapi.tech/api/vehicles").then(res => res.json()).then(data => setStore({ vehicles: data.results.splice(0,5) }))
+				//fetch("https://www.swapi.tech/api/people/1").then(res => res.json()).then(data => setStore({ people1: data.result.properties}))
+				//fetch("https://www.swapi.tech/api/people/2").then(res => res.json()).then(data => setStore({ people2: data.result.properties}))
+				//fetch("https://www.swapi.tech/api/people/3").then(res => res.json()).then(data => setStore({ people,[people3]: data.result.properties}))
 				
 			},
 
 			people: () => {
-				fetch("https://www.swapi.tech/api/people/1").then(res => res.json()).then(data => setStore({ people1: data})) //splice(1, 0, "Lemon", "Kiwi")
-				fetch("https://www.swapi.tech/api/people/2").then(res => res.json()).then(data => setStore({ people2: data}))
+				//fetch("https://www.swapi.tech/api/people/1").then(res => res.json()).then(data => setStore({ people1: data})) //splice(1, 0, "Lemon", "Kiwi")
+				//fetch("https://www.swapi.tech/api/people/2").then(res => res.json()).then(data => setStore({ people2: data}))
 			},
 
 			changeColor: (index, color) => {

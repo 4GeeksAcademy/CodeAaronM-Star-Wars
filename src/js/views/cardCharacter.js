@@ -11,11 +11,9 @@ const CardCharacter = (props) => {
             <img src={props.img} className="card-img-top" alt="" />
             <div className="card-body">
                 <h5 className="card-title"> {props.characterName}</h5>
-                <p className="card-text">
-                   <p>Gender: {props.gender}</p>
-                   <p>Hair-Color: {props.hair}</p>
-                   <p>Eye-Color: {props.eye}</p>
-                </p>
+                   <p className="card-text">Gender: {props.gender}</p>
+                   <p className="card-text">Hair-Color: {props.hair}</p>
+                   <p className="card-text">Eye-Color: {props.eye}</p>
                 <Link to={`/detailcharacter/${props.uid}`} className="btn btn-primary">Learn more</Link>
                 <i className="fas fa-heart" onClick={() => actions.favoriteCharacter(props.characterName, props.uid)}></i>
             </div>

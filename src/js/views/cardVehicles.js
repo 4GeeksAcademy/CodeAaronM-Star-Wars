@@ -11,10 +11,8 @@ const CardVehicles = (props) => {
             <img src={props.img} className="card-img-top" alt="" />
             <div className="card-body">
                 <h5 className="card-title"> {props.vehicleName}</h5>
-                <p className="card-text">
-                   <p>Model: {props.model}</p>
-                   <p>Manufacturer: {props.manufacturer}</p>
-                </p>
+                   <p className="card-text">Model: {props.model}</p>
+                   <p className="card-text">Manufacturer: {props.manufacturer}</p>
                 <Link to={`/detailVehicle/${props.uid}`} className="btn btn-primary">Learn more</Link>
                 <i className="fas fa-heart" onClick={() => actions.favoriteVehicle(props.vehicleName, props.uid)}></i>
             </div>
