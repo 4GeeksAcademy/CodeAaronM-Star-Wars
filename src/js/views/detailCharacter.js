@@ -38,7 +38,7 @@ export const DetailCharacter = () => {
     setHeight(data.height)
     setHair(data.hair_color)
     setEye(data.eye_color)
-    console.log("done")
+    console.log("character with id "+id + " loaded succesfully.")
         //this.setState({ totalReactPackages: data.total })
       });
   }

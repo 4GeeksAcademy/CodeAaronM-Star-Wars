@@ -25,7 +25,6 @@ export const DetailPlanet = () => {
   function Planet(id) {
 
     console.log("loading planet");
-    console.log(id);
     fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/planets/"+id, {
       method: "GET",
       headers: {
@@ -49,17 +48,16 @@ export const DetailPlanet = () => {
     setRotationPeriod(data.rotation_period);
     setSurfaceWater(data.surface_water);
     setterrain(data.terrain);
+    console.log("planet with id "+id + " loaded succesfully.");
 
       });
   }
 
   useEffect(() => {
-	console.log(process.env.BACKEND_URL);
 	Planet(id);
   }, []);
 
   function showPlanet() {
-    console.log(name)
     if (name == '') { 
       return (
     
