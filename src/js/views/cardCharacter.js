@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
 
 const CardCharacter = (props) => {
-    const { store, actions } = useContext(Context);
+    const {  store, actions } = useContext(Context);
     return (
         <div className="card">
             <img src={props.img} className="card-img-top" alt="" />
@@ -14,7 +14,7 @@ const CardCharacter = (props) => {
                    <p className="card-text">Gender: {props.gender}</p>
                    <p className="card-text">Hair-Color: {props.hair}</p>
                    <p className="card-text">Eye-Color: {props.eye}</p>
-                <Link to={`/detailpeople/${props.uid}`} className="btn btn-primary">Learn more</Link>
+                <Link to={`/detailpeople/${props.id}`} className="btn btn-primary">Learn more</Link>
                 {/*<i className="fas fa-heart" onClick={() => actions.favoritePeople(props.characterName, props.uid, "people")}></i>*/}
             </div>
         </div>
@@ -29,7 +29,7 @@ CardCharacter.propTypes = {
     hair: PropTypes.string,
     eye: PropTypes.string,
     characterName: PropTypes.string,
-    uid: PropTypes.string,
+
   };
 
 export default CardCharacter

@@ -26,7 +26,7 @@ export const DetailPlanet = () => {
 
     console.log("loading planet");
     console.log(id);
-    fetch("https://www.swapi.tech/api/planets/"+id, {
+    fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/planets/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,15 +40,15 @@ export const DetailPlanet = () => {
 		throw new TypeError("Sorry, There's no JSON here!");
 	  })
 	.then((data) => {
-    setName(data.result.properties.name);
-    setClimate(data.result.properties.climate);
-    setDiameter(data.result.properties.diameter);
-    setGravity(data.result.properties.gravity);
-    setOrbitalPeriod(data.result.properties.orbital_period);
-    setPopulation(data.result.properties.population);
-    setRotationPeriod(data.result.properties.rotation_period);
-    setSurfaceWater(data.result.properties.surface_water);
-    setterrain(data.result.properties.terrain);
+    setName(data.name);
+    setClimate(data.climate);
+    setDiameter(data.diameter);
+    setGravity(data.gravity);
+    setOrbitalPeriod(data.orbital_period);
+    setPopulation(data.population);
+    setRotationPeriod(data.rotation_period);
+    setSurfaceWater(data.surface_water);
+    setterrain(data.terrain);
 
       });
   }

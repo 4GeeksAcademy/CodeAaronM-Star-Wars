@@ -11,14 +11,14 @@ export const DetailCharacter = () => {
   const[birth, setBirth] = useState([""]);
   const[gender, setGender] = useState([""]);
   const[height, setHeight] = useState([""]);
-  const[skin, setSkin] = useState([""]);
+  const[hair, setHair] = useState([""]);
   const[eye, setEye] = useState([""]);
 
 
   function Character(id) {
 
     console.log("loading character");
-    fetch("https://www.swapi.tech/api/people/"+id, {
+    fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/people/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -32,12 +32,12 @@ export const DetailCharacter = () => {
 		throw new TypeError("API error");
 	  })
 	.then((data) => {
-    setName(data.result.properties.name)
-    setBirth(data.result.properties.birth_year)
-    setGender(data.result.properties.gender)
-    setHeight(data.result.properties.mass)
-    setSkin(data.result.properties.skin_color)
-    setEye(data.result.properties.eye_color)
+    setName(data.name)
+    setBirth(data.birth_year)
+    setGender(data.gender)
+    setHeight(data.height)
+    setHair(data.hair_color)
+    setEye(data.eye_color)
     console.log("done")
         //this.setState({ totalReactPackages: data.total })
       });
@@ -67,7 +67,7 @@ export const DetailCharacter = () => {
 
     <div className="col-md-6">
       <h5 className="card-title">{name} </h5>
-      <p className="card-text">{name} is a character of Star Wars with {skin} skin color and {eye} eyes</p>
+      <p className="card-text">{name} is a character of Star Wars with {hair} hair and {eye} eyes</p>
       
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur porttitor massa, vitae condimentum turpis ornare a. Praesent nec quam at elit semper malesuada. Aliquam ullamcorper orci id orci imperdiet placerat. Curabitur efficitur semper enim, ornare commodo libero sodales eget. Sed ullamcorper diam eros, id egestas enim congue sed. Morbi elementum nisi non dapibus dictum. Integer eget hendrerit dolor, eget pulvinar nisi.</p>
 
@@ -89,8 +89,8 @@ export const DetailCharacter = () => {
     <p><strong>Height</strong></p>
     <p>{height}</p></div>
   <div className="p-2 flex-fill bd-highlight">
-    <p><strong>Skin Color</strong></p>
-  <p>{skin}</p></div>
+    <p><strong>Hair Color</strong></p>
+  <p>{hair}</p></div>
   <div className="p-2 flex-fill bd-highlight">
     <p><strong>Eye Color</strong></p>
   <p>{eye}</p></div>

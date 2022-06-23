@@ -37,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/people/").then(res => res.json()).then(data => setStore({ people: data}))
 				fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/planets/").then(res => res.json()).then(data =>  setStore({ planets: data}))
+
 				
 			},
 
@@ -61,25 +62,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(arr);
 
 			},
-			favoritePeople: async (characterName,uid,category) => {
+			favoritePeople: async (characterName,id,category) => {
 				
-				sessionStorage.setItem(category+"/"+uid, name);
+				sessionStorage.setItem(category+"/"+id, name);
 				setStore({ name: characterName });
-				setStore({ uid: uid });
+				setStore({ id: id });
 				setStore({ category: category });
 			},
-			favoritePlanet: async (planetName,uid,category) => {
+			favoritePlanet: async (planetName,id,category) => {
 				
-				sessionStorage.setItem(category+"/"+uid, planetName);
+				sessionStorage.setItem(category+"/"+id, planetName);
 				setStore({ name: planetName });
-				setStore({ uid: uid });
+				setStore({ id: id });
 				setStore({ category: category });
 			},
 
-			delete: async (uid) => {
-				sessionStorage.removeItem(uid);
+			delete: async (id) => {
+				sessionStorage.removeItem(id);
 				console.log("deleting");
-				setStore({ uid: null });		
+				setStore({ id: null });		
 			}
 		}
 	};

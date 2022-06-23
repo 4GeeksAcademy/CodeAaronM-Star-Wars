@@ -7,7 +7,7 @@ import CardPlanets from "../views/cardPlanets";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	console.log("planets"+store.planets)
+	
 
 
   function show() {
@@ -27,14 +27,14 @@ export const Home = () => {
 				<div className="card-group card-group-custom">
 
 					{
-						store.people.splice(0,5).map(ch => 
+						store.people.map(ch => 
 							<CardCharacter 
 							img=""
 							characterName={ch.name}
 							gender={ch.gender}
 							hair={ch.hair_color}
 							eye={ch.eye_color}
-							uid={ch.uid}
+							id={ch.id}
 							/>
 						)
 					}
@@ -43,14 +43,14 @@ export const Home = () => {
 			<h4>Planets</h4>	
 				<div className="card-group">
 					{
-						store.planets.splice(0,5).map(pl => 
+						store.planets.map(pl => 
 							<CardPlanets 
 							img=""
 							planetName={pl.name}
 							population={pl.population}
 							// population={}
 							terrain={pl.terrain}
-							uid={pl.uid}
+							id={pl.id}
 							gravity = "1"
 							/>
 							
