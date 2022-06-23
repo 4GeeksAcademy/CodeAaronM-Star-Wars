@@ -12,8 +12,8 @@ const CardPlanets = (props) => {
                 <h5 className="card-title">{props.planetName}</h5>
                    <p className="card-text">Population: {props.population}</p>
                    <p className="card-text">Terrain: {props.terrain}</p>
-                <Link to={`/detailPlanet/${props.uid}`} className="btn btn-primary">Learn more</Link>
-                <i className="fas fa-heart" onClick={() => actions.favoritePlanet(props.planetName, props.uid)}></i>
+                <Link to={`/detailplanets/${props.uid}`} className="btn btn-primary">Learn more</Link>
+                {/*<i className="fas fa-heart" onClick={() => actions.favoritePlanet(props.planetName, props.uid,"planets")}></i>*/}
             </div>
         </div>
     )

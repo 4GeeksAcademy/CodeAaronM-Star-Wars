@@ -14,8 +14,8 @@ const CardCharacter = (props) => {
                    <p className="card-text">Gender: {props.gender}</p>
                    <p className="card-text">Hair-Color: {props.hair}</p>
                    <p className="card-text">Eye-Color: {props.eye}</p>
-                <Link to={`/detailcharacter/${props.uid}`} className="btn btn-primary">Learn more</Link>
-                <i className="fas fa-heart" onClick={() => actions.favoriteCharacter(props.characterName, props.uid)}></i>
+                <Link to={`/detailpeople/${props.uid}`} className="btn btn-primary">Learn more</Link>
+                {/*<i className="fas fa-heart" onClick={() => actions.favoritePeople(props.characterName, props.uid, "people")}></i>*/}
             </div>
         </div>
     )
@@ -29,6 +29,7 @@ CardCharacter.propTypes = {
     hair: PropTypes.string,
     eye: PropTypes.string,
     characterName: PropTypes.string,
+    uid: PropTypes.string,
   };
 
 export default CardCharacter

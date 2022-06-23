@@ -16,20 +16,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			characters: [ {uid:1,name:"luke",gender:"masc",hair_color:"blond",skin:"white"},{uid:2,name:"leia",gender:"fem"},{uid:3,name:"han"},{uid:4,name:"darth"},{uid:5,name:"c3po"}
+			people: [
 			],
 			planets: [
 			],
-			vehicles: [
-			],
-			people: [ {people1:""},{people2:""},{people3:""}
-			],
-			people1: [
-
-			],
-			people2: [
-
-			],
+			
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -42,25 +33,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
 			},
 
-
 			fetching: () => {
-				const arr = ['Hello'];
-				arr.splice(1, 2, 'World'); // 👇️ ['Hello', 'World']
-				arr.splice(1,0,setStore(({characters: [{people1:"something"}]})))
-				arr.splice(1,1,setStore(({characters: [arr]})))
-				fetch("https://www.swapi.tech/api/people/1").then(res => res.json()).then(data => setStore({ people1: data.result.properties}))
-				//fetch("https://www.swapi.tech/api/planets").then(res => res.json()).then(data =>  setStore({ planets: data.results.splice(0,5) }))
-				//fetch("https://www.swapi.tech/api/people").then(res => res.json()).then(data => setStore({ characters: data.results.splice(0,5) }))
-				//fetch("https://www.swapi.tech/api/vehicles").then(res => res.json()).then(data => setStore({ vehicles: data.results.splice(0,5) }))
-				//fetch("https://www.swapi.tech/api/people/1").then(res => res.json()).then(data => setStore({ people1: data.result.properties}))
-				//fetch("https://www.swapi.tech/api/people/2").then(res => res.json()).then(data => setStore({ people2: data.result.properties}))
-				//fetch("https://www.swapi.tech/api/people/3").then(res => res.json()).then(data => setStore({ people,[people3]: data.result.properties}))
-				
-			},
 
-			people: () => {
-				//fetch("https://www.swapi.tech/api/people/1").then(res => res.json()).then(data => setStore({ people1: data})) //splice(1, 0, "Lemon", "Kiwi")
-				//fetch("https://www.swapi.tech/api/people/2").then(res => res.json()).then(data => setStore({ people2: data}))
+				fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/people/").then(res => res.json()).then(data => setStore({ people: data}))
+				fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/planets/").then(res => res.json()).then(data =>  setStore({ planets: data}))
+				
 			},
 
 			changeColor: (index, color) => {
@@ -77,18 +54,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			favoriteCharacter: async (characterName,uid) => {
-				sessionStorage.setItem("ch"+uid, characterName);
-				setStore({ name: "name" });
+			test: () =>{
+				const arr = ['Hello'];
+				arr.splice(1, 0, 'World');
+				// 👇️ ['Hello', 'World']
+				console.log(arr);
+
 			},
-			favoritePlanet: async (planetName,uid) => {
-				sessionStorage.setItem("pl"+uid, planetName);
-				setStore({ name: "name" });
+			favoritePeople: async (characterName,uid,category) => {
+				
+				sessionStorage.setItem(category+"/"+uid, name);
+				setStore({ name: characterName });
+				setStore({ uid: uid });
+				setStore({ category: category });
 			},
-			favoriteVehicle: async (vehicleName,uid) => {
-				sessionStorage.setItem("ve"+uid, vehicleName);
-				setStore({ name: "name" });
+			favoritePlanet: async (planetName,uid,category) => {
+				
+				sessionStorage.setItem(category+"/"+uid, planetName);
+				setStore({ name: planetName });
+				setStore({ uid: uid });
+				setStore({ category: category });
 			},
+
 			delete: async (uid) => {
 				sessionStorage.removeItem(uid);
 				console.log("deleting");
