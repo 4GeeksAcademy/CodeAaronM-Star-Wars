@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const ItemFavoritePlanets= (props) => {
+const FavoritePlanets= (props) => {
   const { store, actions } = useContext(Context);
   const[name, setName] = useState([""]);
-	console.log("the name is " + name)
   const id = props.planet_id 
 
 	function Planet(id) {
@@ -39,19 +38,18 @@ const ItemFavoritePlanets= (props) => {
   
     return (
         <div className="card m-2">
+			{props.id}
                 <Link to={`/detailplanets/${props.planet_id}`}>{name}</Link>
-                {/*<i className="fas fa-heart" onClick={() => actions.favoritePlanet(props.planetName, props.uid,"planets")}></i>*/}
+                <i className="fas fa-trash" onClick={() => actions.deletePlanet(props.id,name)}></i>
         </div>
     )
 }
 
-ItemFavoritePlanets.propTypes = {
+FavoritePlanets.propTypes = {
     user_id: PropTypes.string,
-    img: PropTypes.string,
     planet_id: PropTypes.string,
-    people_id: PropTypes.string,
-    planetName: PropTypes.string,
     name: PropTypes.string,
+	id: PropTypes.string,
   };
 
-export default ItemFavoritePlanets
+export default FavoritePlanets

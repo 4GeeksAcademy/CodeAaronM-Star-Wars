@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
+			api: ["https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/"],
 			demo: [
 				{
 					title: "FIRST",
@@ -62,28 +63,76 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			test: () =>{
-				const arr = ['Hello'];
-				arr.splice(1, 0, 'World');
-				// 👇️ ['Hello', 'World']
-				console.log(arr);
 
+			favoritePeople: async (user_id, people_id, characterName) => {
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/favorite-add/people/" + user_id + "/" + people_id, {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+					  
+					}),
+				  })
+					.then((resp) => resp.json())
+					.then((res) => {
+					  console.log(res);
+					  sessionStorage.setItem(characterName, characterName);
+					});
+					fetching();
 			},
-			favoritePeople: async (characterName,id,category) => {
-				
-				sessionStorage.setItem(category+"/"+id, name);
-				setStore({ name: characterName });
-				setStore({ id: id });
-				setStore({ category: category });
+			favoritePlanet: async (user_id, planet_id, planetName) => {
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/favorite-add/planet/" + user_id + "/" + planet_id, {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+					  
+					}),
+				  })
+					.then((resp) => resp.json())
+					.then((res) => {
+					  console.log(res);
+					  sessionStorage.setItem(planetName, planetName);
+					});
+					fetching();
 			},
-			favoritePlanet: async (planetName,id,category) => {
-				
-				sessionStorage.setItem(category+"/"+id, planetName);
-				setStore({ name: planetName });
-				setStore({ id: id });
-				setStore({ category: category });
+			deletePeople: async (id, name) => {
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/favorite-delete/people/" + id, {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+					  
+					}),
+				  })
+					.then((resp) => resp.json())
+					.then((res) => {
+					  console.log(res);
+					  sessionStorage.removeItem(name);
+					});
+					fetching();
 			},
-
+			deletePlanet: async (id, name) => {
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/favorite-delete/planets/" + id, {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+					  
+					}),
+				  })
+					.then((resp) => resp.json())
+					.then((res) => {
+					  console.log(res);
+					  sessionStorage.removeItem(name);
+					});
+					fetching();
+			},
+//https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/favorite-delete/planets/7
 			delete: async (id) => {
 				sessionStorage.removeItem(id);
 				console.log("deleting");

@@ -3,16 +3,32 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import logo from "../../img/logo.png"
 import PropTypes from "prop-types";
-import Favorite from "../views/favorite";
-import ItemFavorite from "./itemFavorite";
-import ItemFavoritePlanets from "./itemFavoritePlanets";
+import FavoritePeople from "./favoritePeople";
+import FavoritePlanets from "./favoritePlanets";
 
 export const Navbar = (props) => {
 	const { store, actions } = useContext(Context);
-	console.log(store.favoritePlanets)
-	console.log(store.favoritePeople)
-	console.log(store.planets)
-	console.log(store.people)
+
+	function favorites () {
+		return (
+			<div>
+				{store.favoritePlanets.map(pl => 							
+		<FavoritePlanets 
+			id={pl.id}
+			user_id={pl.user_id}
+			planet_id={pl.planets_id}
+			/>)}
+	{store.favoritePeople.map(pl => 
+		<FavoritePeople
+			id={pl.id}
+			people_id={pl.people_id}
+			user_id={pl.user_id}
+			/>)}
+			</div>
+		);
+	}
+	
+
 
 
 	return (
@@ -27,26 +43,19 @@ export const Navbar = (props) => {
     Favorites <span className="badge bg-secondary"></span>
   </a>
 
-  <ul className="dropdown-menu " aria-labelledby="dropdownMenuLink">
-				{
-store.favoritePlanets.map(pl => 
-							
-							<ItemFavoritePlanets 
-							id={pl.id}
-							user_id={pl.user_id}
-							planet_id={pl.planets_id}							/>
-						)}{
-
-						store.favoritePeople.map(pl => 
-							
-							<ItemFavorite
-							id={pl.id}
-							people_id={pl.people_id}
-							user_id={pl.user_id}
-							/>
-							
-						)
-					}
+  <ul className="dropdown-menu " aria-labelledby="dropdownMenuLink">				
+  	{store.favoritePlanets.map(pl => 							
+		<FavoritePlanets 
+			id={pl.id}
+			user_id={pl.user_id}
+			planet_id={pl.planets_id}
+			/>)}
+	{store.favoritePeople.map(pl => 
+		<FavoritePeople
+			id={pl.id}
+			people_id={pl.people_id}
+			user_id={pl.user_id}
+			/>)}
   </ul>
 </div>
 			</div>

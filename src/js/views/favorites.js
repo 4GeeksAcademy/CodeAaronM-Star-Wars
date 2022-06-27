@@ -10,8 +10,8 @@ const Favorite = (props) => {
 
     return (
         <div className="">
-                <Link to={`/detailpeople/${props.id}`}>Name{props.id}</Link>
-                <i className="fas fa-heart" onClick={() => actions.favoritePeople(props.characterName, props.uid, "people")}></i>
+                <Link to={`/detailpeople/${props.id}`}>Nameooooo{props.id}</Link>
+                <i className="fas fa-heart" onClick={() => actions.favoritePeople(props.user_id, props.people_id)}></i>
         </div>
     )
 }
@@ -20,7 +20,11 @@ const Favorite = (props) => {
 Favorite.propTypes = {
 
     id: PropTypes.string,
-    a: PropTypes.string,
+    user_id: PropTypes.string,
+    planet_id: PropTypes.string,
+    people_id: PropTypes.string,
+    planetName: PropTypes.string,
+    name: PropTypes.string,
 
   };
 

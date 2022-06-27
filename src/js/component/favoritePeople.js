@@ -2,11 +2,11 @@ import React , {useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Navbar } from "./navbar";
 
-const ItemFavorite= (props) => {
+const FavoritePeople= (props) => {
   const { store, actions } = useContext(Context);
   const[name, setName] = useState([""]);
-	console.log("name is " + name)
   const id = props.people_id 
 
 	function Character(id) {
@@ -27,7 +27,6 @@ const ItemFavorite= (props) => {
 		  })
 		.then((data) => {
 		setName(data.name)
-			//this.setState({ totalReactPackages: data.total })
 		  });
 	  }
 
@@ -39,19 +38,22 @@ const ItemFavorite= (props) => {
   
     return (
         <div className="card m-2">
+				{props.id}
+		
                 <Link to={`/detailpeople/${props.people_id}`}>{name}</Link>
-                {/*<i className="fas fa-heart" onClick={() => actions.favoritePlanet(props.planetName, props.uid,"planets")}></i>*/}
+                <i className="fas fa-trash" onClick={() => actions.deletePeople(props.id,name)}></i>
         </div>
     )
 }
 
-ItemFavorite.propTypes = {
+FavoritePeople.propTypes = {
     user_id: PropTypes.string,
     img: PropTypes.string,
     planet_id: PropTypes.string,
     people_id: PropTypes.string,
     planetName: PropTypes.string,
     name: PropTypes.string,
+	id: PropTypes.string,
   };
 
-export default ItemFavorite
+export default FavoritePeople

@@ -3,8 +3,8 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import CardCharacter from "./cardCharacter";
 import CardPlanets from "../views/cardPlanets";
-import ItemFavorite from "../component/itemFavorite";
-import ItemFavoritePlanets from "../component/itemFavoritePlanets";
+import FavoritePeople from "../component/favoritePeople";
+import FavoritePlanets from "../component/favoritePlanets";
 
 
 export const Home = () => {
@@ -15,7 +15,8 @@ export const Home = () => {
 		return (
 	  
 		  <div className="container flex text-center">
-		  <h1>LOADING PAGE</h1>
+		  <h1>LOADING PAGE </h1>
+		  <p>taking too long? ...more than 5 seconds and it's an error in server</p>
 		  <img className="w-100 p-3" src="https://payload.cargocollective.com/1/4/144792/10818195/vaderlukeREVISE.gif"/>
 		  </div>);
 		
@@ -68,7 +69,7 @@ export const Home = () => {
 					{
 						store.favoritePlanets.map(pl => 
 							
-							<ItemFavoritePlanets 
+							<FavoritePlanets 
 							id={pl.id}
 							user_id={pl.user_id}
 							planet_id={pl.planets_id}							/>
@@ -76,7 +77,7 @@ export const Home = () => {
 
 						store.favoritePeople.map(pl => 
 							
-							<ItemFavorite
+							<FavoritePeople
 							id={pl.id}
 							people_id={pl.people_id}
 							user_id={pl.user_id}
