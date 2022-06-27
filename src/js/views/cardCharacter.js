@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const CardCharacter = (props) => {
     const {  store, actions } = useContext(Context);
     return (
-        <div className="card">
+        <div className="card m-2">
             <img src={props.img} className="card-img-top" alt="" />
             <div className="card-body">
                 <h5 className="card-title"> {props.characterName}</h5>

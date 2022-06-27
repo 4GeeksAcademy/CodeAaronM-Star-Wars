@@ -25,7 +25,7 @@ export const DetailPlanet = () => {
   function Planet(id) {
 
     console.log("loading planet");
-    fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/planets/"+id, {
+    fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/planets/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

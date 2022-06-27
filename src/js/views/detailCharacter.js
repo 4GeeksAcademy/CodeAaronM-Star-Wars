@@ -18,7 +18,7 @@ export const DetailCharacter = () => {
   function Character(id) {
 
     console.log("loading character");
-    fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/people/"+id, {
+    fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/people/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

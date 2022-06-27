@@ -20,6 +20,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			planets: [
 			],
+			favoritePlanets: [
+			],
+			favoritePeople: [
+			],
 			
 		},
 		actions: {
@@ -35,8 +39,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			fetching: () => {
 
-				fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/people/").then(res => res.json()).then(data => setStore({ people: data}))
-				fetch("https://3000-josejesusjj-starwarsend-vc1j3xrbp10.ws-eu47.gitpod.io/planets/").then(res => res.json()).then(data =>  setStore({ planets: data}))
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/people/").then(res => res.json()).then(data => setStore({ people: data}))
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/planets/").then(res => res.json()).then(data =>  setStore({ planets: data}))
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/favorite-planets/1").then(res => res.json()).then(data =>  setStore({ favoritePlanets: data}))
+				fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/favorite-people/1").then(res => res.json()).then(data =>  setStore({ favoritePeople: data}))
+				//3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io
 
 				
 			},

@@ -8,7 +8,7 @@ const CardPlanets = (props) => {
 
   
     return (
-        <div className="card planets">
+        <div className="card m-2">
             <img src={props.img} className="card-img-top" alt="" />
             <div className="card-body">
                 <h5 className="card-title">{props.planetName}</h5>
