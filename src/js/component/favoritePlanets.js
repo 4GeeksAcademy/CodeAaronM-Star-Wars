@@ -34,22 +34,25 @@ const FavoritePlanets= (props) => {
       Planet(id);
       }, []);
 
-
+	  //useEffect(() => {
+	//	actions.getUser();
+	 // }, [store.name]);
+	  //console.log(store.name);
   
     return (
-        <div className="card m-2">
-			{props.id}
-                <Link to={`/detailplanets/${props.planet_id}`}>{name}</Link>
-                <i className="fas fa-trash" onClick={() => actions.deletePlanet(props.id,name)}></i>
+        <div className="m-2 row">
+			<div className="col-7"><Link to={`/detailplanets/${props.planet_id}`}>{name}</Link></div>
+			<div className="col-5 text-end"><i className="fas fa-trash" onClick={() => actions.deletePlanet(props.id,name)}></i>
+</div>
         </div>
     )
 }
 
 FavoritePlanets.propTypes = {
-    user_id: PropTypes.string,
-    planet_id: PropTypes.string,
+    user_id: PropTypes.number,
+    planet_id: PropTypes.number,
     name: PropTypes.string,
-	id: PropTypes.string,
+	id: PropTypes.number,
   };
 
 export default FavoritePlanets

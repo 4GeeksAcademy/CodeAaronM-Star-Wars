@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import CardCharacter from "./cardCharacter";
-import CardPlanets from "../views/cardPlanets";
-import FavoritePeople from "../component/favoritePeople";
-import FavoritePlanets from "../component/favoritePlanets";
+import CardCharacter from "../component/cardCharacter";
+import CardPlanets from "../component/cardPlanets";
+import Favorites from "../component/favorites";
 
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	
 
   function show() {
 	if (store.characters == '' || store.planets =="") { 
@@ -26,19 +26,20 @@ export const Home = () => {
 		<div>
 			<h4>Characters</h4>	
 				<div className="card-group card-group-custom ">
-				{
-						store.people.map(ch => 
+				{store.people.map(item => 
 							<CardCharacter 
-							img=""
-							characterName={ch.name}
-							gender={ch.gender}
-							hair={ch.hair_color}
-							eye={ch.eye_color}
-							id={ch.id}
+							key = {item.id}
+							characterName={item.name}
+							gender={item.gender}
+							hair={item.hair_color}
+							eye={item.eye_color}
+							item_id={item.id}
 							className="card mx-3 p-2"
 							/>
 						)
 					}
+				  						
+					
 
 
 
@@ -47,15 +48,14 @@ export const Home = () => {
 			<h4>Planets</h4>	
 				<div className="card-group">
 					{
-						store.planets.map(pl => 
+						store.planets.map(item => 
 							<CardPlanets 
-							img=""
-							planetName={pl.name}
-							population={pl.population}
-							// population={}
-							terrain={pl.terrain}
-							id={pl.id}
-							gravity = "1"
+							key = {item.id}
+							planetName={item.name}
+							population={item.population}
+							terrain={item.terrain}
+							id={item.id}
+
 							/>
 							
 						)
@@ -63,32 +63,6 @@ export const Home = () => {
 
 					</div>
 				<br/>
-
-			<h4>Favorites</h4>	
-				<div className="card-group">
-					{
-						store.favoritePlanets.map(pl => 
-							
-							<FavoritePlanets 
-							id={pl.id}
-							user_id={pl.user_id}
-							planet_id={pl.planets_id}							/>
-						)}{
-
-						store.favoritePeople.map(pl => 
-							
-							<FavoritePeople
-							id={pl.id}
-							people_id={pl.people_id}
-							user_id={pl.user_id}
-							/>
-							
-						)
-					}
-
-					</div>
-				<br/>
-				
 		</div>	
 
 );

@@ -7,9 +7,17 @@ h4 {
 }
 .fa-heart {
     float: right;
-    border: solid 2px orangered;
+    border: solid 2px blue;
     padding: 5px;
     color: orangered;
+}
+
+.deselect {
+    float: right;
+    border: solid 2px orangered;
+    background-color: orangered;
+    padding: 5px;
+    color: white;
 }
 
 .card-group-custom {
