@@ -18,8 +18,7 @@ const CardCharacter = (props) => {
         
         actions.deleteFavorite(user_id, category, item_id, item_name, api) //aquí necesito pintar el id unico de la relación para buscarla y borrarla (o quizás cambiar el endpoint para buscarla con otro dato?)
         actions.lookFavorite(item_name)
-        
-          setCheck()
+        setCheck()
       }
 
 
@@ -32,14 +31,13 @@ const CardCharacter = (props) => {
                    <p className="card-text">Eye-Color: {props.eye}</p>
                 <Link to={`/detail1/${props.item_id}`} className="btn btn-primary">Learn more</Link>
                 {props.characterName == check  ? 
-                   (    <div>     
-                            <i className="fas fa-heart deselect" onClick={() => handleRemove(1,1,props.item_id, props.characterName, api)}></i>
-                         </div>
-                                ) : (
-                        <div >
-                            <i className="fas fa-heart " onClick={() => handleAdd()}></i>
-                        </div>
-                                )}                     			
+                   (<div>     
+                        <i className="fas fa-heart deselect" onClick={() => handleRemove(1,1,props.item_id, props.characterName, api)}></i>
+                    </div>
+                    ) : (
+                    <div >
+                        <i className="fas fa-heart " onClick={() => handleAdd()}></i>
+                    </div>)}                     			
             </div>
         </div>
     )

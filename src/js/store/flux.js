@@ -2,7 +2,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 
 		//si las llamadas de api no funcionan porque cambió la url, hay que pegar el nuevo url
-		//aquí en la línea 7 y en appContext.js línea 34
+		//aquí en flux línea 7 y en appContext.js línea 34
 	return {
 		store: {
 			api: ["https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/"],
@@ -44,19 +44,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(`${api}people/`).then(res => res.json()).then(data => setStore({ people: data}))
 				fetch(`${api}planets/`).then(res => res.json()).then(data =>  setStore({ planets: data}))
 				fetch(`${api}favorites/1`).then(res => res.json()).then(data =>  setStore({ favorites: data}))
-			},
-
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-				//reset the global store
-				setStore({ demo: demo });
 			},
 
 			favorites: async (user_id, item_id, item_name, category,api ) => {
@@ -101,6 +88,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					  setStore({ favorites: res});
 					  sessionStorage.removeItem(item_name)
 					});
+			},
+
+			changeColor: (index, color) => {
+				//get the store
+				const store = getStore();
+				//we have to loop the entire demo array to look for the respective index
+				//and change its color
+				const demo = store.demo.map((elm, i) => {
+					if (i === index) elm.background = color;
+					return elm;
+				});
+				//reset the global store
+				setStore({ demo: demo });
 			},
 
 		}

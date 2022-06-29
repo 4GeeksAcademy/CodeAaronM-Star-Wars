@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import logo from "../../img/logo.png"
-import PropTypes from "prop-types";
 import Favorites from "./favorites";
 
 export const Navbar = (props) => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">

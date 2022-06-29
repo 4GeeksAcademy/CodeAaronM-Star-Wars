@@ -8,7 +8,8 @@ import luke from "../../img/800x400.png"
 import "../../styles/index.css";
 
 export const DetailPlanet = () => {
-
+  const { store, actions } = useContext(Context);
+  const api = store.api
   const { id } = useParams();
   const[name, setName] = useState([""]);
   const[climate, setClimate] = useState([""]);
@@ -20,12 +21,10 @@ export const DetailPlanet = () => {
   const[surfaceWater, setSurfaceWater] = useState([""]);
   const[terrain, setterrain] = useState([""]);
 
-
-
   function Planet(id) {
 
     console.log("loading planet");
-    fetch("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/planets/"+id, {
+    fetch(`${api}planets/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -74,18 +73,20 @@ export const DetailPlanet = () => {
    <div className="col-md-6">
       <img className="w-100 p-3" src={luke}/>
     </div>
-
     <div className="col-md-6">
       <h5 className="card-title">{name} </h5>
       <p className="card-text">{name} is a planet of Star Wars with {climate} climate and {gravity} gravity</p>
-      
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur porttitor massa, vitae condimentum turpis ornare a. Praesent nec quam at elit semper malesuada. Aliquam ullamcorper orci id orci imperdiet placerat. Curabitur efficitur semper enim, ornare commodo libero sodales eget. Sed ullamcorper diam eros, id egestas enim congue sed. Morbi elementum nisi non dapibus dictum. Integer eget hendrerit dolor, eget pulvinar nisi.</p>
-
-      <p>Aliquam semper nec tortor id finibus. Fusce rhoncus, turpis nec dictum imperdiet, est neque molestie enim, ut auctor nulla lorem a dolor. Aliquam mollis semper mi non congue. Sed laoreet, tellus ut accumsan laoreet, leo lorem molestie elit, non posuere justo massa posuere orci. Morbi tempus enim at porta vulputate. Suspendisse non lacus eu mauris malesuada bibendum ac id nisl. Aenean ullamcorper hendrerit velit, a tempus mauris iaculis non.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur porttitor massa, 
+        vitae condimentum turpis ornare a. Praesent nec quam at elit semper malesuada. Aliquam ullamcorper orci id orci imperdiet placerat. 
+        Curabitur efficitur semper enim, ornare commodo libero sodales eget. Sed ullamcorper diam eros, id egestas enim congue sed. Morbi 
+        elementum nisi non dapibus dictum. Integer eget hendrerit dolor, eget pulvinar nisi.</p>
+      <p>Aliquam semper nec tortor id finibus. Fusce rhoncus, turpis nec dictum imperdiet, est neque molestie enim, ut auctor nulla lorem a 
+        dolor. Aliquam mollis semper mi non congue. Sed laoreet, tellus ut accumsan laoreet, leo lorem molestie elit, non posuere justo massa 
+        posuere orci. Morbi tempus enim at porta vulputate. Suspendisse non lacus eu mauris malesuada bibendum ac id nisl. Aenean ullamcorper 
+        hendrerit velit, a tempus mauris iaculis non.</p>
      </div>           
-
-          <div><hr className="redBar"/></div>
-          <div className="d-flex bd-highlight red">
+<div><hr className="redBar"/></div>
+<div className="d-flex bd-highlight red">
   <div className="p-2 flex-fill bd-highlight">
     <p><strong>Name</strong></p>
     <p>{name}</p>

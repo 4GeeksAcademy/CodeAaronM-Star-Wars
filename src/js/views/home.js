@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from "react";
+import React, { useContext} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import CardCharacter from "../component/cardCharacter";
@@ -12,8 +12,8 @@ export const Home = () => {
 		return (
 	  
 		  <div className="container flex text-center">
-		  <h1>LOADING PAGE </h1>
-		  <p>taking too long? ...more than 5 seconds and it's an error in server</p>
+		  <h1>UPS!</h1>
+		  <p>If you have time to reading this, may the Server it's not with you</p>
 		  <img className="w-100 p-3" src="https://payload.cargocollective.com/1/4/144792/10818195/vaderlukeREVISE.gif"/>
 		  </div>);
 		
@@ -22,44 +22,35 @@ export const Home = () => {
 		return (
 		<div>
 			<h4>Characters</h4>	
-				<div className="card-group card-group-custom ">
-				{store.people.map(item => 
-							<CardCharacter 
-							key = {item.id}
-							characterName={item.name}
-							gender={item.gender}
-							hair={item.hair_color}
-							eye={item.eye_color}
-							item_id={item.id}
-							className="card mx-3 p-2"
-							/>
-						)
-					}
-				  						
-					
-
-
-
-				</div>
-				<br/>
+			<div className="card-group card-group-custom ">
+			{store.people.map(item => 
+				<CardCharacter 
+				key = {item.id}
+				characterName={item.name}
+				gender={item.gender}
+				hair={item.hair_color}
+				eye={item.eye_color}
+				item_id={item.id}
+				className="card mx-3 p-2"
+				/>
+				)
+			}
+			</div>
+			<br/>
 			<h4>Planets</h4>	
-				<div className="card-group">
-					{
-						store.planets.map(item => 
-							<CardPlanets 
-							key = {item.id}
-							planetName={item.name}
-							population={item.population}
-							terrain={item.terrain}
-							item_id={item.id}
-
-							/>
-							
-						)
-					}
-
-					</div>
-				<br/>
+			<div className="card-group">
+			{store.planets.map(item => 
+				<CardPlanets 
+				key = {item.id}
+				planetName={item.name}
+				population={item.population}
+				terrain={item.terrain}
+				item_id={item.id}
+				/>		
+				)
+			}
+			</div>
+			<br/>
 		</div>	
 
 );

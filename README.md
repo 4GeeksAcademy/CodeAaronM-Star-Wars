@@ -1,3 +1,8 @@
+INTRUCCIONES PARA EL PROFE: ya que no lo he subido a heroku y el back está en otro repositorio (no puedo usar backend url)
+he creado links internos para reducir las url del back al mínimo. 
+Al abrir los servicios en el Back, desde el front, para hacer las llamadas de api o si las llamadas de api no funcionan porque cambió la url,
+sólo hay que pegar el nuevo url en el flux.js línea 7 y en appContext.js línea 34
+
 # WebApp boilerplate with React JS
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-hello-webapp.git)
 

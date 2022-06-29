@@ -9,11 +9,10 @@ const Favorites= (props) => {
   const history = useHistory();
   const api = store.api
   const handleRemove = (user_id, category, item_id, item_name, api) => {
-        
     actions.deleteFavorite(user_id, category, item_id, item_name, api)
     history.push("/");
-
   }
+  
     return (
         <div className="m-2 row">
 			    <div className="col-9">
