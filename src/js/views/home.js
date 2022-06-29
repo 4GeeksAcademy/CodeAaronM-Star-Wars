@@ -3,12 +3,9 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import CardCharacter from "../component/cardCharacter";
 import CardPlanets from "../component/cardPlanets";
-import Favorites from "../component/favorites";
-
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	
 
   function show() {
 	if (store.characters == '' || store.planets =="") { 
@@ -54,7 +51,7 @@ export const Home = () => {
 							planetName={item.name}
 							population={item.population}
 							terrain={item.terrain}
-							id={item.id}
+							item_id={item.id}
 
 							/>
 							

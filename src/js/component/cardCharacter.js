@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router-dom";
 
 const CardCharacter = (props) => {
     const {  store, actions } = useContext(Context);
     const [check, setCheck] = useState(sessionStorage.getItem(props.characterName))
-    const checks = store.checks
     const api = store.api
-    console.log(api)
 
     const handleAdd = () => {
         //actions.favorites(1, props.item_id, props.characterName, "People");
@@ -33,10 +30,10 @@ const CardCharacter = (props) => {
                    <p className="card-text">Gender: {props.gender}</p>
                    <p className="card-text">Hair-Color: {props.hair}</p>
                    <p className="card-text">Eye-Color: {props.eye}</p>
-                <Link to={`/detailpeople/${props.item_id}`} className="btn btn-primary">Learn more</Link>
+                <Link to={`/detail1/${props.item_id}`} className="btn btn-primary">Learn more</Link>
                 {props.characterName == check  ? 
                    (    <div>     
-                            <i className="fas fa-heart deselect" onClick={() => handleRemove(1,1,props.item_id, props.item_name, api)}></i>
+                            <i className="fas fa-heart deselect" onClick={() => handleRemove(1,1,props.item_id, props.characterName, api)}></i>
                          </div>
                                 ) : (
                         <div >

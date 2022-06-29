@@ -31,7 +31,7 @@ const injectContext = PassedComponent => {
 			 state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			 state.actions.fetching();
+			 state.actions.fetching("https://3000-josejesusjj-starwarsapi-51xi2ihpydw.ws-eu47.gitpod.io/");
 
 		}, []);
 
