@@ -9,14 +9,12 @@ const CardCharacter = (props) => {
     const api = store.api
 
     const handleAdd = () => {
-        //actions.favorites(1, props.item_id, props.characterName, "People");
         actions.favorites(1, props.item_id, props.characterName, 1, api)
         actions.lookFavorite(props.characterName)
         setCheck(props.characterName)
     }
-    const handleRemove = (user_id, category, item_id, item_name, api) => {
-        
-        actions.deleteFavorite(user_id, category, item_id, item_name, api) //aquí necesito pintar el id unico de la relación para buscarla y borrarla (o quizás cambiar el endpoint para buscarla con otro dato?)
+    const handleRemove = (user_id, category, item_id, item_name, api) => {   
+        actions.deleteFavorite(user_id, category, item_id, item_name, api)
         actions.lookFavorite(item_name)
         setCheck()
       }
