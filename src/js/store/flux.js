@@ -1,6 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			characters:[],
+			planets:[],
+			images:[],
+			favorites:[],
+
 			demo: [
 				{
 					title: "FIRST",
