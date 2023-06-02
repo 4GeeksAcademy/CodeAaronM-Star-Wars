@@ -11,10 +11,10 @@ const Home = () => {
 
 	return (
 		<>
-			<div className="container">
+			<div className="container-fluid">
 				<div className="row mx-5 mt-2 mb-5">
 					<h1 className="text-danger mt-4 ms-3">Characters</h1>
-					<div className="row scroll scrollbar">
+					<div className="row scroll ">
 						{store.characters.map((people) => (
 							<CardSimple key={people.result._id} item={people} type={"characters"} />
 						))}
@@ -23,7 +23,7 @@ const Home = () => {
 			</div>
 			<div className="row mx-5 mt-2 mb-5">
 				<h1 className="text-danger mt-4 ms-3">Planets</h1>
-				<div className="row scroll scrollbar">
+				<div className="row scroll">
 					{store.planets.map((planet) => (
 						<CardSimple key={planet.result._id} item={planet} type={"planets"} />
 					))}
