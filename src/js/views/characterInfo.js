@@ -24,7 +24,7 @@ const CharacterInfo=()=>{
             <div className="col-6 text-center">
         <img src={`https://starwars-visualguide.com/assets/img/characters/${actualPage?.result.uid}.jpg`} alt="..."/>
         </div>
-        <div className="col-6 text-start">
+        <div className="col-6 text-start text-warning">
             <h2>{actualPage?.result.properties.name}</h2>
             <p>{actualPage?.result.description}</p>
             <p>The famous Star Wars saga by director George Lucas. The saga centers on his knowledge of the Force, his fall to the Dark side, and ultimately his redemption and death.</p>

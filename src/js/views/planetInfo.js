@@ -23,7 +23,7 @@ const PlanetInfo = () => {
                 <div className="col-6 text-center">
                     <img src={`https://starwars-visualguide.com/assets/img/planets/${actualPage?.result.uid}.jpg`} />
                 </div>
-                <div className="col-6 text-start">
+                <div className="col-6 text-start text-warning">
                     <h2>{actualPage?.result.properties.name}</h2>
                     <p> {actualPage?.result.description}</p>
                     <p>What is the name of the galaxy in Star Wars?

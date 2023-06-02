@@ -13,7 +13,7 @@ body {
   background-size: 100% 100%;
 }
 
-.button-91 {
+#button-91 {
   margin: 20px;
   color: #fff;
   padding: 15px 25px;
@@ -46,10 +46,29 @@ body {
   border-radius: 10px;
   margin: auto;
   background-color: rgb(53, 46, 46);
-  border-width:thin;
+  border-width: thin;
 }
 
 p {
   color: #fff;
 }
 
+li {
+  display: list-item;
+  text-align: end;
+  justify-content: end;
+  background-color: #a59d30;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 100%;
+  left: auto;
+  margin-top: 0.125rem;
+  background-color: #a59d30;
+
+}
+
+.card,
+.card-img {
+  width: 100%;
+}

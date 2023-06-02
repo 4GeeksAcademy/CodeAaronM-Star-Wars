@@ -31,15 +31,15 @@ const CardSimple = ({ item, type, url }) => {
 					<div className="d-flex justify-content-between">
 						{type == "characters" ? (
 							<>
-								<a href="#" className="btn btn-outline-primary" onClick={() => navigate(`characterInfo/${item.result.uid}`)}>Learn more!</a>
+								<a href="#" className="btn btn-outline-secondary" onClick={() => navigate(`characterInfo/${item.result.uid}`)}>Learn more!</a>
 							</>
 						) : (
 							<>
-								<a href="#" className="btn btn-outline-primary" onClick={() => navigate(`planetInfo/${item.result.uid}`)}>Learn more!</a>
+								<a href="#" className="btn btn-outline-secondary" onClick={() => navigate(`planetInfo/${item.result.uid}`)}>Learn more!</a>
 							</>
 						)}
 
-						<button id="favorite" type="button" className="btn btn-outline-warning" onClick={() => { actions.addFavorites(item.result.properties.name) }}><span className="material-symbols-outlined">
+						<button id="favorite" type="button" className="btn btn-outline-warning" onClick={() => { actions.addFavorites(item.result.properties.name) }}><span>
 							<i class="fa fa-heart"></i>
 						</span></button>
 					</div>
