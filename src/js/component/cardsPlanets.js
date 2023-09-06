@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../store/appContext";
 import "../component/styles/card.css";
 
-const CardsPlanetas = () => {
+const CardsPlanets = () => {
   const [planetas, setPlanetas] = useState([]);
   const { favorites, addToFavorites, removeFromFavorites } =
     useContext(AppContext);
@@ -81,4 +81,4 @@ const CardsPlanetas = () => {
   );
 };
 
-export { CardsPlanetas };
+export { CardsPlanets };

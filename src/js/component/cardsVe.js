@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../store/appContext";
 import "../component/styles/card.css";
 
-const CardsVehiculos = () => {
+const CardsVe = () => {
   const [vehiculos, setVehiculos] = useState([]);
   const { favorites, addToFavorites, removeFromFavorites } =
     useContext(AppContext);
@@ -72,4 +72,4 @@ const getVehiculoId = (url) => {
   return matches ? matches[1] : "";
 };
 
-export { CardsVehiculos };
+export { CardsVe };

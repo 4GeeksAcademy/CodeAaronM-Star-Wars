@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Personajes } from "./views/personajes";
-import { Planeta } from "./views/planet.";
+import { Planeta } from "./views/planeta";
 import { Vehiculos } from "./views/vehiculos";
 import { AppProvider } from "./store/appContext";
 import { Footer } from "./component/footer";

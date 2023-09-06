@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import star from "../component/img/otra.png";
+import otra from "../component/img/otra.png";
 import { AppContext } from "../store/appContext";
 import "../component/styles/navbar.css";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="main-content">
           <nav className="navbar navbar-light bg-back  fixed-top">
             <Link to="/">
-              <img className="logo" src={star} alt="Star"></img>
+              <img className="logo" src={otra} alt="Star"></img>
             </Link>
 
             <div className="">

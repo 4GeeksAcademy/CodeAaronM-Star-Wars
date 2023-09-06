@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Navbar } from "../component/navbar";
 import { AppContext } from "../store/appContext";
 import { CardsPersonajes } from "../component/cardsPersonajes";
-import { CardsPlanetas } from "../component/cardsPlanets";
-import { CardsVehiculos } from "../component/cardsVe"
+import { CardsPlanets } from "../component/cardsPlanets";
+import { CardsVe } from "../component/cardsVe"
 import "../component/styles/home.css";
 
 const Home = () => {
@@ -40,7 +40,7 @@ const Home = () => {
         <div className="row">
           <div className="col-12 card-container d-flex flex-nowrap overflow-auto">
             <div className="">
-              <CardsPlanetas />
+              <CardsPlanets />
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ const Home = () => {
         <div className="row">
           <div className="col-12 card-container d-flex flex-nowrap overflow-auto">
             <div className="">
-              <CardsVehiculos />
+              <CardsVe />
             </div>
           </div>
         </div>
