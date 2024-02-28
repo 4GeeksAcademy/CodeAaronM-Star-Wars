@@ -1,0 +1,52 @@
+.card-group {
+    margin: 20px;
+}
+
+img {
+    width: 400px;
+    height: 200px;
+    background: grey;
+
+}
+
+.card {
+    display: flex;
+    width: 400px;
+    height: 500px;
+}
+
+.card-people {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.boton-learn {
+    width: 200px;
+    height: 50px;
+    color: blue;
+    outline: 1px solid blue;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.boton-learn:hover{
+    color: white;
+    background-color: blue;
+}
+
+.boton-heart {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    color: yellow;
+    border: 2px solid rgb(228, 228, 17); 
+    background-color: transparent;
+}
