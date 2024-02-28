@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg-dark mb-3 d-flex justify-content-between">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1 ms-5"><img style={{width:"80px", height:"50px"}} src="https://cdn.imgbin.com/19/21/17/imgbin-skellig-michael-chewbacca-star-wars-computer-icons-star-wars-1K3isTPsdLiNwqzBDYgVAcqvU.jpg"></img></span>
+				<span className="navbar-brand mb-0 h1"><img style={{width:"80px", height:"50px"}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png"></img></span>
 			</Link>
 			<div className="ml-auto">
 				<Link to="/demo">
-					<button className="btn btn-primary me-5">Favourites</button>
+					<button className="btn btn-primary">Favourites</button>
 				</Link>
 			</div>
 		</nav>
