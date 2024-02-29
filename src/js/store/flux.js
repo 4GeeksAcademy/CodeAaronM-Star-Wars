@@ -7,6 +7,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
 			planets: [],
 			starships: [],
+
+			peopleFeatures: [],
+			planetsFeatures: [],
+			starshipsFeatures: [],
 		},
 		actions: {
 
@@ -16,6 +20,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 						.then(data => setStore({ people: data.results }))
 						.catch(err => console.error(err))
 			},
+
+			getPeopleFeatures: () => {
+				for (let i=0; i<=9; i++){
+				fetch("https://www.swapi.tech/api/people/"+(i+1))
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+					  peopleFeatures: [...getStore().peopleFeatures, data.result]
+					});
+				  })
+				.catch(err => console.log(err))
+				}}, 
+
 			getPlanets: () => {
 
 				fetch("https://www.swapi.tech/api/planets/")
@@ -24,6 +41,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error(err))
 
 			},
+
+			getPlanetsFeatures: () => {
+				for (let i=0; i<=9; i++){
+				fetch("https://www.swapi.tech/api/planets/"+(i+1))
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+					  planetsFeatures: [...getStore().planetsFeatures, data.result]
+					});
+				  })
+				.catch(err => console.log(err))
+				}}, 
+
+
 			getStarships: () => {
 
 				fetch("https://www.swapi.tech/api/starships/")
@@ -31,7 +62,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ starships: data.results }))
 					.catch(err => console.error(err))
 
-			}
+			},
+
+			getStarshipsFeatures: () => {
+				for (let i=0; i<=9; i++){
+				fetch("https://www.swapi.tech/api/starships/"+(i+1))
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+					  starshipsFeatures: [...getStore().starshipsFeatures, data.result]
+					});
+				  })
+				.catch(err => console.log(err))
+				}}, 
 
 
 
@@ -39,8 +82,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 		}
-	}
-};
+	};
 
+};
 
 export default getState;
