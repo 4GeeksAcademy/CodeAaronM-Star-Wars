@@ -1,0 +1,20 @@
+.card-text{
+    text-align: center;
+}
+.card-title{
+    text-align: center;
+}
+
+.red-line{
+    border-top: 1px solid red; 
+}
+
+.mini-container {
+    text-align: center;
+    color: rgb(186, 9, 9); 
+    font-weight: bold;
+}
+
+.mini-container p {
+    font-size: 13px;
+}

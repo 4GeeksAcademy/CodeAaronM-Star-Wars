@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
@@ -46,41 +46,31 @@ const imageStarshipsUrls = [
 
 
 export const Home = () => {
+
+
 	const { store, actions } = useContext(Context);
+
 
 	useEffect(() => {
 		actions.getPeople();
 	}, []);
 	console.log(store.people);
+	
 	useEffect(() => {
 		actions.getPlanets();
 
 	}, []);
 	console.log(store.planets);
 
+	
 	useEffect(() => {
 		actions.getStarships();
 
 	}, []);
 	console.log(store.starships);
 
-	// useEffect(() => {
-	// 	actions.getPeopleFeatures();
 
-	// }, []);
-	// console.log(store.peopleFeatures);
 
-	// useEffect(() => {
-	// 	actions.getPlanetsFeatures();
-
-	// }, []);
-	// console.log(store.planetsFeatures);
-
-	// useEffect(() => {
-	// 	actions.getStarshipsFeatures();
-
-	// }, []);
-	// console.log(store.starshipsFeatures);
 
 	return (
 		<div className="base container-fluid bg-dark">
@@ -92,15 +82,15 @@ export const Home = () => {
 							<img src={imagePeopleUrls[index % imagePeopleUrls.length]} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
 							<div className="card-body">
 								<h5 className="card-title">{item.name}</h5>
-								<p className="card-text">Hair color: {item.uid}</p>
-								<p className="card-text">Eye color: {item.url}</p>
+								<p className="card-text">uid: {item.uid}</p>
+								
 
 							</div>
 							<div className="footer">
-								<Link to="/demo">
-								<button className="boton-learn">Learn More!</button>
+								<Link to={`/people/${item.uid}`}>
+									<button className="boton-learn" >Learn More!</button>
 								</Link>
-								
+
 								<button className="boton-heart">
 									<i className="fas fa-heart" />
 								</button>
@@ -119,12 +109,15 @@ export const Home = () => {
 							<div className="card-body">
 
 								<h5 className="card-title">{item.name}</h5>
-								<p className="card-text">Population: {item.uid}</p>
-								<p className="card-text">Terrain: {item.url}</p>
+								<p className="card-text">uid: {item.uid}</p>
+							
 
 							</div>
 							<div className="footer">
-								<button className="boton-learn">Learn More!</button>
+							<Link to={`/planets/${item.uid}`}>
+									<button className="boton-learn" >Learn More!</button>
+								</Link>
+								
 								<button className="boton-heart">
 									<i className="fas fa-heart" />
 								</button>
@@ -141,13 +134,16 @@ export const Home = () => {
 							<img src={imageStarshipsUrls[index % imageStarshipsUrls.length]} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
 							<div className="card-body">
 								<h5 className="card-title">{item.name}</h5>
-								<p className="card-text">Crew: {item.uid}</p>
-								<p className="card-text">Consumables: {item.url}</p>
+								<p className="card-text">uid: {item.uid}</p>
+								
 
 
 							</div>
 							<div className="footer">
-								<button className="boton-learn">Learn More!</button>
+							<Link to={`/starships/${item.uid}`}>
+									<button className="boton-learn" >Learn More!</button>
+								</Link>
+								
 								<button className="boton-heart">
 									<i className="fas fa-heart" />
 								</button>
