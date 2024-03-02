@@ -18,3 +18,8 @@
 .mini-container p {
     font-size: 13px;
 }
+
+#boton-fav {
+    width: 200px;
+    margin-right: 10px;
+}

@@ -11,8 +11,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			peopleFeatures: {},
 		    planetsFeatures: {},
 			starshipsFeatures: {},
+
+			favourites: [],
 		},
+		
 		actions: {
+
+			addFavourites:(name)=>{
+				setStore({favourites: getStore().favourites.concat(name)})
+				console.log(name);
+			},
+
+			deleteFavourites:(name)=>{
+				setStore({favourites: name})
+			},
+
 
 			getPeople: () => {
 					fetch("https://www.swapi.tech/api/people/")

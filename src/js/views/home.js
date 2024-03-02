@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useSyncExternalStore } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
@@ -69,7 +69,10 @@ export const Home = () => {
 	}, []);
 	console.log(store.starships);
 
-
+// 	function addNewFavourite(){
+// actions.addFavourites(store.people.name)
+// 	}; 
+// console.log(store.favourites);
 
 
 	return (
@@ -91,7 +94,7 @@ export const Home = () => {
 									<button className="boton-learn" >Learn More!</button>
 								</Link>
 
-								<button className="boton-heart">
+								<button className="boton-heart" onClick={()=> actions.addFavourites(item.name)}>
 									<i className="fas fa-heart" />
 								</button>
 							</div>
