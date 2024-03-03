@@ -17,8 +17,8 @@ export const Navbar = () => {
 			<div className="ml-auto">
 
 				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-						Dropdown button
+					<button class="btn btn-primary dropdown-toggle me-5" style={{width:"150px"}} type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						Favorites {store.favourites.map((item, index)=> index)}
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 						{store.favourites.map((item, index) => (<li className="text-primary d-flex justify-content-between" key={index}>{item}<span onClick={() =>
