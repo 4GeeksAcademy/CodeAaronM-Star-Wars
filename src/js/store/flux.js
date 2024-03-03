@@ -13,17 +13,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starshipsFeatures: {},
 
 			favourites: [],
+			counter: 0,
 		},
 		
 		actions: {
 
 			addFavourites:(name)=>{
-				setStore({favourites: getStore().favourites.concat(name)})
+				setStore({favourites: getStore().favourites.concat(name)});
+				getStore().counter++
 				console.log(name);
 			},
 
 			deleteFavourites:(name)=>{
-				setStore({favourites: name})
+				setStore({favourites: name});
+				getStore().counter--
 			},
 
 

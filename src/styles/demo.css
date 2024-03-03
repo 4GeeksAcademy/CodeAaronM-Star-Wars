@@ -3,6 +3,7 @@
 }
 .card-title{
     text-align: center;
+  margin-top: 30px; 
 }
 
 .red-line{
@@ -23,3 +24,43 @@
     width: 200px;
     margin-right: 10px;
 }
+
+#Button1 {
+    font-size: 20px;
+    display: flex; 
+    justify-content: space-between;
+}
+
+#Button1:hover {
+    font-size: 20px;
+    display: flex; 
+    justify-content: space-between;
+    color: red; 
+    background: yellow; 
+}
+
+.dropy{
+    width: 200px;
+    padding-inline: 5px;
+    background-color: cadetblue;
+    color: black; 
+}
+
+.counter{
+    background: grey; 
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    padding: 1px; 
+    
+}
+
+.bean{
+    color: black; 
+}
+
+.bean:hover {
+    color: rgb(225, 15, 15); 
+    cursor: pointer;
+}
+
