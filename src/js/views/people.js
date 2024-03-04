@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
@@ -17,7 +17,7 @@ const imagePeopleUrls = [
 ]
 
 export const People = () => {
-	const {id} = useParams(); 
+	const { id } = useParams();
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
@@ -26,16 +26,16 @@ export const People = () => {
 	}, []);
 	console.log(store.peopleFeatures);
 
-	const storePeople = store.peopleFeatures; 
+	const storePeople = store.peopleFeatures;
 
-	
+
 
 	return (
 		<div className="container">
 			<div className="card mb-3" style={{ width: "1100px" }}>
 				<div className="row g-0">
 					<div className="col-md-4">
-						<img style={{ width: "600px", height: "250px" }} src={imagePeopleUrls[id-1]} className="img-fluid rounded-start" alt="..." />
+						<img style={{ width: "600px", height: "250px" }} src={imagePeopleUrls[id - 1]} className="img-fluid rounded-start" alt="..." />
 					</div>
 					<div className="col-md-8">
 						<div className="card-body">

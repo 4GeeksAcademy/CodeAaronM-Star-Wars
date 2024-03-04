@@ -23,7 +23,9 @@ const Layout = () => {
 		<div className="bg-dark">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+					<div className="fixed-top">
 					<Navbar />
+					</div>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/people/:id" element={<People />} />
