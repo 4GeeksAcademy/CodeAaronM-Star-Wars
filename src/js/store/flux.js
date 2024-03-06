@@ -13,14 +13,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			home: [],
-			search: ""
+
+			allAgendas: [],
+
+			agendasFiltered: [],
+
+			search: "",
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -35,19 +40,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+
 			getAllAgendas: async () => {
 				try{
 					const res = await fetch("https://playground.4geeks.com/apis/fake/contact/agenda")
 					const data = await res.json()
-					setStore({home: data})
+					setStore({allAgendas: data})
 				}catch(error){}
 			},
+
 			toggleChange: ({target})=>{
 				setStore({search: target.value})
 				const store = getStore();
-				const agendas = store.home
-				const filteredAgendas = agendas.filter(agenda => agenda.includes(target.value))
-				setStore({home: filteredAgendas})
+				const agendas = store.allAgendas
+				const filter = agendas.filter(agenda => agenda.includes(target.value))
+				setStore({agendasFiltered: filter})
 			}
 		}
 	};

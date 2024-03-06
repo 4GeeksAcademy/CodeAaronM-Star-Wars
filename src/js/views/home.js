@@ -12,23 +12,26 @@ export const Home = () => {
 		actions.getAllAgendas()
 	},[])
 	
-	const agendaMap = store.home.map((user,index) => <div key={index}>
+	const agendaMap = store.allAgendas.map((user,index) => <div key={index}>
 		<Link>{user}</Link>
 	</div>)
-
-	// const toggleChange = ({target})=>{
-	// 	setSearch(target.value)
-	// 	const agendas = store.home
-	// 	const filteredAgendas = agendas.filter(agenda => agenda.includes(target.value))
-	// 	console.log(filteredAgendas)
-	// }
 
 	return(
 		<div className="text-center">
 			<h1>List of Agendas</h1>
 			<input type="text" placeholder="Write Your Name Here" value={store.search} onChange={(event)=>actions.toggleChange(event)}></input>
 			<div>
-				{agendaMap}
+				{!store.agendasFiltered.length > 0 ? 
+					store.allAgendas.map((user,index) => 
+						<div key={index}>
+							<Link>{user}</Link>
+						</div>) 
+					: 
+					store.agendasFiltered.map((user,index) => 
+						<div key={index}>
+							<Link>{user}</Link>
+						</div>)
+				}
 			</div>
 		</div>
 	)
