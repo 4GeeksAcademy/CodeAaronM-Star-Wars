@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({search: target.value})
 				const store = getStore();
 				const agendas = store.allAgendas
-				const filter = agendas.filter(agenda => agenda.includes(target.value))
+				const filter = agendas.filter(agenda => agenda.toLowerCase().includes(target.value.toLowerCase()))
 				setStore({agendasFiltered: filter})
 			}
 		}
