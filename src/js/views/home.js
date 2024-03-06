@@ -15,22 +15,21 @@ export const Home = () => {
 	
 	const agendaMap = store.allAgendas.map((user,index) => 
 		<div key={index}>
-			<Link className="h-100 d-block">
+			<Link to={"/contactLi/" + index} className="h-100 d-block">
 				<div className="card h-100">
-					<div className="card-body p-2">
+					<div className="card-body">
 						<h5 className="card-title">{user}</h5>
 						<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					</div>
 				</div>
 			</Link>
 		</div>
-		
 	)
 
 	const agendaFiltered = store.agendasFiltered.map((user,index) => 
 		<div key={index} className="flex-grow-1">
-			<Link>
-				<div className="card">
+			<Link to={"/contactLi/" + index} className="h-100 d-block">
+				<div className="card h-100">
 					<div className="card-body">
 						<h5 className="card-title">{user}</h5>
 						<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
