@@ -19,6 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			agendasFiltered: [],
 
 			search: "",
+
+			agendaSlug: ""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction

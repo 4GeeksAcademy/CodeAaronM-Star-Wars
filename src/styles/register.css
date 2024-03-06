@@ -1,0 +1,15 @@
+*{
+    overflow: hidden;
+}
+
+.grow1{
+    flex-grow: 0.8 !important;
+}
+
+.grow2{
+    flex-grow: 0.6 !important;
+}
+
+.grow3{
+    flex-grow: 0.4 !important;
+}
