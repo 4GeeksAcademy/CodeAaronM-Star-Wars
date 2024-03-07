@@ -1,6 +1,6 @@
-*{
+/* *{
     overflow: hidden;
-}
+} */
 
 .grow1{
     flex-grow: 0.8 !important;

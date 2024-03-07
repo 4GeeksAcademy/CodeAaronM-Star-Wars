@@ -20,7 +20,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			search: "",
 
-			agendaSlug: ""
+			agendaSlug: "",
+
+			eachAgenda: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -44,19 +46,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getAllAgendas: async () => {
-				try{
+				try {
 					const res = await fetch("https://playground.4geeks.com/apis/fake/contact/agenda")
 					const data = await res.json()
-					setStore({allAgendas: data})
-				}catch(error){}
+					setStore({ allAgendas: data })
+				} catch (error) { }
 			},
 
-			toggleChange: ({target})=>{
-				setStore({search: target.value})
+			toggleChange: ({ target }) => {
+				setStore({ search: target.value })
 				const store = getStore();
 				const agendas = store.allAgendas
 				const filter = agendas.filter(agenda => agenda.toLowerCase().includes(target.value.toLowerCase()))
-				setStore({agendasFiltered: filter})
+				setStore({ agendasFiltered: filter })
+			},
+
+			getEachAgenda: async (user) => {
+				try {
+					const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/${user}`)
+					const data = await res.json()
+					// console.log(data);
+					setStore({ eachAgenda: data })
+				} catch (error) {
+					console.log(error);
+				}
+
 			}
 		}
 	};
