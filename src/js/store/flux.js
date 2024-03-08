@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) { }
 			},
 
-			toggleChange: ({ target }) => {
+			toggleSearch: ({ target }) => {
 				setStore({ search: target.value })
 				const store = getStore();
 				const agendas = store.allAgendas
@@ -65,13 +65,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/${user}`)
 					const data = await res.json()
-					// console.log(data);
 					setStore({ eachAgenda: data })
 				} catch (error) {
 					console.log(error);
 				}
 
-			}
+			},
+
+			toggleChange: ({ target }) => {
+				setStore({ [target.name]: target.value })
+			},
+
+			createAgenda: async () => {
+				const store = getStore();
+
+				const exampleUser = {
+					"full_name": "Cristiano Rondaldo",
+					"email": "elbicho@gmail.com",
+					"agenda_slug": `${store.agendaSlug}`,
+					"address": "47568 SIUUUU, FUNCHAL, PORTUGAL",
+					"phone": "0500 - SIU - 00"
+				}
+
+				const res = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(exampleUser)
+				})
+			},
 		}
 	};
 };

@@ -28,7 +28,7 @@ export const Home = () => {
 
 	const agendaFiltered = store.agendasFiltered.map((user, index) =>
 		<div key={index} className="flex-grow-1">
-			<Link to={"/contactLi/" + index} className="h-100 d-block">
+			<Link to={"/contactLi/" + user} className="h-100 d-block">
 				<div className="card h-100">
 					<div className="card-body">
 						<h5 className="card-title">{user}</h5>
@@ -42,7 +42,7 @@ export const Home = () => {
 	return (
 		<div className="text-center">
 			<h1>List of Agendas</h1>
-			<input type="text" placeholder="Write Your Name Here" value={store.search} onChange={(event) => actions.toggleChange(event)}></input>
+			<input type="text" placeholder="Write Your Name Here" name="search" value={store.search} onChange={(event) => actions.toggleSearch(event)}></input>
 			<div className="wrapper">
 				{!store.agendasFiltered.length > 0 ? agendaMap : agendaFiltered}
 			</div>
