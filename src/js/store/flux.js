@@ -23,6 +23,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			agendaSlug: "",
 
 			eachAgenda: [],
+
+			editedUser: {},
+
+			// showEditModal: false
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -97,6 +101,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				getActions().getEachAgenda(store.agendaSlug)
 			},
+
+			deleteContact: async (userId, slug) => {
+				const store = getStore();
+
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${userId}`, {
+					method: "DELETE",
+				})
+				const data = await res.json()
+				getActions().getEachAgenda(slug);
+			},
+
+			getContactInfo: async (userId) => {
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${userId}`)
+				const user = await res.json()
+				const store = getStore()
+				store.editedUser.name = user.full_name
+				store.editedUser.address = user.address
+				store.editedUser.phone = user.phone
+				store.editedUser.email = user.email
+				console.log(store.editedUser)
+				// setStore({ showEditModal: true })
+			}
 		}
 	};
 };
