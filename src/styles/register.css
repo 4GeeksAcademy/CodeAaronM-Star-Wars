@@ -5,13 +5,29 @@
 .register-wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50.8rem;
-    background: #fce3f6
+    grid-template-rows: 55.3rem;
 }
 
 
 .bg-img{
     background-image: url("https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1688,w_3000,x_0,y_0/dpr_1.5/c_limit,w_1044/fl_lossy,q_auto/v1659384025/220801-Ossola-Gossip-tease_eqab4c");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-position-x: -230px;
+}
+
+.landr{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left{
+    border-top: 1px solid #e2e8f0;
+    flex-grow: 1;
+}
+
+.circle{
+    height: 10px;
+    width:10px;
+    border-radius:50%
 }
