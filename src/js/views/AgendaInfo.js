@@ -10,7 +10,7 @@ export const AgendaInfo = () => {
 	const { user } = useParams();
 
 	const { store, actions } = useContext(Context);
-	console.log(store.eachAgenda);
+	// console.log(store.eachAgenda);
 
 	useEffect(() => {
 		actions.getEachAgenda(user)
@@ -28,8 +28,8 @@ export const AgendaInfo = () => {
 								<p>{agds.address}</p>
 								<p>{agds.phone}</p>
 								<p>{agds.email}</p>
-								<button onClick={() => alert('trabajaremos en esto luego xD')} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="trash-outline"></ion-icon></button>
 								<button onClick={() => alert('también en esto ok')} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="pencil-outline"></ion-icon></button>
+								<button onClick={() => deleteContact({agds})} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="trash-outline"></ion-icon></button>
 							</div>
 						)
 					})

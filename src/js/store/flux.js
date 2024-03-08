@@ -95,6 +95,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: JSON.stringify(exampleUser)
 				})
 			},
+
+			deleteContact: ({agds}) => {
+				const store = getStore();
+				
+
+
+				const res = fetch(`https://playground.4geeks.com/apis/fake/contact/{agds}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(exampleUser)
+				})
+			}
 		}
 	};
 };
