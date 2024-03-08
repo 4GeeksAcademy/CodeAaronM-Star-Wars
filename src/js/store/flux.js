@@ -98,18 +98,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getEachAgenda(store.agendaSlug)
 			},
 
-			deleteContact: ({agds}) => {
+			deleteContact: async (userId, slug) => {
 				const store = getStore();
-				
 
-
-				const res = fetch(`https://playground.4geeks.com/apis/fake/contact/{agds}`, {
-					method: "PUT",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify(exampleUser)
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${userId}`, {
+					method: "DELETE",
 				})
+				const data = await res.json()
+				getActions().getEachAgenda(slug);
+			},
+			editContact: async (userId, slug) => {
+				const store = getStore();
+
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${userId}`)
 			}
 		}
 	};

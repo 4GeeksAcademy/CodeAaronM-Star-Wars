@@ -28,8 +28,8 @@ export const AgendaInfo = () => {
 								<p>{agds.address}</p>
 								<p>{agds.phone}</p>
 								<p>{agds.email}</p>
-								<button onClick={() => alert('también en esto ok')} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="pencil-outline"></ion-icon></button>
-								<button onClick={() => deleteContact({agds})} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="trash-outline"></ion-icon></button>
+								<button onClick={() => actions.editContact(agds.id, agds.agenda_slug)} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="pencil-outline"></ion-icon></button>
+								<button onClick={() => actions.deleteContact(agds.id, agds.agenda_slug)} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="trash-outline"></ion-icon></button>
 							</div>
 						)
 					})
