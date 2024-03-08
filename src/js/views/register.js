@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 import "../../styles/register.css";
 import logo from "../../img/logo.png"
 
-export const Register = () => {
+const Register = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -33,3 +33,5 @@ export const Register = () => {
 		</div>
 	);
 };
+
+export default Register

@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
-export const Register = () => {
+const AgendaInfo = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -41,3 +41,5 @@ export const Register = () => {
 		</div>
 	);
 };
+
+export default AgendaInfo
