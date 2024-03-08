@@ -19,11 +19,11 @@ export const AgendaInfo = () => {
 
 	return (
 		<>
-			<div className="container">
+			<div className="container mt-5">
 				{
 					store.eachAgenda.map((agds) => {
 						return (
-							<div key={agds.id} className="list-group-item d-flex justify-content-between" style={{ padding: '2rem' }}>
+							<div key={agds.id} className="list-group-item d-flex justify-content-between align-items-center" style={{ padding: '2rem' }}>
 								<h1>{agds.full_name}</h1>
 								<p>{agds.address}</p>
 								<p>{agds.phone}</p>
@@ -35,7 +35,7 @@ export const AgendaInfo = () => {
 					})
 				}
 				<Link to="/">
-					<button className="btn btn-primary">Back home</button>
+					<button className="btn btn-danger mt-3">Back To Gossip</button>
 				</Link>
 			</div>
 		</>

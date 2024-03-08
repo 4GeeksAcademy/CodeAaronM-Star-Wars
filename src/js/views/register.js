@@ -17,7 +17,7 @@ const Register = () => {
 					<Link to="/" className="btn btn-danger">Back To Home</Link>
 					<div className="landr">
 						<div className="left"></div>
-						<div className="circle" style={{ margin: "5px", color: "#b1b6bd" }}>o</div>
+						<div className="circle" style={{ margin: "5px", border: "1px solid #b1b6bd", borderRadius: "100%" }}></div>
 						<div className="right" style={{ borderTop: "1px solid #e2e8f0", flexGrow: "1" }}></div>
 					</div>
 					<h2 className="mb-2">Register a New Agenda!</h2>

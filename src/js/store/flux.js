@@ -94,6 +94,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					body: JSON.stringify(exampleUser)
 				})
+
+				getActions().getEachAgenda(store.agendaSlug)
 			},
 
 			deleteContact: ({agds}) => {
