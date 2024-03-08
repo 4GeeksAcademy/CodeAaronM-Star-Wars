@@ -3,6 +3,9 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 55.3rem;
 }
+/* *{
+    overflow: hidden;
+} */
 
 
 .bg-img{

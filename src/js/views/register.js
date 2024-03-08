@@ -12,13 +12,13 @@ const Register = () => {
 	return (
 		<div className="register-wrapper">
 			<div className="d-flex justify-content-center align-items-center">
-				<div className="d-flex flex-column bg-white rounded-2 p-3 mx-2 gap-2" style={{width:"50%"}} >
+				<div className="d-flex flex-column bg-white rounded-2 p-3 mx-2 gap-2" style={{ width: "50%" }} >
 					<img className="logo" src={logo}></img>
-					<Link to="/"className="btn btn-danger">Back To Home</Link>
+					<Link to="/" className="btn btn-danger">Back To Home</Link>
 					<div className="landr">
 						<div className="left"></div>
-						<div classname="circle" style={{margin: "5px", color:"#b1b6bd"}}>o</div>
-						<div classname="right" style={{borderTop: "1px solid #e2e8f0", flexGrow: "1"}}></div>
+						<div className="circle" style={{ margin: "5px", color: "#b1b6bd" }}>o</div>
+						<div className="right" style={{ borderTop: "1px solid #e2e8f0", flexGrow: "1" }}></div>
 					</div>
 					<h2 className="mb-2">Register a New Agenda!</h2>
 					<label className="" htmlFor="userName">Insert Agenda's Name</label>

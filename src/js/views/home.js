@@ -9,13 +9,13 @@ import "../../styles/global.css";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
-	useEffect(()=>{
+	useEffect(() => {
 		actions.getAllAgendas()
-	},[])
-	
-	const agendaMap = store.allAgendas.map((user,index) => 
+	}, [])
+
+	const agendaMap = store.allAgendas.map((user, index) =>
 		<div key={index}>
-			<Link to={"/contactLi/" + index} className="h-100 d-block">
+			<Link to={"/contactLi/" + user} className="h-100 d-block">
 				<div className="card h-100">
 					<div className="card-body">
 						<h5 className="card-title">{user}</h5>
@@ -26,7 +26,7 @@ export const Home = () => {
 		</div>
 	)
 
-	const agendaFiltered = store.agendasFiltered.map((user,index) => 
+	const agendaFiltered = store.agendasFiltered.map((user, index) =>
 		<div key={index} className="flex-grow-1">
 			<Link to={"/contactLi/" + index} className="h-100 d-block">
 				<div className="card h-100">
@@ -39,10 +39,10 @@ export const Home = () => {
 		</div>
 	)
 
-	return(
+	return (
 		<div className="text-center">
 			<h1>List of Agendas</h1>
-			<input type="text" placeholder="Write Your Name Here" value={store.search} onChange={(event)=>actions.toggleChange(event)}></input>
+			<input type="text" placeholder="Write Your Name Here" value={store.search} onChange={(event) => actions.toggleChange(event)}></input>
 			<div className="wrapper">
 				{!store.agendasFiltered.length > 0 ? agendaMap : agendaFiltered}
 			</div>
