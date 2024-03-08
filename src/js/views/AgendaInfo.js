@@ -10,7 +10,8 @@ export const AgendaInfo = () => {
 	const { user } = useParams();
 
 	const { store, actions } = useContext(Context);
-	console.log(store.eachAgenda);
+
+	const [editContact, setEditContact] = useState(false)
 
 	useEffect(() => {
 		actions.getEachAgenda(user)
@@ -37,6 +38,12 @@ export const AgendaInfo = () => {
 				<Link to="/">
 					<button className="btn btn-danger mt-3">Back To Gossip</button>
 				</Link>
+				<div className={editContact ? "block" : "none"}>
+					<input></input>
+					<input></input>
+					<input></input>
+					<input></input>
+				</div>
 			</div>
 		</>
 	);
