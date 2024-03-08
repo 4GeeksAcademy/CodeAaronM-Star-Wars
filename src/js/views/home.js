@@ -13,36 +13,41 @@ export const Home = () => {
 		actions.getAllAgendas()
 	}, [])
 
+	const phrases = [
+		"Looks like this one is hiding something interesting, you should take a look jiji 😳",
+		"I wonder how many contacts this agenda may have... Don't you want to see?!?!🫠",
+		"Wao TOP agenda to Gossip, there should be a contact in there that can help you with something 🤐",
+		"Look i know you will not believe me, but trust me, you want to gossip this agenda, TRUST ME 😉"
+	]
+
 	const agendaMap = store.allAgendas.map((user, index) =>
-		<div key={index}>
-			<Link to={"/contactLi/" + user} className="h-100 d-block">
-				<div className="card h-100">
-					<div className="card-body">
-						<h5 className="card-title">{user}</h5>
-						<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					</div>
+		<div key={index} className="userCard">
+			<Link to={"/contactLi/" + user} className="card h-100 d-block text-decoration-none link">
+				<div className="card-body">
+					<h3 className="card-title">{user}</h3>
+					<p className="card-text">{phrases[Math.floor(Math.random() * phrases.length)]}</p>
 				</div>
+				<p className="eyes">👀</p>
 			</Link>
 		</div>
 	)
 
 	const agendaFiltered = store.agendasFiltered.map((user, index) =>
-		<div key={index} className="flex-grow-1">
-			<Link to={"/contactLi/" + user} className="h-100 d-block">
-				<div className="card h-100">
-					<div className="card-body">
-						<h5 className="card-title">{user}</h5>
-						<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					</div>
+		<div key={index} className="userCard">
+			<Link to={"/contactLi/" + user} className="h-100 d-block text-decoration-none link">
+				<div className="card-body">
+					<h3 className="card-title">{user}</h3>
+					<p className="card-text">{phrases[Math.floor(Math.random() * phrases.length)]}</p>
 				</div>
+				<p className="eyes">👀</p>
 			</Link>
 		</div>
 	)
 
 	return (
 		<div className="text-center">
-			<h1>List of Agendas</h1>
-			<input type="text" placeholder="Write Your Name Here" name="search" value={store.search} onChange={(event) => actions.toggleSearch(event)}></input>
+			<h1 className="mt-3">Go<span style={{ color: "#f80753" }}>ss</span>ip Agendas</h1>
+			<input className="input" type="text" placeholder="Write Your Agenda Name Here" name="search" value={store.search} onChange={(event) => actions.toggleSearch(event)}></input>
 			<div className="wrapper">
 				{!store.agendasFiltered.length > 0 ? agendaMap : agendaFiltered}
 			</div>
