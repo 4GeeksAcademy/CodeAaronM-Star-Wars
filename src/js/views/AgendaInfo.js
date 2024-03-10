@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 
 
-
 export const AgendaInfo = () => {
 
 	const { user } = useParams();
@@ -43,15 +42,15 @@ export const AgendaInfo = () => {
 								<h5 className="modal-title" id="exampleModalLabel">{`Edit ${store.editedUser.name} Info`}</h5>
 								<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
-							<div className="modal-body">
-								<input defaultValue={store.editedUser.name}></input>
-								<input defaultValue={store.editedUser.email}></input>
-								<input defaultValue={store.editedUser.address}></input>
-								<input defaultValue={store.editedUser.phone}></input>
+							<div className="modal-body d-flex flex-column">
+								<input placeholder="Name" defaultValue={store.editedUser.name}></input>
+								<input placeholder="Email" defaultValue={store.editedUser.email}></input>
+								<input placeholder="Address" defaultValue={store.editedUser.address}></input>
+								<input placeholder="Phone number" defaultValue={store.editedUser.phone}></input>
 							</div>
 							<div className="modal-footer">
 								<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button type="button" className="btn btn-primary">Save changes</button>
+								<button onClick={() => actions.updateContactInfo() } type="button" className="btn btn-primary">Save changes</button>
 							</div>
 						</div>
 					</div>
