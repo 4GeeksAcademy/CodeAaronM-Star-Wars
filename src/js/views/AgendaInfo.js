@@ -17,9 +17,12 @@ export const AgendaInfo = () => {
 
 	return (
 		<>
-			<Link to="/">
-				<button className="btn btn-danger mt-3">Back To Gossip</button>
-			</Link>
+			<div className="container">
+				<button className="btn btn-danger mt-3 me-2">Add Contact</button>
+				<Link to="/">
+					<button className="btn btn-danger mt-3">Back To Gossip</button>
+				</Link>
+			</div>
 			<div className="container mt-5">
 				{
 					store.eachContact.map((agds) => {
