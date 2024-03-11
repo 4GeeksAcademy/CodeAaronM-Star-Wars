@@ -18,9 +18,11 @@ export const AgendaInfo = () => {
 	return (
 		<>
 			<div className="container">
-				<button className="btn btn-danger mt-3 me-2">Add Contact</button>
 				<Link to="/">
 					<button className="btn btn-danger mt-3">Back To Gossip</button>
+				</Link>
+				<Link to="/newcontact">
+					<button className="btn btn-primary ms-2 mt-3">Add new contact</button>
 				</Link>
 			</div>
 
@@ -54,17 +56,11 @@ export const AgendaInfo = () => {
 							</div>
 							<div className="modal-footer">
 								<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button onClick={() => actions.updateContactInfo()} type="button" className="btn btn-primary">Save changes</button>
+								<button onClick={() => actions.updateContactInfo()} data-bs-dismiss="modal" type="button" className="btn btn-primary">Save changes</button>
 							</div>
 						</div>
 					</div>
 				</div>
-				<Link to="/">
-					<button className="btn btn-danger mt-3">Back To Gossip</button>
-				</Link>
-				<Link to="/newcontact">
-					<button className="btn btn-primary ms-2 mt-3">Add new contact</button>
-				</Link>
 			</div >
 
 		</>
