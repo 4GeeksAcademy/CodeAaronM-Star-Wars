@@ -1,19 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
-
 			allAgendas: [],
 
 			agendasFiltered: [],
@@ -22,9 +9,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			agendaSlug: "",
 
-			eachAgenda: [],
+			eachContact: [],
 
-			editedUser: {},
+			currentUserData: {
+				address: "",
+				agenda_slug: "",
+				email: "",
+				full_name: "",
+				id: "",
+				phone: ""
+			},
 
 		},
 		actions: {
@@ -64,11 +58,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ agendasFiltered: filter })
 			},
 
-			getEachAgenda: async (user) => {
+			getEachContact: async (user) => {
 				try {
 					const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/${user}`)
 					const data = await res.json()
-					setStore({ eachAgenda: data })
+					setStore({ eachContact: data })
 				} catch (error) {
 					console.log(error);
 				}
@@ -111,12 +105,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getEachAgenda(slug);
 			},
 
-			updateContactInfo: async (userId) => {
-				console.log(userId);
+			getContactInfo: async (userId) => {
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${userId}`)
+				const contactData = await res.json()
+				setStore({ currentUserData: contactData })
+				console.log(userId)
+				const store = getStore()
+				console.log(store.currentUserData)
 			},
 
+			changeContactInfo: ({ target }) => {
+				const store = getStore()
+				setStore({ currentUserData: { ...store.currentUserData, [target.name]: target.value } })
+				console.log(store.currentUserData)
+			},
 
+			updateContactInfo: async () => {
+				const store = getStore()
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${store.currentUserData.id}`, {
+					method: "PUT",
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(store.currentUserData)
+				})
+				const data = await res.json()
 
+				getActions().getEachContact(store.currentUserData.agenda_slug)
+			}
 		}
 	};
 };
