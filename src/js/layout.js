@@ -11,6 +11,7 @@ import { Footer } from "./component/footer";
 
 import { AgendaInfo } from "./views/AgendaInfo"
 import Register from "./views/register";
+import { NewContact } from "./views/NewContact";
 
 //create your first component
 const Layout = () => {
@@ -28,6 +29,7 @@ const Layout = () => {
 						<Route path="/register" element={<Register />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="/contactLi/:user" element={<AgendaInfo />} />
+						<Route path="/newcontact" element={<NewContact />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

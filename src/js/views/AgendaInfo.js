@@ -17,9 +17,7 @@ export const AgendaInfo = () => {
 
 	return (
 		<>
-			<Link to="/">
-				<button className="btn btn-danger mt-3">Back To Gossip</button>
-			</Link>
+
 			<div className="container mt-5">
 				{
 					store.eachContact.map((agds) => {
@@ -55,7 +53,14 @@ export const AgendaInfo = () => {
 						</div>
 					</div>
 				</div>
+				<Link to="/">
+					<button className="btn btn-danger mt-3">Back To Gossip</button>
+				</Link>
+				<Link to="/newcontact">
+					<button className="btn btn-primary ms-2 mt-3">Add new contact</button>
+				</Link>
 			</div >
+
 		</>
 	);
 };
