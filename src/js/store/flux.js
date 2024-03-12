@@ -77,7 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 
 				const exampleUser = {
-					"full_name": "Cristiano Rondaldo",
+					"full_name": "Cristiano Ronaldo",
 					"email": "elbicho@gmail.com",
 					"agenda_slug": `${store.agendaSlug}`,
 					"address": "47568 SIUUUU, FUNCHAL, PORTUGAL",
@@ -134,9 +134,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getEachContact(store.currentUserData.agenda_slug)
 			},
 
-			addContact: () => {
 
-			},
 		}
 	};
 };
