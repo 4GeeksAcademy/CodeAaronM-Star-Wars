@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
 
@@ -6,6 +6,7 @@ import "../../styles/global.css";
 
 export const NewContact = () => {
 
+    const { store, actions } = useContext(Context);
     const { user } = useParams();
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
@@ -13,12 +14,14 @@ export const NewContact = () => {
     const [address, setAddress] = useState('');
 
     const addContact = () => {
-        const newContact = {
+
+        actions.addContact({
             fullName,
             email,
             phone,
-            address
-        };
+            address,
+            agenda_slug: user,
+        })
 
         setFullName('');
         setEmail('');
@@ -40,7 +43,7 @@ export const NewContact = () => {
                     <input style={{ width: '20rem' }} className="form-control mb-4" type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)}></input>
                 </div>
 
-                <button onClick={() => addContact()} className='btn btn-primary mb-2'>Save</button>
+                <Link to={"/contactLi/" + user} onClick={() => addContact()} className='btn btn-primary mb-2'>Save</Link>
                 <Link to={"/contactLi/" + user} className=" h-100 d-block text-decoration-none">Go back to contacts</Link>
             </div >
         </>

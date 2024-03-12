@@ -134,6 +134,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getEachContact(store.currentUserData.agenda_slug)
 			},
 
+			addContact: async (user) => {
+				const newContact = {
+					full_name: user.fullName,
+					email: user.email,
+					phone: user.phone,
+					address: user.address,
+					agenda_slug: user.agenda_slug,
+				};
+				const res = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(newContact)
+				})
+				getActions().getEachContact(user.agenda_slug)
+			}
+
 
 		}
 	};
