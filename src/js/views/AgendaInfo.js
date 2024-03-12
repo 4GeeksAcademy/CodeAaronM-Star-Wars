@@ -21,9 +21,10 @@ export const AgendaInfo = () => {
 				<Link to="/">
 					<button className="btn btn-danger mt-3">Back To Gossip</button>
 				</Link>
-				<Link to="/newcontact">
+				{/* <Link to="/newcontact">
 					<button className="btn btn-primary ms-2 mt-3">Add new contact</button>
-				</Link>
+				</Link> */}
+				<Link to={"/newcontact/" + user} className="btn btn-primary ms-2 mt-3">Add new contact</Link>
 			</div>
 
 			<div className="container mt-5">

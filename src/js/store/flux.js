@@ -92,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: JSON.stringify(exampleUser)
 				})
 
-				getActions().getEachAgenda(store.agendaSlug)
+				getActions().getEachContact(store.agendaSlug)
 			},
 
 			deleteContact: async (userId, slug) => {
@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "DELETE",
 				})
 				const data = await res.json()
-				getActions().getEachAgenda(slug);
+				getActions().getEachContact(slug);
 			},
 
 			getContactInfo: async (userId) => {
@@ -132,7 +132,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await res.json()
 
 				getActions().getEachContact(store.currentUserData.agenda_slug)
-			}
+			},
+
+			addContact: () => {
+
+			},
 		}
 	};
 };
