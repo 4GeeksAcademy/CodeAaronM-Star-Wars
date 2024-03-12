@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+//import image
 import profPic from "../../img/icon-256x256.png";
 
 //importing icons
@@ -13,11 +14,26 @@ import { FaTrash } from "react-icons/fa";
 export const Single = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const [singleContact, setSingleContact] = useState({});
+  const navigate = useNavigate();
 
   // traer los datos del id en el que se hace click en caso de que no sea undefined
+  const getIndividualContact = () => {
+    if (params) {
+      fetch(`https://playground.4geeks.com/apis/fake/contact/${params.theid}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setSingleContact(data);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      console.log("Invalid ID provided", params.theid);
+    }
+  };
   useEffect(() => {
-    actions.getIndividualContact(params.id);
-  }, [params.id]);
+    getIndividualContact();
+  }, []);
 
   return (
     <div>
@@ -32,32 +48,81 @@ export const Single = (props) => {
           </div>
           <div className="col-md-7">
             <div className="card-body">
-              <h5 className="card-title">
-                {store.individualContact[params.id].full_name}
-              </h5>
+              <h5 className="card-title">{singleContact.full_name}</h5>
               <p className="card-text">
                 <IoLocationSharp />
-                {store.individualContact[params.id].address}
+                {singleContact.address}
               </p>
               <p className="card-text">
                 <FaPhoneFlip />
-                {store.individualContact[params.id].phone}
+                {singleContact.phone}
               </p>
               <p className="card-text">
                 <FaEnvelope />
-                {store.individualContact[params.id].email}
+                {singleContact.email}
               </p>
             </div>
           </div>
           <div className="col-md-2 d-flex align-items-center justify-content-around">
-            <Link to="/editContact">
-              <button className="btn">
-                <FaPencilAlt />
-              </button>
-            </Link>
-            <button className="btn">
+            <button
+              className="btn"
+              onClick={() => navigate(`/editContact/${params.theid}`)}
+            >
+              <FaPencilAlt />
+            </button>
+
+            <button
+              type="button"
+              className="btn"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
               <FaTrash />
             </button>
+
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">
+                      Do you want to delete the contact?
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                      onClick={() => {
+                        navigate(`/demo`);
+                        actions.deleteContact(singleContact.id);
+                      }}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      data-bs-dismiss="modal"
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

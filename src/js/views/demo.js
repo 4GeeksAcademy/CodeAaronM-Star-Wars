@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
+import profPic from "../../img/icon-256x256.png";
 
 export const Demo = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    actions.getContatcsList();
+  }, []);
 
   return (
     <div className="container">
@@ -18,13 +23,13 @@ export const Demo = () => {
               className="list-group-item d-flex justify-content-between m-2"
               onClick={() => navigate(`/single/${contact.id}`)}
             >
-              <img src={contact.image} />
-              <span>
+              <img src={profPic} className="w-25" />
+              <p>
                 <strong>{contact.full_name}</strong>
-              </span>
-              <span>
+              </p>
+              <p>
                 <i>{contact.email}</i>
-              </span>
+              </p>
             </section>
           );
         })}

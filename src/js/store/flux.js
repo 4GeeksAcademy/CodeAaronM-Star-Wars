@@ -28,20 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => console.log(error));
       },
       /// get the contact data that the user clicked on
-      getIndividualContact: (id) => {
-        const store = getStore();
-        if (id) {
-          fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`)
-            .then((response) => response.json())
-            .then((data) => {
-              console.log(data);
-              setStore({ individualContact: data });
-            })
-            .catch((error) => console.log(error));
-        } else {
-          console.log("Invalid ID provided", id);
-        }
-      },
+
       /**
        *TODO Get the value of the new Contact fields from inputs
        */
@@ -59,42 +46,44 @@ const getState = ({ getStore, getActions, setStore }) => {
        *TODO Update the contact in the API
        */
 
-      handleSubmit: (e) => {
-        e.preventDefault();
-        const store = getStore();
-
-        if (store.individualContact) {
-          fetch("https://playground.4geeks.com/apis/fake/contact/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(store.individualContact),
+      handleSubmit: (contact) => {
+        fetch("https://playground.4geeks.com/apis/fake/contact/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(contact),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
           })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Network response was not ok");
-              }
-              return response.json();
-            })
-            .then((data) => console.log(data))
-            .catch((error) => console.error("Error:", error));
+          .then((data) => console.log(data))
+          .catch((error) => console.error("Error:", error));
+      },
 
-          setStore({
-            individualContact: {
-              full_name: "",
-              email: "",
-              agenda_slug: "jose_agenda",
-              address: "",
-              phone: "",
-            },
-          });
-        }
+      // Modify an existing user
+      handleSubmitModify: (contact) => {
+        fetch(`https://playground.4geeks.com/apis/fake/contact/${contact.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(contact),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => console.log(data))
+          .catch((error) => console.error("Error:", error));
       },
 
       /**
        *TODO Delete contact in the API
        */
-      deleteContact: (id) => {
-        fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+      deleteContact: (theid) => {
+        fetch(`https://playground.4geeks.com/apis/fake/contact/${theid}`, {
           method: "DELETE",
         })
           .then((response) => response.json())
