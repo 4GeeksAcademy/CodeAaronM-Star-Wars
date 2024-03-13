@@ -77,7 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 
 				const exampleUser = {
-					"full_name": "Cristiano Rondaldo",
+					"full_name": "Cristiano Ronaldo",
 					"email": "elbicho@gmail.com",
 					"agenda_slug": `${store.agendaSlug}`,
 					"address": "47568 SIUUUU, FUNCHAL, PORTUGAL",
@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "DELETE",
 				})
 				const data = await res.json()
-				getActions().getEachAgenda(slug);
+				getActions().getEachContact(slug);
 			},
 
 			getContactInfo: async (userId) => {
@@ -132,7 +132,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await res.json()
 
 				getActions().getEachContact(store.currentUserData.agenda_slug)
+			},
+
+			addContact: async (user) => {
+				const newContact = {
+					full_name: user.fullName,
+					email: user.email,
+					phone: user.phone,
+					address: user.address,
+					agenda_slug: user.agenda_slug,
+				};
+				const res = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(newContact)
+				})
+				getActions().getEachContact(user.agenda_slug)
 			}
+
+
 		}
 	};
 };
