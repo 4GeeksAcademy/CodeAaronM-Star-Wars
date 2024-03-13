@@ -40,21 +40,21 @@ export const AgendaInfo = () => {
 
 			<div className="container mt-3">
 				{
-					store.eachContact.map((agds) => {
+					store.eachContact.map((contact) => {
 						return (
-							<div key={agds.id} className="border contact-wrapper mb-4" style={{ padding: '2rem', }}>
-								<div className="avatar" style={{ backgroundColor: getRandomColor() }}>{agds.full_name !== "" ? <span className="avatar-letters">{getInitials(agds.full_name)}</span> : <IoPersonSharp className="svg" />}</div>
+							<div key={contact.id} className="border contact-wrapper mb-4" style={{ padding: '2rem', }}>
+								<div className="avatar" style={{ backgroundColor: getRandomColor() }}>{contact.full_name !== "" ? <span className="avatar-letters">{getInitials(contact.full_name)}</span> : <IoPersonSharp className="svg" />}</div>
 								<div className="ps-2">
-									<h1 className="mb-2">{agds.full_name}</h1>
-									<p className="mb-2">📍{agds.address}</p>
-									<p className="mb-2">📱{agds.phone}</p>
-									<p className="mb-2">📧{agds.email}</p>
+									<h1 className="mb-2">{contact.full_name}</h1>
+									<p className="mb-2">📍{contact.address}</p>
+									<p className="mb-2">📱{contact.phone}</p>
+									<p className="mb-2">📧{contact.email}</p>
 								</div>
 								<div className="text-end">
-									<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: '#F0F0F0' }}>
+									<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => actions.getContactInfo(contact.id)} style={{ border: 'none', backgroundColor: '#F0F0F0' }}>
 										<ion-icon name="pencil-outline" style={{ fontSize: "20px", background: "#F0F0F0" }}></ion-icon>
 									</button>
-									<button onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: '#F0F0F0' }} type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+									<button onClick={() => actions.getContactInfo(contact.id)} style={{ border: 'none', backgroundColor: '#F0F0F0' }} type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
 										<ion-icon name="trash-outline" style={{ fontSize: "20px", background: "#F0F0F0" }}></ion-icon>
 									</button>
 								</div>
@@ -78,7 +78,7 @@ export const AgendaInfo = () => {
 							</div>
 							<div className="modal-footer">
 								<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<button onClick={() => actions.updateContactInfo()} data-bs-dismiss="modal" type="button" className="btn btn-primary">Save changes</button>
+								<button onClick={() => actions.updateContactInfo(store.currentUserData.id)} data-bs-dismiss="modal" type="button" className="btn btn-primary">Save changes</button>
 							</div>
 						</div>
 					</div>
@@ -95,7 +95,7 @@ export const AgendaInfo = () => {
 							</div>
 							<div className="modal-footer">
 								<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Oh no, how dare you!</button>
-								<button onClick={() => actions.deleteContact(store.currentUserData.id, store.currentUserData.agenda_slug)} data-bs-dismiss="modal" type="button" className="btn btn-primary">Yes baby, do it!</button>
+								<button onClick={() => actions.deleteContact()} data-bs-dismiss="modal" type="button" className="btn btn-primary">Yes baby, do it!</button>
 							</div>
 						</div>
 					</div>

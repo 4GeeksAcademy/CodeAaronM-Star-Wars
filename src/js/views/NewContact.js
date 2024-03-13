@@ -8,42 +8,22 @@ export const NewContact = () => {
 
     const { store, actions } = useContext(Context);
     const { user } = useParams();
-    const [fullName, setFullName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [address, setAddress] = useState('');
-
-    const addContact = () => {
-
-        actions.addContact({
-            fullName,
-            email,
-            phone,
-            address,
-            agenda_slug: user,
-        })
-
-        setFullName('');
-        setEmail('');
-        setPhone('');
-        setAddress('');
-    }
 
     return (
         <>
             <div className='container mt-4'>
                 <div>
                     <label className="mb-2">Full name</label>
-                    <input className="form-control mb-4 w-4" type="text" placeholder="Full name" value={fullName} onChange={(e) => setFullName(e.target.value)}></input>
+                    <input required className="form-control mb-4 w-4" type="text" placeholder="Full name" name="full_name" value={store.newUserData.full_name} onChange={(event) => actions.newContactInfo(event, user)}></input>
                     <label className="mb-2">Email</label>
-                    <input className="form-control mb-4" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                    <input className="form-control mb-4" type="text" placeholder="Email" name='email' value={store.newUserData.email} onChange={(event) => actions.newContactInfo(event, user)}></input>
                     <label className="mb-2">Phone</label>
-                    <input className="form-control mb-4" type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)}></input>
+                    <input className="form-control mb-4" type="text" placeholder="Phone" name='phone' value={store.newUserData.phone} onChange={(event) => actions.newContactInfo(event, user)}></input>
                     <label className="mb-2">Address</label>
-                    <input className="form-control mb-4" type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)}></input>
+                    <input className="form-control mb-4" type="text" placeholder="Address" name='address' value={store.newUserData.address} onChange={(event) => actions.newContactInfo(event, user)}></input>
                 </div>
 
-                <Link to={"/contactLi/" + user} onClick={() => addContact()} className='btn btn-primary mb-2'>Save</Link>
+                <Link to={"/contactLi/" + user} onClick={() => actions.addContact()} className='btn btn-primary mb-2'>Save</Link>
                 <Link to={"/contactLi/" + user} className=" h-100 d-block text-decoration-none">Go back to contacts</Link>
             </div >
         </>

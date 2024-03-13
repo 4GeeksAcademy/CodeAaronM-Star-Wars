@@ -9,6 +9,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			agendaSlug: "",
 
+			color: "",
+
 			eachContact: [],
 
 			currentUserData: {
@@ -17,6 +19,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				email: "",
 				full_name: "",
 				id: "",
+				phone: ""
+			},
+
+			newUserData: {
+				address: "",
+				agenda_slug: "",
+				email: "",
+				full_name: "",
 				phone: ""
 			},
 
@@ -62,6 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/${user}`)
 					const data = await res.json()
+					console.log(data)
 					setStore({ eachContact: data })
 				} catch (error) {
 					console.log(error);
@@ -70,6 +81,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			toggleChange: ({ target }) => {
+				const store = getStore()
+				console.log(store.agendaSlug)
 				setStore({ [target.name]: target.value })
 			},
 
@@ -95,22 +108,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getEachContact(store.agendaSlug)
 			},
 
-			deleteContact: async (userId, slug) => {
+			deleteContact: async () => {
 				const store = getStore();
+				const user = store.currentUserData.agenda_slug
+				const id = store.currentUserData.id
 
-				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${userId}`, {
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
 					method: "DELETE",
 				})
 				const data = await res.json()
-				getActions().getEachContact(slug);
+				getActions().getEachContact(user);
 			},
 
 			getContactInfo: async (userId) => {
+				const store = getStore()
 				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${userId}`)
 				const contactData = await res.json()
 				setStore({ currentUserData: contactData })
-				console.log(userId)
-				const store = getStore()
 				console.log(store.currentUserData)
 			},
 
@@ -120,9 +134,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(store.currentUserData)
 			},
 
-			updateContactInfo: async () => {
+			updateContactInfo: async (id) => {
 				const store = getStore()
-				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${store.currentUserData.id}`, {
+				const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
 					method: "PUT",
 					headers: {
 						'Content-Type': 'application/json'
@@ -134,22 +148,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getEachContact(store.currentUserData.agenda_slug)
 			},
 
-			addContact: async (user) => {
-				const newContact = {
-					full_name: user.fullName,
-					email: user.email,
-					phone: user.phone,
-					address: user.address,
-					agenda_slug: user.agenda_slug,
-				};
-				const res = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify(newContact)
-				})
-				getActions().getEachContact(user.agenda_slug)
+			newContactInfo: ({ target }, name) => {
+				const store = getStore()
+				setStore({ newUserData: { ...store.newUserData, [target.name]: target.value, agenda_slug: name } })
+				console.log(store.newUserData)
+			},
+
+			addContact: async () => {
+				const store = getStore()
+				if (store.newUserData.full_name !== "") {
+					const res = await fetch(`https://playground.4geeks.com/apis/fake/contact/`, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(store.newUserData)
+					})
+					const data = await res.json()
+
+					getActions().getEachContact(store.newUserData.agenda_slug)
+
+					const emptyUserData = {
+						address: "",
+						agenda_slug: "",
+						email: "",
+						full_name: "",
+						phone: ""
+					}
+
+					setStore({ newUserData: emptyUserData })
+					console.log(store.newUserData)
+				} else alert("You must at least have the name of the contact")
 			}
 
 

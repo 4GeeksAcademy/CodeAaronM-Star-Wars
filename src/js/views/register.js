@@ -24,7 +24,7 @@ const Register = () => {
 					<label className="" htmlFor="userName">Insert Agenda's Name</label>
 					<input className="form-control" type="text" name="agendaSlug" placeholder="Example Name" onChange={(event) => actions.toggleChange(event)}></input>
 					<label className="" htmlFor="favColor">What is your favorite color</label>
-					<input className="form-control" type="text" name="favColor" placeholder="Red"></input>
+					<input className="form-control" type="text" name="color" placeholder="Red" onChange={(event) => actions.toggleChange(event)}></input>
 					<Link to={"/contactLi/" + store.agendaSlug} className="btn btn-danger mt-3" onClick={() => actions.createAgenda()}>Register Agenda</Link>
 				</div>
 			</div>

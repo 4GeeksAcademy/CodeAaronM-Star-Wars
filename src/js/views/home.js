@@ -47,7 +47,7 @@ export const Home = () => {
 	return (
 		<div className="text-center">
 			<h1 className="mt-3">Go<span style={{ color: "#f80753" }}>ss</span>ip Agendas</h1>
-			<input className="input" type="text" placeholder="Write Your Agenda Name" name="search" value={store.search} onChange={(event) => actions.toggleSearch(event)}></input>
+			<input className="input" type="text" placeholder="Write Your Agenda Name" value={store.search} onChange={(event) => actions.toggleSearch(event)}></input>
 			<div className="wrapper">
 				{!store.agendasFiltered.length > 0 ? agendaMap : agendaFiltered}
 			</div>
