@@ -15,7 +15,7 @@ export const Home = () => {
 
 	const phrases = [
 		"Looks like this one is hiding something interesting, you should take a look jiji 😳",
-		"I wonder how many contacts this agenda may have... Don't you want to see?!?!🫠",
+		"I wonder how many contacts this agenda may have... Don't you want to see?!?!",
 		"Wao TOP agenda to Gossip, there should be a contact in there that can help you with something 🤐",
 		"Look i know you will not believe me, but trust me, you want to gossip this agenda, TRUST ME 😉"
 	]
@@ -27,7 +27,7 @@ export const Home = () => {
 					<h3 className="card-title">{user}</h3>
 					<p className="card-text">{phrases[Math.floor(Math.random() * phrases.length)]}</p>
 				</div>
-				<p className="eyes">👀</p>
+				<span className="eyes">👀</span>
 			</Link>
 		</div>
 	)
@@ -39,7 +39,7 @@ export const Home = () => {
 					<h3 className="card-title">{user}</h3>
 					<p className="card-text">{phrases[Math.floor(Math.random() * phrases.length)]}</p>
 				</div>
-				<p className="eyes">👀</p>
+				<span className="eyes">👀</span>
 			</Link>
 		</div>
 	)
