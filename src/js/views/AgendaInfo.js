@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { IoPersonSharp } from "react-icons/io5"
 import "../../styles/demo.css";
 
 
@@ -14,37 +15,53 @@ export const AgendaInfo = () => {
 		actions.getEachContact(user)
 	}, [])
 
+	const getRandomColor = () => {
+		const backgroundColorArr = ["slateblue", "orange", "rgb(199, 211, 31)", "purple", "red", "aqua", "pink"]
+		const color = backgroundColorArr[Math.floor(Math.random() * backgroundColorArr.length)]
+		return color
+	}
+
+	const getInitials = (fullName) => {
+		const nameArr = fullName.split(" ")
+		let initials = ""
+		if (nameArr.length > 1) initials = (nameArr[0][0] + nameArr[1][0]).toUpperCase()
+		if (nameArr.length === 1) initials = (nameArr[0][0]).toUpperCase()
+
+		return initials
+	}
 
 	return (
-		<>
-			<div className="container">
-				<Link to="/">
-					<button className="btn btn-danger mt-3">Back To Gossip</button>
-				</Link>
-				{/* <Link to="/newcontact">
-					<button className="btn btn-primary ms-2 mt-3">Add new contact</button>
-				</Link> */}
-				<Link to={"/newcontact/" + user} className="btn btn-primary ms-2 mt-3">Add new contact</Link>
+		<div className="content-wrapper">
+			<div className="container mt-2">
+				<Link to="/" className="btn btn-danger me-2 mt-3">Back To Gossip</Link>
+				<Link to={"/newcontact/" + user} className="btn btn-primary mt-3">Add new contact</Link>
 			</div>
 
-			<div className="container mt-5">
+			<div className="container mt-3">
 				{
 					store.eachContact.map((agds) => {
 						return (
-							<div key={agds.id} className="list-group-item d-flex justify-content-between align-items-center" style={{ padding: '2rem' }}>
-								<h1 className="m-0">{agds.full_name}</h1>
-								<p className="m-0">{agds.address}</p>
-								<p className="m-0">{agds.phone}</p>
-								<p className="m-0">{agds.email}</p>
-								<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="pencil-outline"></ion-icon></button>
-								<button onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: 'white' }} type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
-									<ion-icon name="trash-outline"></ion-icon>
-								</button>
-								{/* <button onClick={() => actions.deleteContact(agds.id, agds.agenda_slug)} style={{ border: 'none', backgroundColor: 'white' }}><ion-icon name="trash-outline"></ion-icon></button> */}
+							<div key={agds.id} className="border contact-wrapper mb-4" style={{ padding: '2rem', }}>
+								<div className="avatar" style={{ backgroundColor: getRandomColor() }}><span className="avatar-letters">{getInitials(agds.full_name)}</span></div>
+								<div className="ps-2">
+									<h1 className="mb-2">{agds.full_name}</h1>
+									<p className="mb-2">📍{agds.address}</p>
+									<p className="mb-2">📱{agds.phone}</p>
+									<p className="mb-2">📧{agds.email}</p>
+								</div>
+								<div className="text-end">
+									<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: 'white' }}>
+										<ion-icon name="pencil-outline" style={{ fontSize: "20px" }}></ion-icon>
+									</button>
+									<button onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: 'white' }} type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+										<ion-icon name="trash-outline" style={{ fontSize: "20px" }}></ion-icon>
+									</button>
+								</div>
 							</div>
 						)
 					})
 				}
+
 				<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div className="modal-dialog">
 						<div className="modal-content">
@@ -84,6 +101,6 @@ export const AgendaInfo = () => {
 				</div>
 			</div >
 
-		</>
+		</div>
 	);
 };

@@ -39,7 +39,7 @@
 
 .link:hover{
   color:black;
-  box-shadow: 0 1px 10px rgb(240, 101, 101);
+  box-shadow: 0 1px 10px rgb(0, 0, 0);
   background: rgb(241, 66, 66);
 }
 
@@ -55,4 +55,30 @@
 
 .link:hover > .eyes{
   opacity:100;
+}
+
+@media screen and (max-width: 1050px){
+  .userCard{
+    flex-basis:70%;
+    height:130px
+    /* align-self: start; */
+  }
+
+  .input{
+    width:80%;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 539px){
+  .userCard{
+    flex-basis:80%;
+    height:170px
+    /* align-self: start; */
+  }
+
+  .input{
+    width:80%;
+    font-size: 16px;
+  }
 }
