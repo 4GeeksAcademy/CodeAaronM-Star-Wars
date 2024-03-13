@@ -22,8 +22,9 @@ export const AgendaInfo = () => {
 	}
 
 	const getInitials = (fullName) => {
-		const nameArr = fullName.split(" ")
+		let nameArr = []
 		let initials = ""
+		if (fullName !== "") nameArr = fullName.split(" ")
 		if (nameArr.length > 1) initials = (nameArr[0][0] + nameArr[1][0]).toUpperCase()
 		if (nameArr.length === 1) initials = (nameArr[0][0]).toUpperCase()
 
@@ -42,7 +43,7 @@ export const AgendaInfo = () => {
 					store.eachContact.map((agds) => {
 						return (
 							<div key={agds.id} className="border contact-wrapper mb-4" style={{ padding: '2rem', }}>
-								<div className="avatar" style={{ backgroundColor: getRandomColor() }}><span className="avatar-letters">{getInitials(agds.full_name)}</span></div>
+								<div className="avatar" style={{ backgroundColor: getRandomColor() }}>{agds.full_name !== "" ? <span className="avatar-letters">{getInitials(agds.full_name)}</span> : <IoPersonSharp className="svg" />}</div>
 								<div className="ps-2">
 									<h1 className="mb-2">{agds.full_name}</h1>
 									<p className="mb-2">📍{agds.address}</p>
