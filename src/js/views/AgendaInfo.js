@@ -51,11 +51,11 @@ export const AgendaInfo = () => {
 									<p className="mb-2">📧{agds.email}</p>
 								</div>
 								<div className="text-end">
-									<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: 'white' }}>
-										<ion-icon name="pencil-outline" style={{ fontSize: "20px" }}></ion-icon>
+									<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: '#F0F0F0' }}>
+										<ion-icon name="pencil-outline" style={{ fontSize: "20px", background: "#F0F0F0" }}></ion-icon>
 									</button>
-									<button onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: 'white' }} type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
-										<ion-icon name="trash-outline" style={{ fontSize: "20px" }}></ion-icon>
+									<button onClick={() => actions.getContactInfo(agds.id)} style={{ border: 'none', backgroundColor: '#F0F0F0' }} type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+										<ion-icon name="trash-outline" style={{ fontSize: "20px", background: "#F0F0F0" }}></ion-icon>
 									</button>
 								</div>
 							</div>
