@@ -31,9 +31,19 @@ export const Single = (props) => {
       console.log("Invalid ID provided", params.theid);
     }
   };
+
   useEffect(() => {
     getIndividualContact();
   }, []);
+
+  const handleDeleteContact = async () => {
+    try {
+      await actions.deleteContact(singleContact.id);
+      navigate(`/demo`);
+    } catch (error) {
+      console.error("Error deleting contact:", error);
+    }
+  };
 
   return (
     <div>
@@ -106,8 +116,7 @@ export const Single = (props) => {
                       className="btn btn-secondary"
                       data-bs-dismiss="modal"
                       onClick={() => {
-                        navigate(`/demo`);
-                        actions.deleteContact(singleContact.id);
+                        handleDeleteContact(singleContact.id);
                       }}
                     >
                       Yes

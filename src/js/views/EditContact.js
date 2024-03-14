@@ -6,6 +6,7 @@ const EditContact = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   const navigate = useNavigate();
+
   const [editContact, setEditContact] = useState({
     full_name: "",
     email: "",
@@ -13,6 +14,7 @@ const EditContact = () => {
     address: "",
     phone: "",
   });
+
   const getIndividualContact = () => {
     if (params) {
       fetch(`https://playground.4geeks.com/apis/fake/contact/${params.theid}`)
@@ -26,6 +28,7 @@ const EditContact = () => {
       console.log("Invalid ID provided", params.theid);
     }
   };
+
   useEffect(() => {
     getIndividualContact();
   }, []);
@@ -40,6 +43,7 @@ const EditContact = () => {
       address: "",
       phone: "",
     });
+    navigate("/demo");
   };
 
   return (

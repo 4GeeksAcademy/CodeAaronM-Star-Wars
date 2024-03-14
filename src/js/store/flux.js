@@ -30,19 +30,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       /// get the contact data that the user clicked on
 
       /**
-       *TODO Get the value of the new Contact fields from inputs
-       */
-      handleChange: (e) => {
-        const store = getStore();
-        setStore({
-          individualContact: {
-            ...store,
-            [e.target.name]: e.target.value,
-          },
-        });
-      },
-
-      /**
        *TODO Update the contact in the API
        */
 
@@ -86,22 +73,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(`https://playground.4geeks.com/apis/fake/contact/${theid}`, {
           method: "DELETE",
         })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .catch((error) => console.log(error));
-      },
-
-      /**
-       *TODO Delete all contacts in the API
-       */
-
-      deleteAllContacts: (agenda_slug) => {
-        fetch(
-          `https://playground.4geeks.com/apis/fake/contact/${agenda_slug}`,
-          {
-            method: "DELETE",
-          }
-        )
           .then((response) => response.json())
           .then((data) => console.log(data))
           .catch((error) => console.log(error));

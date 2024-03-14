@@ -6,6 +6,7 @@ const AddContact = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   const navigate = useNavigate();
+
   const [newContact, setNewContact] = useState({
     full_name: "",
     email: "",
@@ -24,6 +25,7 @@ const AddContact = () => {
       address: "",
       phone: "",
     });
+    navigate("/demo");
   };
 
   return (
