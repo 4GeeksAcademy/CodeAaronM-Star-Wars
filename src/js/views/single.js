@@ -31,7 +31,7 @@ export const Single = (props) => {
   return (
     <div>
       <ContactCard contact={singleContact} />
-      <div>
+      <div className="m-4 d-flex justify-content-around">
         <Link to="/">
           <button className="btn btn-primary">Home</button>
         </Link>

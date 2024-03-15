@@ -29,7 +29,11 @@ const ContactCard = ({ contact, key }) => {
     <>
       <div className=" container">
         <div key={key} className="card">
-          <div className="col-md-10" key={contact.id}>
+          <div
+            className="col-md-10"
+            key={contact.id}
+            onClick={() => navigate(`/single/${contact.id}`)}
+          >
             <div className="row g-0">
               <div className="col-md-3 px-3 py-2 d-flex align-items-center justify-content-around">
                 <img
@@ -55,7 +59,6 @@ const ContactCard = ({ contact, key }) => {
             </div>
           </div>
 
-          {/* Container for buttons, positioned to the right */}
           <div className="col-md-auto d-flex align-items-center justify-content-end">
             <button
               className="btn btn-sm align-self-center" // Add btn-sm for smaller buttons if desired
