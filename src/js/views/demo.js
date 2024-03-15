@@ -1,19 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 import ContactCard from "../component/contactCard.jsx";
 
-//importing icons
-import { IoLocationSharp } from "react-icons/io5";
-import { FaPhoneFlip } from "react-icons/fa6";
-import { FaEnvelope } from "react-icons/fa";
-import { FaPencilAlt } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
-
 export const Demo = () => {
   const { store, actions } = useContext(Context);
-  const navigate = useNavigate();
 
   useEffect(() => {
     actions.getContatcsList();

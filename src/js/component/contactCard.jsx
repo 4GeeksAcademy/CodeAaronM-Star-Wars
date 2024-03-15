@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+
 //import image
 import profPic from "../../img/icon-256x256.png";
 
@@ -13,7 +14,6 @@ import { FaTrash } from "react-icons/fa";
 
 const ContactCard = ({ contact, key }) => {
   const { store, actions } = useContext(Context);
-  const params = useParams();
   const navigate = useNavigate();
 
   const handleDeleteContact = async (contact) => {
@@ -27,15 +27,15 @@ const ContactCard = ({ contact, key }) => {
 
   return (
     <>
-      <div className=" container">
-        <div key={key} className="card">
+      <div className=" container row g-0">
+        <div key={key} className="card col-md-10">
           <div
-            className="col-md-10"
+            className="col"
             key={contact.id}
             onClick={() => navigate(`/single/${contact.id}`)}
           >
             <div className="row g-0">
-              <div className="col-md-3 px-3 py-2 d-flex align-items-center justify-content-around">
+              <div className=" col-md-3 px-3 py-2 d-flex align-items-center justify-content-around">
                 <img
                   src={profPic}
                   className="img-fluid rounded-circle w-50"
@@ -58,26 +58,25 @@ const ContactCard = ({ contact, key }) => {
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="col-md-auto d-flex align-items-center justify-content-end">
-            <button
-              className="btn btn-sm align-self-center" // Add btn-sm for smaller buttons if desired
-              onClick={() => navigate(`/editContact/${contact.id}`)}
-            >
-              <FaPencilAlt />
-            </button>
-            <button
-              type="button"
-              className="btn btn-sm align-self-center" // Add btn-sm for smaller buttons if desired
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              <FaTrash />
-            </button>
-          </div>
+        <div className="col-md-auto d-flex align-items-center justify-content-end border">
+          <button
+            className="btn btn-sm align-self-center" // Add btn-sm for smaller buttons if desired
+            onClick={() => navigate(`/editContact/${contact.id}`)}
+          >
+            <FaPencilAlt />
+          </button>
+          <button
+            type="button"
+            className="btn btn-sm align-self-center" // Add btn-sm for smaller buttons if desired
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <FaTrash />
+          </button>
         </div>
       </div>
-
       <div
         className="modal fade"
         id="exampleModal"
