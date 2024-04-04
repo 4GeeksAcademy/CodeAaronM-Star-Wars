@@ -67,7 +67,7 @@ export const People = () => {
 			<Link to="/home">
 				<button className="btn btn-secondary">Back home</button>
 			</Link>
-				<button className="btn btn-secondary me-3" onClick={() => actions.addFavourites(item.name)}>Add to Favorites</button>
+				<button className="btn btn-secondary me-3" onClick={() => actions.addFavouriteCharacter(storePeople.id)}>Add to Favorites</button>
 				</div>
 		</div>
 	);

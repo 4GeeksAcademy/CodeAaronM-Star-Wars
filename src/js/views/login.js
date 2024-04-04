@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import "../../styles/demo.css"
 
 
 export const Login = () => {
@@ -22,7 +23,7 @@ export const Login = () => {
 	}
 
 	return (
-		<div className="container">
+		<div className="container" style={{height: "408px"}}>
 			<div>
 				<h1 className="text-center mt-5">Add a new contact</h1>
 				<form>
@@ -39,7 +40,7 @@ export const Login = () => {
 					<div className="form-group">
 						<label>Password</label>
 						<input
-							type="text"
+							type="password"
 							className="form-control"
 							placeholder="Enter password"
 							onChange={e => setPassword(e.target.value)}
@@ -49,9 +50,6 @@ export const Login = () => {
 					<button type="button" className="btn btn-primary form-control mt-4" onClick={handleSubmit}>
 						Submit
 					</button>
-					<Link className="mt-3 w-100 text-center" to={"/"}>
-						back to home
-					</Link>
 				</form>
 			</div>
 		</div>

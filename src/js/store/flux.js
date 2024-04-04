@@ -18,15 +18,131 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
 		actions: {
 
-			addFavourites:(name)=>{
-				setStore({favourites: getStore().favourites.concat(name)});
-				getStore().counter++
-				console.log(name);
+			addFavouritePlanet :async (id)=>{
+				let token = localStorage.getItem("token")
+				try {
+					const response = await fetch(`https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/favorites/planet/${id}`, 
+					
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						},
+
+					})
+					const data = await response.json()
+					console.log(data.results)
+					if (response.status == 200) {
+						setStore({ favourites: data.results })
+					}
+					
+					return true;
+
+				}	catch (error) {
+					return false; 
+				}
 			},
 
-			deleteFavourites:(name)=>{
-				setStore({favourites: name});
-				getStore().counter--
+			addFavouriteCharacter :async (id)=>{
+				let token = localStorage.getItem("token")
+				try {
+					const response = await fetch(`https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/favorites/character/${id}`, 
+					
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						},
+
+					})
+					const data = await response.json()
+					console.log(data.results)
+					if (response.status == 200) {
+						setStore({ favourites: data.results })
+					}
+					
+					return true;
+
+				}	catch (error) {
+					return false; 
+				}
+			},
+	
+			addFavouriteStarship :async (id)=>{
+				let token = localStorage.getItem("token")
+				try {
+					const response = await fetch(`https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/favorites/starship/${id}`, 
+					
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						},
+
+					})
+					const data = await response.json()
+					console.log(data.results)
+					if (response.status == 200) {
+						setStore({ favourites: data.results })
+					}
+					
+					return true;
+
+				}	catch (error) {
+					return false; 
+				}
+			},
+
+			getFavorites: async () => {
+				let token = localStorage.getItem("token")
+				try  {
+					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/user/favorites", 
+					{
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						},
+
+					})
+					const data = await response.json()
+					console.log(data.results)
+					if (response.status == 200) {
+						setStore({ favourites: data.results })
+					}
+					
+					return true;
+				}	catch (error) {
+					return false; 
+				}
+
+
+
+
+			},
+
+			deleteFavourite: async (id) => {
+				let token = localStorage.getItem("token")
+				try {
+					const response = await fetch(`https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/favorites/${id}`, 
+					{
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						},
+
+					})
+					const data = await response.json()
+					console.log(data)
+					if (response.status == 200) return true;
+
+				} catch (error) {
+					return false; 
+				}
 			},
 
 
@@ -81,7 +197,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		   .then(data => setStore({ starshipsFeatures: data.results }))
 		   .catch(err => console.error(err))}, 
 
-		   
+
 			login: async (email, password) => {
 				try  {
 					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/login", 
@@ -111,33 +227,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
  
-			getFavorites: async () => {
-				let token = localStorage.getItem("token")
-				try  {
-					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/favorites", 
-					{
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json",
-							"Authorization": "Bearer " + token
-						},
-
-					})
-					const data = await response.json()
-					console.log(data.results)
-					if (response.status == 200) {
-						setStore({ favourites: data.results })
-					}
-					
-					return true;
-				}	catch (error) {
-					return false; 
-				}
-
-
-
-
-			}
+		
 
 
 		}

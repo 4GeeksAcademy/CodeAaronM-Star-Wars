@@ -80,3 +80,7 @@
     display: flex;
     justify-content: center;
 }
+
+form {
+    padding-inline: 200px;
+}

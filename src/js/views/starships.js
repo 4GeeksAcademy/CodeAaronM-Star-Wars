@@ -73,7 +73,7 @@ export const Starships = () => {
 			<Link to="/home">
 				<button className="btn btn-secondary">Back home</button>
 			</Link>
-				<button className="btn btn-secondary me-3" onClick={() => actions.addFavourites(item.name)}>Add to Favorites</button>
+				<button className="btn btn-secondary me-3" onClick={() => actions.addFavouriteStarship(storeStarships.id)}>Add to Favorites</button>
 				</div>
 		</div>
 	);

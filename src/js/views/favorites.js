@@ -24,10 +24,10 @@ export const Favorites = () => {
     const { store, actions } = useContext(Context);
 
 
-    // useEffect(() => {
-    //     actions.getFavorites();
-    // }, []);
-    // console.log(store.favourites);
+    useEffect(() => {
+        actions.getFavorites();
+    }, []);
+    console.log(store.favourites);
 
 
     return (
@@ -40,15 +40,13 @@ export const Favorites = () => {
                             <div className="card">
                                 <img src={imagePeopleUrls[index % imagePeopleUrls.length]} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <h5 className="card-title">{item.planets_id}</h5>
+                                    <h5 className="card-title">{item.id}</h5>
                                 </div>
                                 <div className="footer">
-                                    {/* <Link to={`/people/${item.uid}`}>
-                                        <button className="boton-learn">Learn More!</button>
-                                    </Link> */}
-                                    {/* <button className="boton-heart" onClick={() => actions.addFavourites(item.name)}>
-                                        <i className="fas fa-heart" />
-                                    </button> */}
+                                    
+                                        <button className="boton-learn bg-secondary" onClick={() =>
+							actions.deleteFavourite(item.id)}>Delete!</button>
+                                    
                                 </div>
                             </div>
                         </div>
