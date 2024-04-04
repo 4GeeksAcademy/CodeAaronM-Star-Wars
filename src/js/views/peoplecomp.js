@@ -33,24 +33,25 @@ export const PeopleComp = () => {
 	return (
 		<>
 			<div className="card-people d-flex">
-				{store.people.map((item, index) => (
-					<div className="card-group" key={index}>
-						<div className="card">
-							<img src={imagePeopleUrls[index % imagePeopleUrls.length]} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
-							<div className="card-body">
-								<h5 className="card-title">{item.name}</h5>
-							</div>
-							<div className="footer">
-								<Link to={`/people/${item.uid}`}>
-									<button className="boton-learn" >Learn More!</button>
-								</Link>
-								<button className="boton-heart" onClick={()=> actions.addFavourites(item.name)}>
-									<i className="fas fa-heart" />
-								</button>
-							</div>
-						</div>
-					</div>
-				))}
+			{store.people.map((item, index) => {
+    console.log(item); // Aquí agregamos el console.log para ver el contenido de cada item
+    return (
+        <div className="card-group" key={index}>
+            <div className="card">
+                <img src={imagePeopleUrls[index % imagePeopleUrls.length]} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{item.name}</h5>
+                </div>
+                <div className="footer">
+                    <Link to={`/people/${item.id}`}>
+                        <button className="boton-learn">Learn More!</button>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+})}
+
 			</div>
 		
         </>

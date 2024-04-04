@@ -43,12 +43,9 @@ export const StarshipsComp = () => {
                             <h5 className="card-title">{item.name}</h5>
                         </div>
                         <div className="footer">
-                            <Link to={`/starships/${item.uid}`}>
+                            <Link to={`/starships/${item.id}`}>
                                 <button className="boton-learn" >Learn More!</button>
                             </Link>
-                            <button className="boton-heart" onClick={() => actions.addFavourites(item.name)}>
-                                <i className="fas fa-heart" />
-                            </button>
                         </div>
                     </div>
                 </div>

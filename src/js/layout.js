@@ -4,10 +4,11 @@ import ScrollToTop from "./component/scrollToTop";
 
 
 import { Home } from "./views/home";
+import { Login } from "./views/login";
+import { Favorites } from "./views/favorites";
 import { People } from "./views/people";
 import { Planets } from "./views/planets";
 import { Starships } from "./views/starships";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -22,16 +23,15 @@ const Layout = () => {
 	return (
 		<div className="bg-dark">
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<div className="fixed-top">
+				<ScrollToTop>	
 					<Navbar />
-					</div>
 					<Routes>
-						<Route path="/" element={<Home />} />
+						<Route path="/home" element={<Home />} />
 						<Route path="/people/:id" element={<People />} />
 						<Route path="/planets/:id" element={<Planets />} />
 						<Route path="/starships/:id" element={<Starships />} />
-						<Route path="/single/:pipi" element={<Single />} />
+						<Route path="/" element={<Login />} />
+						<Route path="/favorites" element={<Favorites />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

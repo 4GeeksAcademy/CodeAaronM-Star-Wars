@@ -12,15 +12,19 @@ export const Navbar = () => {
 	console.log(store.counter);
 
 	return (
-		
+
 		<nav className="navbar navbar-light bg-dark mb-3 d-flex justify-content-between">
-			<Link to="/">
+			<Link to={"/home"}>
 				<span className="navbar-brand mb-0 h1 ms-5"><img style={{ width: "80px", height: "50px" }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png"></img></span>
 			</Link>
-			<div className="ml-auto">
-
+				<Link to={"/favorites"}>
+					<button class="btn btn-secondary m-3" style={{ width: "200px" }} type="button">
+						Your Favorites
+					</button>
+				</Link>
+			{/* <div className="ml-auto">
 				<div class="dropdown">
-					<button class="btn btn-primary dropdown-toggle me-3" style={{width:"200px"}} type="button" id="Button1" data-bs-toggle="dropdown" aria-expanded="false">
+					<button class="btn btn-primary dropdown-toggle me-3" style={{ width: "200px" }} type="button" id="Button1" data-bs-toggle="dropdown" aria-expanded="false">
 						Favorites <span className="counter">{store.counter}</span>
 					</button>
 					<ul class="dropy dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -31,8 +35,8 @@ export const Navbar = () => {
 				</div>
 
 
-			</div>
+			</div> */}
 		</nav>
-		
+
 	);
 };

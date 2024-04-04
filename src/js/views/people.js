@@ -35,7 +35,7 @@ export const People = () => {
 			<div className="card mb-3" style={{ width: "1100px" }}>
 				<div className="row g-0">
 					<div className="col-md-4">
-						<img style={{ width: "600px", height: "250px" }} src={imagePeopleUrls[id - 1]} className="img-fluid rounded-start" alt="..." />
+						<img style={{ width: "600px", height: "250px" }} src={imagePeopleUrls[id - 5]} className="img-fluid rounded-start" alt="..." />
 					</div>
 					<div className="col-md-8">
 						<div className="card-body">
@@ -50,7 +50,7 @@ export const People = () => {
 								laborum ex id eum officiis! Excepturi modi assumenda incidunt eum  </p>
 
 						</div>
-
+						
 					</div>
 					<div className="red-line mt-3"></div>
 					<div className="mini-container d-flex justify-content-evenly mt-3">
@@ -63,10 +63,12 @@ export const People = () => {
 					</div>
 				</div>
 			</div>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+			<div className="footer__card">
+			<Link to="/home">
+				<button className="btn btn-secondary">Back home</button>
 			</Link>
+				<button className="btn btn-secondary me-3" onClick={() => actions.addFavourites(item.name)}>Add to Favorites</button>
+				</div>
 		</div>
 	);
 };

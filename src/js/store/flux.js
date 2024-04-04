@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 			getPeople: () => {
-					fetch("https://www.swapi.tech/api/people/")
+					fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/all_characters")
 						.then(res => res.json())
 						.then(data => setStore({ people: data.results }))
 						.catch(err => console.error(err))
@@ -39,9 +39,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			 getPeopleFeatures: (id) => {
 			 	
-			 	fetch(`https://www.swapi.tech/api/people/${id}`)
+			 	fetch(`https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/characters/${id}`)
 			.then(res => res.json())
-			.then(data => setStore({ peopleFeatures: data.result.properties }))
+			.then(data => setStore({ peopleFeatures: data.results }))
+			// .then(data => console.log(data))
 			.catch(err => console.error(err))}, 
 
 
@@ -49,7 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPlanets: () => {
 
-				fetch("https://www.swapi.tech/api/planets/")
+				fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/all_planets")
 					.then(res => res.json())
 					.then(data => setStore({ planets: data.results }))
 					.catch(err => console.error(err))
@@ -58,15 +59,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPlanetsFeatures: (id) => {
 			 	
-				fetch(`https://www.swapi.tech/api/planets/${id}`)
+				fetch(`https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/planets/${id}`)
 		   .then(res => res.json())
-		   .then(data => setStore({ planetsFeatures: data.result.properties }))
+		   .then(data => setStore({ planetsFeatures: data.results }))
 		   .catch(err => console.error(err))}, 
 
 
 			getStarships: () => {
 
-				fetch("https://www.swapi.tech/api/starships/")
+				fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/all_starships")
 					.then(res => res.json())
 					.then(data => setStore({ starships: data.results }))
 					.catch(err => console.error(err))
@@ -75,14 +76,68 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getStarshipsFeatures: (id) => {
 			 	
-				fetch(`https://www.swapi.tech/api/starships/${id}`)
+				fetch(`https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/starships/${id}`)
 		   .then(res => res.json())
-		   .then(data => setStore({ starshipsFeatures: data.result.properties }))
+		   .then(data => setStore({ starshipsFeatures: data.results }))
 		   .catch(err => console.error(err))}, 
 
+		   
+			login: async (email, password) => {
+				try  {
+					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/login", 
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify({
+							"email": email,
+							"password": password
+						})
+
+					})
+					const data = await response.json()
+					if (response.status == 200) {
+						localStorage.setItem("token", data.access_token)
+					}
+					console.log(data)
+					return true;
+				}	catch (error) {
+					return false; 
+				}
 
 
 
+
+			},
+ 
+			getFavorites: async () => {
+				let token = localStorage.getItem("token")
+				try  {
+					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/favorites", 
+					{
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						},
+
+					})
+					const data = await response.json()
+					console.log(data.results)
+					if (response.status == 200) {
+						setStore({ favourites: data.results })
+					}
+					
+					return true;
+				}	catch (error) {
+					return false; 
+				}
+
+
+
+
+			}
 
 
 		}

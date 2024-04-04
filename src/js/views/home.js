@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useSyncExternalStore } from "react";
 import "../../styles/home.css";
-import { Link } from "react-router-dom";
 import { PeopleComp } from "./peoplecomp";
 import { PlanetsComp } from "./planetscomp";
 import { StarshipsComp } from "./starshipscomp";
