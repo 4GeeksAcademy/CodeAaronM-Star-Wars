@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 
 import { Home } from "./views/home";
+import { Signin } from "./views/signin";
 import { Login } from "./views/login";
 import { Favorites } from "./views/favorites";
 import { People } from "./views/people";
@@ -27,10 +28,11 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/home" element={<Home />} />
+						<Route path="/" element={<Signin />} />
 						<Route path="/people/:id" element={<People />} />
 						<Route path="/planets/:id" element={<Planets />} />
 						<Route path="/starships/:id" element={<Starships />} />
-						<Route path="/" element={<Login />} />
+						<Route path="/login" element={<Login />} />
 						<Route path="/favorites" element={<Favorites />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>

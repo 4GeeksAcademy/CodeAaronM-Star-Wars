@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			favourites: [],
 			counter: 0,
+			auth: false
 		},
 		
 		actions: {
@@ -220,6 +221,65 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return true;
 				}	catch (error) {
 					return false; 
+				}
+
+
+
+
+			},
+			
+			signIn: async (firstName, lastName,email, password) => {
+				try  {
+					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/signin", 
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify({
+							"first_name": firstName,
+							"last_name": lastName,
+							"email": email,
+							"password": password
+						})
+
+					})
+					const data = await response.json()
+					if (response.status == 200) {
+						localStorage.setItem("token", data.access_token)
+					}
+					console.log(data)
+					return true;
+				}	catch (error) {
+					return false; 
+				}
+
+
+
+
+			},
+ 
+			validToken: async () => {
+				let token = localStorage.getItem("token")
+				try  {
+					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/valid-token", 
+					{
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						}
+
+					})
+					let data = await response.json()
+					console.log(data)
+					if (response.status == 200) {
+						setStore({auth: data.is_logged})
+					}
+					console.log(data)
+					
+				}	catch (error) {
+					console.log(error); 
 				}
 
 
