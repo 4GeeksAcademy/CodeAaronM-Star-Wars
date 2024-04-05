@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starshipsFeatures: {},
 
 			favourites: [],
-			counter: 0,
+			// counter: 0,
 			auth: false
 		},
 		
@@ -216,9 +216,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json()
 					if (response.status == 200) {
 						localStorage.setItem("token", data.access_token)
+						console.log(data)
+						return true;
 					}
-					console.log(data)
-					return true;
+					else {
+						return false;
+					}
 				}	catch (error) {
 					return false; 
 				}
@@ -228,9 +231,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 			
-			signIn: async (firstName, lastName,email, password) => {
+			signUp: async (firstName, lastName,email, password) => {
 				try  {
-					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/signin", 
+					const response = await fetch("https://silver-computing-machine-69994949r4g63rrw7-3000.app.github.dev/signup", 
 					{
 						method: "POST",
 						headers: {

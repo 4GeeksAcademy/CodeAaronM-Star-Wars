@@ -84,3 +84,24 @@
 form {
     padding-inline: 200px;
 }
+
+.login-link:hover {
+    text-shadow: 2px 2px 2px yellow;
+    cursor: pointer;
+    
+}
+
+.navbar-brand:hover {
+    text-shadow: 2px 2px 2px yellow;
+    
+}
+
+.login-link  {
+    color: white;
+    margin-inline: 20px;
+    font-size: 20px
+}
+
+.login-logo {
+    color: white;
+}

@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 
 import { Home } from "./views/home";
-import { Signin } from "./views/signin";
+import { Signup } from "./views/signup";
 import { Login } from "./views/login";
 import { Favorites } from "./views/favorites";
 import { People } from "./views/people";
@@ -27,8 +27,8 @@ const Layout = () => {
 				<ScrollToTop>	
 					<Navbar />
 					<Routes>
-						<Route path="/home" element={<Home />} />
-						<Route path="/" element={<Signin />} />
+						<Route path="/" element={<Home />} />
+						<Route path="/signup" element={<Signup />} />
 						<Route path="/people/:id" element={<People />} />
 						<Route path="/planets/:id" element={<Planets />} />
 						<Route path="/starships/:id" element={<Starships />} />

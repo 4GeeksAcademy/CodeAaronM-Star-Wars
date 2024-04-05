@@ -18,7 +18,10 @@ export const Login = () => {
 		let logged_in = await actions.login(email, password);
 		console.log(logged_in);
 			if (logged_in){
-				navigate("/home")
+				navigate("/")
+			}
+			else {
+				navigate("/signup")
 			}
 	}
 
@@ -50,6 +53,11 @@ export const Login = () => {
 					<button type="button" className="btn btn-primary form-control mt-4" onClick={handleSubmit}>
 						Submit
 					</button>
+					<Link to={"/signup"}>
+					<button type="button" className="btn btn-primary form-control mt-4">
+						Sign Up if you don't have an account!!
+					</button>
+					</Link>
 				</form>
 			</div>
 		</div>

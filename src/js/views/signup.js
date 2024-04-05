@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/demo.css"
 
 
-export const Signin = () => {
+export const Signup = () => {
 
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
@@ -15,9 +15,9 @@ export const Signin = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
 
-	async function handleSignin(e) {
+	async function handleSignup(e) {
 		e.preventDefault()
-		let logged_in = await actions.signIn(firstName, lastName, email, password);
+		let logged_in = await actions.signUp(firstName, lastName, email, password);
 		console.log(logged_in);
 			if (logged_in){
 				navigate("/login")
@@ -25,9 +25,9 @@ export const Signin = () => {
 	}
 
 	return (
-		<div className="container" style={{height: "408px"}}>
+		<div className="container" style={{height: "450px"}}>
 			<div>
-				<h1 className="text-center mt-5 text-primary">Sign Up!</h1>
+				<h1 className="text-center mt-4 text-primary">Sign Up!</h1>
 				<form>
                 <div className="form-group">
 						<label>First Name</label>
@@ -73,7 +73,7 @@ export const Signin = () => {
                             required
 						/>
 					</div>
-					<button type="button" className="btn btn-primary form-control mt-4" onClick={handleSignin}>
+					<button type="button" className="btn btn-primary form-control mt-4" onClick={handleSignup}>
 						Submit
 					</button>
 				</form>
