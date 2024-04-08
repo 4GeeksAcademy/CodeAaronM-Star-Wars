@@ -1,3 +1,57 @@
 /* 
     General Styles
 */
+
+body{
+    font-family:Helvetica ;
+    color: white;
+}
+
+h2{
+    color:rgb(255, 233, 25);
+}
+
+div#detailCard{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(17, 17, 17);
+    color:white;
+    
+}
+div#homeCard{
+    background-color: rgb(17, 17, 17);
+    
+}
+
+img{
+    max-width: 25rem;
+}
+
+b{
+    font-weight: 200;
+    color:rgb(133, 133, 133)
+}
+
+#backHome{
+    margin-top: 2rem;;
+}
+
+
+a#dropDownList{
+    display: flex;
+	justify-content: space-between;
+    color:white;
+}
+
+#dropDownList:hover {
+    background-color: rgb(22, 22, 22); /* Cambia el color a rojo en el hover */
+}
+
+
+.dropdown-item i:hover {
+    color: red;
+}
+
+.icon-hover:hover {
+    color: red;
+}
