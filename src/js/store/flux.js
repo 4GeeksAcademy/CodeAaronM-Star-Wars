@@ -24,6 +24,60 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+			createContact: async (contactData) => {
+				try {
+				  const response = await fetch(
+					"https://playground.4geeks.com/contact/",
+					{
+					  method: "POST",
+					  headers: {
+						"Content-Type": "application/json",
+					  },
+					  body: JSON.stringify(contactData),
+					}
+				  );
+				  const createdContact = await response.json();
+				  getActions().fetchContacts();
+				} catch (error) {
+				  console.error("Error creating contact:", error);
+				}
+			  },
+			  deleteContact: async (contactId) => {
+				try {
+				  const response = await fetch(
+					`https://playground.4geeks.com/contact/${contactId}`,
+					{
+					  method: "DELETE",
+					}
+				  );
+				  actions.fetchContacts();
+				} catch (error) {
+				  console.error("Error deleting contact:", error);
+				}
+			  },
+		
+			  //es un objeto con los campos del contacto
+			  updateContact: async (contactId, contactData) => {
+				try {
+				  const response = await fetch(
+					`https://playground.4geeks.com/contact/${contactId}`,
+					{
+					  method: "PUT",
+					  headers: {
+						"Content-Type": "application/json",
+					  },
+					  body: JSON.stringify(contactData),
+					}
+				  );
+				  if (response.ok) {
+					getActions().fetchContacts();
+				  } else {
+					console.error("Error updating contact:", response.status);
+				  }
+				} catch (error) {
+				  console.error("Error updating contact:", error);
+				}
+			  },
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
