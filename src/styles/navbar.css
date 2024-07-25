@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  ;
+}
+.Navbar {
+    font-family: "Kalam", cursive;
+    color: rgb(0, 46, 99);
+    box-shadow: 0 2px 4px rgb(0, 0, 0, 0.399);
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background:#ffcc003b;
+    backdrop-filter:blur(5px) ;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: rgb(0, 46, 99);
+
+} 
+
+.Titulo-Navbar {
+  font-size: 1.8rem;
+  font-weight: 800;
+}

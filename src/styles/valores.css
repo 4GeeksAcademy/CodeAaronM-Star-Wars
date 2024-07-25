@@ -1,0 +1,9 @@
+.Valores{
+    background: url("https://img.freepik.com/foto-gratis/ninos-divirtiendose-campamento-verano_23-2150326042.jpg?t=st=1721904829~exp=1721908429~hmac=2773183389ec24ed2e212d7ee449b1a6b750ae91c6114a0d0d5bf408ba1386d0&w=740")no-repeat center;
+    background-size: cover; /* Ensure image covers entire area */
+    position: relative; /* Optional: for potential layering issues */
+}
+.Titulo-Valores {
+    font-size: 3rem;
+    font-weight: 800;
+  }

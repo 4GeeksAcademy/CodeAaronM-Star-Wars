@@ -1,0 +1,95 @@
+.presentacion {
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.Contenido1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 60rem; /* Ajusta este valor según tus necesidades */
+  max-height: 12rem; /* Ajusta este valor según tus necesidades */
+  font-family: "Kalam", cursive;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white; /* Color del texto (opcional) */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.336
+  ); /* Fondo semitransparente para mejor visibilidad */
+  padding: 5px; /* Espacio interno del contenedor de texto */
+  border-radius: 40px;
+}
+
+.Titulo1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.Txt1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white; /* Color del texto (opcional) */
+  }
+
+  .Contenido2 {
+    top: 25rem;
+    font-family: "Kalam", cursive;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.336);
+    padding: 5px;
+    border-radius: 40px;
+}
+
+
+.Titulo2 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+.Txt2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white; /* Color del texto (opcional) */
+  }
+
+  .Contenido3 {
+    top: 25rem;
+    font-family: "Kalam", cursive;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.336);
+    padding: 5px;
+    border-radius: 40px;
+}
+
+.Titulo3 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.Txt3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white; /* Color del texto (opcional) */
+}
+
+
+
+.d-item {
+  height: 550px;
+}
+.d-img {
+  height: 100;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+.Imagen {
+  width: 100%;
+  height: 560px;
+}
+
