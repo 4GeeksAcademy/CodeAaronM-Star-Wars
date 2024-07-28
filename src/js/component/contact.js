@@ -75,13 +75,13 @@ export const Contact = () => {
                 value="enviar"
                 id="submitButton"
               ></input>
-              <div id="successMessage" style="display: none;">
+              {/* <div id="successMessage" style="display: none;">
                 <p>
                   Agradecemos su interés en comunicarse con nosotros. Su
                   consulta será atendida a la brevedad, en un plazo máximo de 24
                   horas.
                 </p>
-              </div>
+              </div> */}
               <input
                 type="hidden"
                 name="_next"
