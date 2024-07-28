@@ -31,23 +31,23 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-3 mb-lg-0">
               <li className="nav-item p-1">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page" href="#home">
                   Inicio
                 </a>
               </li>
               <li className="nav-item p-1">
-                <a className="nav-link" href="#">
-                  Sobre Nosotros
+                <a className="nav-link" href="#Conocenos">
+                  Conócenos
                 </a>
               </li>
               <li className="nav-item p-1">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="#Services">
                   Servicios
                 </a>
               </li>
               <li className="nav-item p-1">
-                <a className="nav-link" href="#">
-                  Contactanos
+                <a className="nav-link" href="#Contactos">
+                  Contáctanos
                 </a>
               </li>
             </ul>

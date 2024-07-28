@@ -14,8 +14,8 @@
   position: relative;
 }
 .img-fundation {
-  width: 25rem;
-  height: 18rem;
+  width: 20rem;
+  height: 15rem;
   background-color: #fff; /* Color de fondo del círculo */
   top: 0;
   left: 0;
@@ -23,10 +23,12 @@
 .card-Fundation {
   font-family: "Kalam", cursive;
   color: rgb(0, 0, 0);
-  background: rgba(130, 226, 255, 0.582);
+  background:#0099ff3d;
+
+  /* background: rgba(130, 226, 255, 0.582); */
   backdrop-filter: blur(5px);
-  width: 40rem;
-  height: 25rem;
+  width: 30rem;
+  height: 22rem;
   display: flex;
   justify-content: center;
   text-align: justify;
@@ -37,9 +39,8 @@
   transition: all 400ms ease;
 }
 .titulo-funda {
-  margin-top: 5px;
   padding-top: 5px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   display: flex;
   justify-content: center;
@@ -50,5 +51,6 @@
   font-size: 1.1rem;
 }
 .ul-fun {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
+

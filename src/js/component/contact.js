@@ -4,7 +4,7 @@ export const Contact = () => {
   return (
     <div>
       <h1>Contactanos</h1>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center" id="Contactos">
         <div
           className="card1 text-bg-dark mb-3 justify-content-center"
           style={{ width: "600px", height: "300px" }}

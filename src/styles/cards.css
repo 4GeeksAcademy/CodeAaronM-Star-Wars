@@ -1,8 +1,8 @@
-.Services {
-  background: url("https://img.freepik.com/foto-gratis/alto-angulo-boy-silla-libro_23-2148469960.jpg?t=st=1721904332~exp=1721907932~hmac=c7f8f994cae0a65c2b9591b131e0e1fdab9e71a93f00e0cda78ab4bf4113776a&w=740") no-repeat center;
-  background-size: cover; /* Ensure image covers entire area */
-  position: relative; /* Optional: for potential layering issues */
-}
+/* .Services {
+  /* background: url("https://img.freepik.com/foto-gratis/alto-angulo-boy-silla-libro_23-2148469960.jpg?t=st=1721904332~exp=1721907932~hmac=c7f8f994cae0a65c2b9591b131e0e1fdab9e71a93f00e0cda78ab4bf4113776a&w=740")no-repeat center;
+  background-size: cover; 
+  position: relative; Optional:  
+} */
 .fundation{
   background: rgb(255, 255, 255);
 }

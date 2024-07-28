@@ -12,7 +12,7 @@ import { Valores } from "../component/valores";
 
 
 export const Home = () => (
-	<div className="text-center">
+	<div className="text-center" id="home">
 		<Presentacion/>
 		<Fundation/>
 		<MV/>

@@ -13,7 +13,14 @@ import {
 
 export const CIGA = () => {
   return (
-    <div className="Services pt-5 mb-4 mt-5">
+    <div className="Services pt-5 mb-4 mt-3" id="Services">
+      <h3 className="Titulo1 pt-2">
+        <span style={{ color: "#0066CC" }}>S</span>
+        <span style={{ color: "#0099FF" }}>er</span>
+        <span style={{ color: "#FFCC00" }}>vi</span>
+        <span style={{ color: "#FF9933" }}>ci</span>
+        <span style={{ color: "#0066CC" }}>os</span>
+      </h3>
       <div className="Card">
         <div
           className="card text-center mb-3"
@@ -63,7 +70,7 @@ export const CIGA = () => {
             </div>
             <div className="contenido">
               <h5 className="card-title pt-2 d-flex justify-content-center">
-                Inversion
+                Inversión
               </h5>
               {/* <p className="card-text">
                 La inversión es el proceso de dedicar capital a un activo con la

@@ -2,7 +2,7 @@ import React from "react";
 
 export const Questions = () => {
   return (
-    <div className="container-fluid pt-5">
+    <div className="container-fluid pt-5 " id="Questions">
       <h1>Preguntas Frecuentes</h1>
       <div className="accordion accordion-flush" id="accordionFlushExample">
         <div className="accordion-item">

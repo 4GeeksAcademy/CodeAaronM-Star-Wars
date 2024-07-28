@@ -13,8 +13,8 @@ import "../../styles/valores.css";
 
 export const Valores = () => {
   return (
-    <div className="Valores pt-5">
-      <h3 className="Titulo-Valores">
+    <div className="Valores pt-5" id="Valores">
+      <h3 className="Titulo-Valores pt-2">
       <span style={{ color: "#0066CC" }}>Va</span>
         <span style={{ color: "#0099FF" }}>l</span>
         <span style={{ color: "#FFCC00" }}>o</span>
@@ -25,35 +25,8 @@ export const Valores = () => {
         <div
           className="card text-center mb-3"
           style={{
-            width: "18rem",
-            background: " rgba(130, 226, 255, 0.582)",
-            backdropFilter: "blur(5px)",
-          }}
-        >
-          <div className="card-body">
-            <div>
-              <FontAwesomeIcon
-                icon={faGraduationCap}
-                style={{ width: "3.8rem", height: "3.8rem" }}
-              />
-            </div>
-            <div className="contenido">
-              <h5 className="card-title pt-2 d-flex justify-content-center">
-                Educación:
-              </h5>
-              <p className="card-text">
-                La educación financiera es el pilar fundamental de su labor.
-                Buscan transmitir conocimientos y habilidades financieras de
-                manera clara y accesible.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          className="card text-center mb-3"
-          style={{
-            width: "18rem",
-            background: " rgba(243, 255, 130, 0.582)",
+            width: "15rem",
+            background: " #0099ff3d",
             backdropFilter: "blur(5px)",
           }}
         >
@@ -79,8 +52,8 @@ export const Valores = () => {
         <div
           className="card text-center mb-3"
           style={{
-            width: "18rem",
-            background: "  rgba(255, 201, 130, 0.582)",
+            width: "15rem",
+            background: " #ffcc004b",
             backdropFilter: "blur(5px)",
           }}
         >
@@ -105,8 +78,8 @@ export const Valores = () => {
         <div
           className="card text-center mb-3"
           style={{
-            width: "18rem",
-            background: "  rgba(243, 255, 130, 0.582)",
+            width: "15rem",
+            background: " #ff99336e",
             backdropFilter: "blur(5px)",
           }}
         >
@@ -131,8 +104,8 @@ export const Valores = () => {
         <div
           className="card text-center mb-3"
           style={{
-            width: "18rem",
-            background: " rgba(255, 201, 130, 0.582)",
+            width: "15rem",
+            background: " #0099ff3d",
             backdropFilter: "blur(5px)",
           }}
         >
@@ -157,8 +130,8 @@ export const Valores = () => {
         <div
           className="card text-center mb-3"
           style={{
-            width: "18rem",
-            background: " rgba(130, 226, 255, 0.582)",
+            width: "15rem",
+            background: " #ffcc004b",
             backdropFilter: "blur(5px)",
           }}
         >
@@ -183,8 +156,8 @@ export const Valores = () => {
         <div
           className="card text-center mb-3"
           style={{
-            width: "18rem",
-            background: " rgba(130, 226, 255, 0.582)",
+            width: "15rem",
+            background: " #ff99336e",
             backdropFilter: "blur(5px)",
           }}
         >
@@ -197,38 +170,12 @@ export const Valores = () => {
             </div>
             <div className="contenido">
               <h5 className="card-title pt-2 d-flex justify-content-center">
-                Innovación:
+                Innovación
               </h5>
               <p className="card-text">
                 Están constantemente buscando nuevas formas de enseñar y
                 aprender sobre finanzas, utilizando las últimas tecnologías y
                 metodologías.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          className="card text-center mb-3"
-          style={{
-            width: "18rem",
-            background: " rgba(130, 226, 255, 0.582)",
-            backdropFilter: "blur(5px)",
-          }}
-        >
-          <div className="card-body">
-            <div>
-              <FontAwesomeIcon
-                icon={faGlobe}
-                style={{ width: "3.8rem", height: "3.8rem" }}
-              />
-            </div>
-            <div className="contenido">
-              <h5 className="card-title pt-2 d-flex justify-content-center">
-                Inclusión:
-              </h5>
-              <p className="card-text">
-                Buscan llegar a todos los jóvenes, independientemente de su
-                origen social o económico.
               </p>
             </div>
           </div>

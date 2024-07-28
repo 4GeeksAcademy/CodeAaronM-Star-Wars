@@ -3,20 +3,13 @@ import "../../styles/fundation.css";
 
 export const Fundation = () => {
   return (
-    <div className="fundation pt-5">
-      <h3 className="Titulo1">
-        
-
-        {/* <span style={{ color: "#0066CC" }}>La</span>
-        <span style={{ color: "#0099FF" }}> fun</span>
-        <span style={{ color: "#FFCC00" }}>da</span>
-        <span style={{ color: "#FF9933" }}>ci</span>
-        <span style={{ color: "#0066CC" }}>on</span>
-        <span style={{ color: "#0066CC" }}> Fi</span>
-        <span style={{ color: "#0099FF" }}>n</span>
-        <span style={{ color: "#FFCC00" }}>n</span>
-        <span style={{ color: "#FF9933" }}>a</span>
-        <span style={{ color: "#0066CC" }}>ncity</span> */}
+    <div className="fundation pt-5" id="Conocenos">
+      <h3 className="Titulo1 pt-3">
+        <span style={{ color: "#0066CC" }}>¡Co</span>
+        <span style={{ color: "#0099FF" }}>nó</span>
+        <span style={{ color: "#FFCC00" }}>ce</span>
+        <span style={{ color: "#FF9933" }}>no</span>
+        <span style={{ color: "#0066CC" }}>s!</span>
       </h3>
       <div className="FUNDATION container-fluid d-flex justify-content-center">
         <div className="Imagenes d-flex col-md-3">
@@ -31,7 +24,7 @@ export const Fundation = () => {
             alt="..."
           />
         </div>
-        <div className="card-Fundation mb-3" style={{ maxWidth: 1000 }}>
+        <div className="card-Fundation mb-3" style={{ maxWidth: 800 }}>
           <div className="row g-0">
             <div className="container-fluid">
               <div className="card-fundation">
@@ -62,10 +55,6 @@ export const Fundation = () => {
                   <li>
                     <b>Sin fines de lucro:</b> Reinvierte sus excedentes en su
                     misión.
-                  </li>
-                  <li>
-                    <b>Estructura:</b> Dirigida por un patronato que gestiona la
-                    organización.
                   </li>
                 </ul>
               </div>

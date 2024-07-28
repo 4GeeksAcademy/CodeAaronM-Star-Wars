@@ -13,7 +13,14 @@ import "swiper/css/scrollbar";
 
 export const AboutUs = () => {
   return (
-    <div className="AboutUs">
+    <div className="AboutUs" id="Integrantes">
+      <h3 className="Titulo1">
+        <span style={{ color: "#0066CC" }}>In</span>
+        <span style={{ color: "#0099FF" }}>te</span>
+        <span style={{ color: "#FFCC00" }}>gr</span>
+        <span style={{ color: "#FF9933" }}>an</span>
+        <span style={{ color: "#0066CC" }}>tes</span>
+      </h3>
       <Swiper
         className="carrosel"
         // install Swiper modules
