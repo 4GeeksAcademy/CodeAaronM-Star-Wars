@@ -2,31 +2,78 @@ import React from "react";
 
 export const Contact = () => {
   return (
-    <div>
-      <h1>Contactanos</h1>
-      <div className="d-flex justify-content-center" id="Contactos">
-        <div
-          className="card1 text-bg-dark mb-3 justify-content-center"
-          style={{ width: "600px", height: "300px" }}
-        >
-          <div className="card-header">Contactanos</div>
-          <div className="card-body">
-            <h5 className="card-title">Contactanos</h5>
-            <p className="card-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
-            </p>
+    <div className="pt-5" id="Contactos">
+      <form action="https://formsubmit.co/josea.tovarp.blue7@gmail.com" method="POST" className="pt-4">
+        <div className="d-flex justify-content-center" >
+          <div
+            className="card1 mb-3 justify-content-center"
+            style={{ width: "30rem", height: "30rem" }}
+          >
+            <div className="card-header mb-3">
+              <h3> Contáctanos</h3>
+            </div>
+            <div className="card-body">
+              <div className="form-floating mb-3">
+                <input
+                  type="name"
+                  name="name"
+                  className="form-control"
+                  id="floatingInput"
+                  placeholder="name-lastname"
+                  style={{ width: "25rem" }}
+                />
+                <label htmlFor="floatingInput" style={{ color: "gray" }}>
+                  Nombre y Apellido
+                </label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="phone"
+                  name="phone"
+                  className="form-control"
+                  id="floatingInput"
+                  placeholder="phone"
+                  style={{ width: "25rem" }}
+                />
+                <label htmlFor="floatingInput" style={{ color: "gray" }}>
+                  Telefono
+                </label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  id="floatingInput"
+                  placeholder="email"
+                  style={{ width: "25rem" }}
+                />
+                <label htmlFor="floatingInput" style={{ color: "gray" }}>
+                  Correo electronico
+                </label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="message"
+                  name="message"
+                  className="form-control"
+                  id="floatingInput"
+                  placeholder="message"
+                  style={{ width: "25rem", height: "10rem" }}
+                />
+                <label htmlFor="floatingInput" style={{ color: "gray" }}>
+                  Mensaje
+                </label>
+              </div>
+              <input
+                class="btn btn-primary"
+                type="submit"
+                value="enviar"
+              ></input>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
