@@ -70,6 +70,9 @@ export const Contact = () => {
                 type="submit"
                 value="enviar"
               ></input>
+              <input type="hidden" name="_next" value="https://financity-vert.vercel.app/"></input>
+              <input type="hidden" name="_captcha" value="false"></input>
+  
             </div>
           </div>
         </div>
