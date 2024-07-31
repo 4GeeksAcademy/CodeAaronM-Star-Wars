@@ -1,32 +1,55 @@
-import React from "react";
-import "../../styles/home.css";
-import { Link } from "react-router-dom";
+// src/components/Home.js
+import React, { useState } from 'react';
+import { useContext } from 'react';
+import { Context } from '../store/flux.js';  // Asegúrate de importar el contexto
+import { useNavigate } from 'react-router-dom';
 
-export const Home = () => (
-	<div className="card-body mb-2">
-		<h2 className="text-center">Add Contact</h2>
-		<div className="input-group mb-3">
-			<span className="input-group-text" id="basic-addon1">Nombre</span>
-			<input type="text" className="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"></input>
-		</div>
-		<div className="input-group mb-3">
-			<span className="input-group-text" id="basic-addon1">E-mail</span>
-			<input type="text" className="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"></input>
-		</div>
-		<div className="input-group mb-3">
-			<span className="input-group-text" id="basic-addon1">Phone</span>
-			<input type="text" className="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"></input>
-		</div>
-		<div className="input-group mb-3">
-			<span className="input-group-text" id="basic-addon1">Address</span>
-			<input type="text" className="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"></input>
-		</div>
+export const Home = () => {
+  const { actions } = useContext(Context);
+  const navigate = useNavigate();
 
-		<div className="d-grid gap-2">
-			<button type="button" className="btn btn-primary">Save</button>
-			<Link> or get to back to the contacts </Link>
-			
-		</div>
-	
-	</div>
-);
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newContact = { ...form, id: Date.now() };
+    actions.addContact(newContact);
+    navigate('/contacts');
+  };
+
+  return (
+    <div className="card compact-card">
+      <div className="card-body">
+        <h2 className="text-center mb-4">Add Contact</h2>
+        <form onSubmit={handleSubmit}>
+          {['name', 'email', 'phone', 'address'].map((field) => (
+            <div className="input-group mb-2" key={field}>
+              <span className="input-group-text">{field.charAt(0).toUpperCase() + field.slice(1)}</span>
+              <input
+                type="text"
+                className="form-control"
+                name={field}
+                value={form[field]}
+                onChange={handleChange}
+                placeholder=""
+                aria-label={field}
+              />
+            </div>
+          ))}
+          <div className="d-grid gap-2">
+            <button type="submit" className="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
