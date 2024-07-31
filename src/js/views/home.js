@@ -1,10 +1,10 @@
-// src/components/Home.js
+// src/js/components/Home.js
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Context } from '../store/flux.js';  // Asegúrate de importar el contexto
+import { Context } from '../flux';  // Verifica la ruta del contexto
 import { useNavigate } from 'react-router-dom';
 
-export const Home = () => {
+const Home = () => {
   const { actions } = useContext(Context);
   const navigate = useNavigate();
 
@@ -53,3 +53,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

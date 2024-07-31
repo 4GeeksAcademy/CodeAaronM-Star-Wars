@@ -1,10 +1,10 @@
-// src/components/Contacts.js
+// src/js/components/Contacts.js
 import React from 'react';
 import { useContext } from 'react';
-import { Context } from '../store/flux.js';  // Asegúrate de importar el contexto
+import { Context } from '../flux';  // Verifica la ruta del contexto
 import { Link } from 'react-router-dom';
 
-export const Contacts = () => {
+const Contacts = () => {
   const { store, actions } = useContext(Context);
 
   return (
@@ -36,3 +36,5 @@ export const Contacts = () => {
     </div>
   );
 };
+
+export default Contacts;
