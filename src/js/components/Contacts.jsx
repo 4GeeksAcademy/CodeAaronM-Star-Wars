@@ -1,7 +1,7 @@
 // src/js/components/Contacts.js
 import React from 'react';
 import { useContext } from 'react';
-import { Context } from '../flux';  // Verifica la ruta del contexto
+import { Context } from '../store/flux.js';  // Verifica la ruta del contexto
 import { Link } from 'react-router-dom';
 
 const Contacts = () => {

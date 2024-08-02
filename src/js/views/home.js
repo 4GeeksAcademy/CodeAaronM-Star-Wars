@@ -1,8 +1,9 @@
 // src/js/components/Home.js
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Context } from '../flux';  // Verifica la ruta del contexto
+import { Context } from '../store/flux.js';  // Verifica la ruta del contexto
 import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
   const { actions } = useContext(Context);
