@@ -1,0 +1,22 @@
+.card {
+    max-width: 100px; /* Ajusta el ancho máximo del card */
+    margin: 0 auto; /* Centra el card horizontalmente */
+    padding: 20px; /* Ajusta el padding interno */
+  }
+  
+  .card-body {
+    padding: 20px; /* Ajusta el padding interno del card-body */
+  }
+  
+  .input-group {
+    margin-bottom: 1rem; /* Ajusta el margen inferior de los grupos de entrada */
+  }
+  
+  .text-center {
+    text-align: center; /* Asegura que el texto esté centrado */
+  }
+  
+  .d-grid {
+    margin-top: 1rem; /* Ajusta el margen superior de los botones */
+  }
+  
