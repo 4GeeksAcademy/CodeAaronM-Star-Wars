@@ -31,23 +31,23 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-3 mb-lg-0">
               <li className="nav-item p-1">
-                <a className="nav-link active" aria-current="page" href="#home">
-                  Inicio
+                <a className="nav-link active" aria-current="page" href="#Inicio">
+                  ¡Somos Finnancity!
                 </a>
               </li>
               <li className="nav-item p-1">
                 <a className="nav-link" href="#Conocenos">
-                  Conócenos
+                  ¡Conoce la ciudad!
                 </a>
               </li>
               <li className="nav-item p-1">
-                <a className="nav-link" href="#Services">
-                  Servicios
+                <a className="nav-link" href="#Programas">
+                  Programas 
                 </a>
               </li>
               <li className="nav-item p-1">
                 <a className="nav-link" href="#Contactos">
-                  Contáctanos
+                  Contacta a Don Cashlo
                 </a>
               </li>
             </ul>

@@ -1,25 +1,22 @@
 import React from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import { Presentacion } from "../component/Presentacion";
+import { Presentation } from "../component/presentation";
 import { AboutUs } from "../component/aboutUs";
-import { Fundation } from "../component/Fundation";
-import { CIGA } from "../component/CIGA";
-import { MV } from "../component/MV";
-import { Questions } from "../component/Questions";
+import { Identity } from "../component/identity";
+import { Programs } from "../component/programs";
+import { Members } from "../component/menbers";
 import { Contact } from "../component/contact";
-import { Valores } from "../component/valores";
+
 
 
 export const Home = () => (
 	<div className="text-center" id="home">
-		<Presentacion/>
-		<Fundation/>
-		<MV/>
-		<Valores/>
-		<CIGA/>	
+		<Presentation/>
 		<AboutUs/>
-		<Questions/>
+		<Identity/>
+		<Programs/>
+		<Members/>
 		<Contact/>
 	</div>
 );
