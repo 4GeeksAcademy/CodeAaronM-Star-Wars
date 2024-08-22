@@ -10,11 +10,11 @@ export const Navbar = () => {
         <div className="container-fluid ps-4">
           <a className="navbar-brand" href="/">
             <h2 className="Titulo-Navbar">
-              <span style={{ color: "#0066CC" }}>Fi</span>
-              <span style={{ color: "#0099FF" }}>n</span>
-              <span style={{ color: "#FFCC00" }}>n</span>
-              <span style={{ color: "#FF9933" }}>a</span>
-              <span style={{ color: "#0066CC" }}>ncity</span>
+              <span className="letra" style={{ color: "#0066CC", fontWeight: "bold" }}>Fi</span>
+              <span className="letra" style={{ color: "#0099FF", fontWeight: "bold" }}>n</span>
+              <span className="letra" style={{ color: "#FFCC00", fontWeight: "bold" }}>n</span>
+              <span className="letra" style={{ color: "#FF9933", fontWeight: "bold" }}>a</span>
+              <span className="letra" style={{ color: "#0066CC", fontWeight: "bold" }}>ncity</span>
             </h2>
           </a>
           <button
@@ -31,7 +31,7 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-3 mb-lg-0">
               <li className="nav-item p-1">
-                <a className="nav-link active" aria-current="page" href="#Inicio">
+                <a className="nav-link" aria-current="page" href="#Inicio">
                   ¡Somos Finnancity!
                 </a>
               </li>

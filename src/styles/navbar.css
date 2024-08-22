@@ -5,7 +5,8 @@
   ;
 }
 .Navbar {
-    color: rgb(0, 46, 99);
+    font-family: 'Pally', sans-serif;
+    color: #0066CC;
     box-shadow: 0 2px 4px rgb(0, 0, 0, 0.399);
     position: -webkit-sticky; /* Safari */
     position: sticky;
@@ -25,9 +26,11 @@ nav {
 
 .Titulo-Navbar {
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: bold;
 }
+
 .navbar-nav .nav-link {
+  color: #0066CC;
   position: relative;
   transition: all 0.3s ease; /* Agregamos una transición para todas las propiedades */
 }

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const Contact = () => {
+  const [envio,setEnvio]= useState("")
   return (
     <div className="pt-5" id="Contactos">
       <form
@@ -15,6 +16,7 @@ export const Contact = () => {
           >
             <div className="card-header mb-3">
               <h3> Contáctanos</h3>
+              <p>{envio}</p>
             </div>
             <div className="card-body">
               <div className="form-floating mb-3">
@@ -69,12 +71,16 @@ export const Contact = () => {
                   Mensaje
                 </label>
               </div>
-              <input
-                class="btn btn-primary"
-                type="submit"
-                value="enviar"
+              <button
+                className="btn btn-primary"
+                // type="submit"
                 id="submitButton"
-              ></input>
+                onClick={()=>setEnvio("Formulario Enviado")}
+              >Enviar
+              </button>
+
+
+
               {/* <div id="successMessage" style="display: none;">
                 <p>
                   Agradecemos su interés en comunicarse con nosotros. Su
