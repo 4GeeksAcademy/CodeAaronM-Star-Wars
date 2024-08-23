@@ -75,7 +75,7 @@ export const Contact = () => {
                 className="btn btn-primary"
                 // type="submit"
                 id="submitButton"
-                onClick={()=>setEnvio("Formulario Enviado")}
+                onClick={alert("Formulario Enviado")}
               >Enviar
               </button>
 
