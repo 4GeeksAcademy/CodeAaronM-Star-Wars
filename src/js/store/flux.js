@@ -14,6 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			devCharacters: [
+			],
+			techCharacters: [
 			]
 		},
 		actions: {
@@ -21,17 +23,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			gettechdata: () => {
+
 			},
-			getData: () => {
-				
-					fetch("https://swapi.dev/api/people")
+			getdevData: () => {
+				const store = getStore();
+				fetch("https://swapi.dev/api/people")
 					.then(response => response.json())
-					.then(data => setStore({ devCharacters: data }))
-				
+					.then(data => {
+						setStore({ devCharacters: data.results });
+						console.log("data de dev");
+						console.log(data.results);
+					})
+					.catch(error => console.error("Error fetching dev characters:", error));
+			
+				fetch("https://www.swapi.tech/api/people")
+					.then(response => response.json())
+					.then(data => {
+						const techCharacterPromises = data.results.map(character => {
+							return fetch(character.url)
+								.then(response => response.json())
+								.then(characterData => characterData.result); 
+						});
+			
+						return Promise.all(techCharacterPromises);
+					})
+					.then(techCharacters => {
+						setStore({ techCharacters: [...(store.techCharacters || []), ...techCharacters] });
+						console.log("data de tech");
+						console.log(store.techCharacters);
+					})
+					.catch(error => console.error("Error fetching tech characters:", error));
 			},
 			changeColor: (index, color) => {
 				//get the store

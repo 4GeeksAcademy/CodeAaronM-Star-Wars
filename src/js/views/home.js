@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Cardcharacter } from "./Cardcharacter";
-export const Home = () => (
-<>
-<Cardcharacter />
+import { Context } from "../store/appContext";
 
-</>
-);
+export const Home = () => {
+    const { store, actions } = useContext(Context);
+
+useEffect(() =>
+actions.getdevData()
+,[])
+
+
+
+    return(
+        <>
+        {store.devCharacters.map((character, index)=>  <Cardcharacter key={index}/>)}
+        
+        </>
+
+    )
+};
 
 
 
