@@ -15,8 +15,18 @@ actions.getdevData()
 
     return(
         <>
-        {store.devCharacters.map((character, index)=>  <Cardcharacter key={index}/>)}
+
+        <div className="row d-flex flex-nowrap" style={{overflowX:"scroll"}}>
+        {store.devCharacters.map((character, index)=>  <Cardcharacter key={index}
         
+         name={character.name} 
+         hairColor={character.hair_color} 
+         eyeColor={character.eye_color} 
+         gender={character.gender}
+
+         />)}
+        </div>
+
         </>
 
     )
