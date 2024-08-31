@@ -6,23 +6,32 @@ import { Context } from "../store/appContext";
 
 export const Home = () => {
     const { store, actions } = useContext(Context);
-
-useEffect(() =>
-actions.getdevData()
-,[])
-
-
+    const [id, setid] = useState([])
 
     return(
         <>
+        <h1 className="text-danger">Characters</h1>
 
-        <div className="row d-flex flex-nowrap" style={{overflowX:"scroll"}}>
+        <div className="row d-flex flex-nowrap my-5" style={{overflowX:"scroll"}}>
         {store.devCharacters.map((character, index)=>  <Cardcharacter key={index}
         
          name={character.name} 
          hairColor={character.hair_color} 
          eyeColor={character.eye_color} 
          gender={character.gender}
+         index={character.url[character.url.length - 2]}
+
+         />)}
+        </div>
+         <h1 className="text-danger">Planets</h1>
+        <div className="row d-flex flex-nowrap my-5" style={{overflowX:"scroll"}}>
+        {store.devCharacters.map((character, index)=>  <Cardcharacter key={index}
+        
+         name={character.name} 
+         hairColor={character.hair_color} 
+         eyeColor={character.eye_color} 
+         gender={character.gender}
+         index={character.url[character.url.length - 2]}
 
          />)}
         </div>

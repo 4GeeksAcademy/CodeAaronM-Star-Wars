@@ -15,7 +15,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			devCharacters: [
 			],
-			techCharacters: [
+			devCharacter: {},
+			devPlanets:[
+				
 			]
 		},
 		actions: {
@@ -23,8 +25,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			gettechdata: () => {
-
+			getCharacterData: (uid) => {
+				fetch("https://swapi.dev/api/people/"+uid)
+				.then(response => response.json())
+				.then(data => {
+					setStore({ devCharacter: data });
+					console.log("data de dev");
+					console.log(data);
+				})
+				.catch(error => console.error("Error fetching dev characters:", error));
 			},
 			getdevData: () => {
 				fetch("https://swapi.dev/api/people")
