@@ -18,7 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			devCharacter: {},
 			devPlanets:[
 				
-			]
+			],devPlanet:{},
+			favorites:[]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -45,6 +46,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.error("Error fetching dev characters:", error));
 			
+			},
+			getdevplanetsData: () => {
+				fetch("https://swapi.dev/api/planets")
+					.then(response => response.json())
+					.then(data => {
+						setStore({ devPlanets: data.results });
+						console.log("data de dev");
+						console.log(data.results);
+					})
+					.catch(error => console.error("Error fetching dev characters:", error));
+			
+			},
+			getPlanetData: (uid) => {
+				fetch("https://swapi.dev/api/planets/"+uid)
+				.then(response => response.json())
+				.then(data => {
+					setStore({ devPlanet: data });
+					console.log("data de dev");
+					console.log(data);
+				})
+				.catch(error => console.error("Error fetching dev characters:", error));
+			},
+			addfav: (props) => {
+				const store = getStore();
+				if(store.favorites.includes(props)){
+				setStore({ favorites: store.favorites.filter((pedro)=>pedro !=props)  });
+				}else{
+				setStore({ favorites: [...store.favorites,props]  });}
+				
 			},
 			changeColor: (index, color) => {
 				//get the store

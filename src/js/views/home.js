@@ -1,12 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Cardcharacter } from "./Cardcharacter";
+import { Cardplanet } from "./cardplanet";
 import { Context } from "../store/appContext";
 
 export const Home = () => {
     const { store, actions } = useContext(Context);
-    const [id, setid] = useState([])
 
     return(
         <>
@@ -25,13 +24,13 @@ export const Home = () => {
         </div>
          <h1 className="text-danger">Planets</h1>
         <div className="row d-flex flex-nowrap my-5" style={{overflowX:"scroll"}}>
-        {store.devCharacters.map((character, index)=>  <Cardcharacter key={index}
+        {store.devPlanets.map((planets, index)=>  <Cardplanet key={index}
         
-         name={character.name} 
-         hairColor={character.hair_color} 
-         eyeColor={character.eye_color} 
-         gender={character.gender}
-         index={character.url[character.url.length - 2]}
+         name={planets.name} 
+         population={planets.population} 
+         terrain={planets.terrain} 
+
+         index={planets.url[planets.url.length - 2]}
 
          />)}
         </div>
